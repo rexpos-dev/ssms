@@ -1,0 +1,496 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Student Directory | Bridges Academy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#bdc2ff",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-background": "#111d23",
+                        "surface": "#f4faff",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#434750",
+                        "on-surface-variant": "#454652",
+                        "secondary-fixed-dim": "#b1cad7",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#181b24",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#e3f0f8",
+                        "primary-fixed": "#e0e0ff",
+                        "on-secondary-container": "#506873",
+                        "background": "#f4faff",
+                        "on-primary-fixed": "#000767",
+                        "tertiary-container": "#2c3039",
+                        "surface-container-highest": "#d7e4ec",
+                        "primary-container": "#1a237e",
+                        "on-tertiary-container": "#9597a2",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#767683",
+                        "inverse-primary": "#bdc2ff",
+                        "on-primary-container": "#8690ee",
+                        "tertiary-fixed-dim": "#c4c6d2",
+                        "surface-bright": "#f4faff",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#4c56af",
+                        "inverse-on-surface": "#e6f3fb",
+                        "tertiary": "#181b23",
+                        "outline-variant": "#c6c5d4",
+                        "inverse-surface": "#263238",
+                        "on-primary-fixed-variant": "#343d96",
+                        "primary": "#000666",
+                        "tertiary-fixed": "#e0e2ee",
+                        "surface-variant": "#d7e4ec",
+                        "secondary-container": "#cde6f4",
+                        "surface-container-low": "#e9f6fd",
+                        "on-surface": "#111d23",
+                        "surface-dim": "#cfdce4",
+                        "secondary-fixed": "#cde6f4",
+                        "on-secondary-fixed-variant": "#334a55",
+                        "secondary": "#4a626d",
+                        "on-secondary-fixed": "#051e28",
+                        "surface-container-high": "#ddeaf2",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "48px",
+                        "unit": "4px",
+                        "md": "16px",
+                        "sm": "8px",
+                        "xl": "32px",
+                        "xxl": "48px",
+                        "max-width": "1440px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4faff;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .student-table tr:nth-child(even) {
+            background-color: rgba(232, 234, 246, 0.5);
+        }
+        .student-table th {
+            border-bottom: 1px solid #F5F5F5;
+        }
+        .student-table td {
+            border-bottom: 1px solid #F5F5F5;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background">
+<!-- Side Navigation Shell -->
+<aside class="w-[260px] h-screen fixed left-0 top-0 bg-tertiary dark:bg-tertiary border-r border-outline-variant dark:border-outline flex flex-col h-full p-md z-50">
+<div class="mb-xxl flex flex-col gap-xs">
+<span class="font-headline-sm text-headline-sm text-on-tertiary">Bridges Academy</span>
+<span class="font-label-md text-label-md text-on-tertiary-container opacity-70">Admin Portal</span>
+</div>
+<nav class="flex flex-col gap-sm flex-grow">
+<a class="flex items-center gap-md p-md font-label-md text-label-md text-on-tertiary-container hover:bg-tertiary-container hover:text-on-tertiary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                Dashboard
+            </a>
+<!-- ACTIVE TAB: Student Directory -->
+<a class="flex items-center gap-md p-md font-label-md text-label-md text-primary-fixed bg-tertiary-container rounded-lg transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">group</span>
+                Student Directory
+            </a>
+<a class="flex items-center gap-md p-md font-label-md text-label-md text-on-tertiary-container hover:bg-tertiary-container hover:text-on-tertiary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">badge</span>
+                Faculty Management
+            </a>
+<a class="flex items-center gap-md p-md font-label-md text-label-md text-on-tertiary-container hover:bg-tertiary-container hover:text-on-tertiary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+                Academic Calendar
+            </a>
+<a class="flex items-center gap-md p-md font-label-md text-label-md text-on-tertiary-container hover:bg-tertiary-container hover:text-on-tertiary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">payments</span>
+                Financials
+            </a>
+<a class="flex items-center gap-md p-md font-label-md text-label-md text-on-tertiary-container hover:bg-tertiary-container hover:text-on-tertiary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">assessment</span>
+                Reports
+            </a><a class="flex items-center gap-md p-md font-label-md text-label-md text-on-tertiary-container hover:bg-tertiary-container hover:text-on-tertiary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">groups</span>
+                School Life
+            </a><a class="flex items-center gap-md p-md font-label-md text-label-md text-on-tertiary-container hover:bg-tertiary-container hover:text-on-tertiary transition-colors duration-200" href="#"><span class="material-symbols-outlined">assignment_turned_in</span>Requirements</a><a class="flex items-center gap-md p-md font-label-md text-label-md text-on-tertiary-container hover:bg-tertiary-container hover:text-on-tertiary transition-colors duration-200" href="#"><span class="material-symbols-outlined">how_to_reg</span>Registrar</a><a class="flex items-center gap-md p-md font-label-md text-label-md text-on-tertiary-container hover:bg-tertiary-container hover:text-on-tertiary transition-colors duration-200" href="#"><span class="material-symbols-outlined">medical_services</span>Medical</a><a class="flex items-center gap-md p-md font-label-md text-label-md text-on-tertiary-container hover:bg-tertiary-container hover:text-on-tertiary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">assignment_turned_in</span>
+                Requirements
+            </a>
+<a class="flex items-center gap-md p-md font-label-md text-label-md text-on-tertiary-container hover:bg-tertiary-container hover:text-on-tertiary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">how_to_reg</span>
+                Registrar
+            </a>
+<a class="flex items-center gap-md p-md font-label-md text-label-md text-on-tertiary-container hover:bg-tertiary-container hover:text-on-tertiary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">medical_services</span>
+                Medical
+            </a>
+<a class="flex items-center gap-md p-md font-label-md text-label-md text-on-tertiary-container hover:bg-tertiary-container hover:text-on-tertiary transition-colors duration-200 mt-auto" href="#">
+<span class="material-symbols-outlined">settings</span>
+                Settings
+            </a>
+</nav>
+</aside>
+<!-- Top Navigation Shell -->
+<header class="h-16 fixed top-0 right-0 left-[260px] bg-surface dark:bg-inverse-surface border-b border-outline-variant flex justify-between items-center px-margin-desktop w-full z-40">
+<div class="flex items-center bg-surface-container rounded-full px-lg py-xs w-96">
+<span class="material-symbols-outlined text-outline mr-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md font-body-md w-full text-on-surface" placeholder="Search student by name or ID..." type="text">
+</div>
+<div class="flex items-center gap-lg">
+<button class="relative hover:text-primary transition-all active:scale-95 duration-100">
+<span class="material-symbols-outlined text-primary">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full border-2 border-surface"></span>
+</button>
+<button class="hover:text-primary transition-all active:scale-95 duration-100">
+<span class="material-symbols-outlined text-primary">bolt</span>
+</button>
+<div class="h-8 w-[1px] bg-outline-variant mx-xs"></div>
+<div class="flex items-center gap-sm">
+<div class="flex flex-col items-end">
+<span class="font-label-md text-label-md text-on-surface">Alex Mercer</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">System Admin</span>
+</div>
+<img alt="Administrator Profile" class="w-10 h-10 rounded-full border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDx6RtnKc9DtKGPMPu7n0LjYszOKWVFqQNkd5Km7M18IDMNvpU0JC4AAXzA1lbEFy7ciGmEmNSzu5TnQlnwyS6DM5PR0X1Fb446Snj9l9fHaQ2Rc_0XJ2afl1rpX_iV11NmuSuKBSO3VMe_-HklBq5k6YNDu570usTVw7NM5rGtHODB0bcVPe9qgkCx4j1LIT42Ba7psOkcBT1qgX6QP0NQntyAcrGPU9VrdDy9k0g9okzU9ij-V52Ti74Av6VrHQExqz5IMEX5yvk">
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-[260px] pt-16 min-h-screen">
+<div class="p-margin-desktop max-w-max-width mx-auto">
+<!-- Page Header Section -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-xl gap-md">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-primary mb-xs">Student Directory</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Manage and track student information across all academic sections.</p>
+</div>
+<button class="bg-primary-container text-on-tertiary px-lg py-md rounded-lg flex items-center gap-sm font-label-md text-label-md hover:opacity-90 transition-all active:scale-95 shadow-sm">
+<span class="material-symbols-outlined">person_add</span>
+                    New Enrollment
+                </button>
+</div>
+<!-- Dashboard Style Stats Grid -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-lg mb-xl">
+<div class="bg-surface-container-lowest border border-outline-variant p-xl rounded-xl">
+<div class="flex items-center justify-between mb-sm">
+<span class="font-label-sm text-label-sm text-on-secondary-container uppercase">Total Students</span>
+<span class="material-symbols-outlined text-primary opacity-40">groups</span>
+</div>
+<div class="font-headline-md text-headline-md text-on-surface">1,248</div>
+<div class="text-label-sm text-primary font-medium mt-xs">+4% from last month</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-xl rounded-xl">
+<div class="flex items-center justify-between mb-sm">
+<span class="font-label-sm text-label-sm text-on-secondary-container uppercase">Active Enrollment</span>
+<span class="material-symbols-outlined text-primary opacity-40">school</span>
+</div>
+<div class="font-headline-md text-headline-md text-on-surface">1,182</div>
+<div class="text-label-sm text-on-surface-variant mt-xs">94.7% Attendance rate</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-xl rounded-xl">
+<div class="flex items-center justify-between mb-sm">
+<span class="font-label-sm text-label-sm text-on-secondary-container uppercase">Graduated (YTD)</span>
+<span class="material-symbols-outlined text-primary opacity-40">workspace_premium</span>
+</div>
+<div class="font-headline-md text-headline-md text-on-surface">62</div>
+<div class="text-label-sm text-on-surface-variant mt-xs">Class of 2024</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-xl rounded-xl">
+<div class="flex items-center justify-between mb-sm">
+<span class="font-label-sm text-label-sm text-on-secondary-container uppercase">Pending Records</span>
+<span class="material-symbols-outlined text-primary opacity-40">pending_actions</span>
+</div>
+<div class="font-headline-md text-headline-md text-on-surface">14</div>
+<div class="text-label-sm text-error font-medium mt-xs">Action required</div>
+</div>
+</div>
+<!-- Directory Filter Bar -->
+<div class="bg-surface-container-lowest border border-outline-variant p-lg rounded-xl mb-lg">
+<div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-md items-end">
+<div class="flex flex-col gap-xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Grade/Level</label>
+<select class="form-select w-full rounded border-outline-variant bg-surface text-body-sm p-sm focus:ring-primary focus:border-primary">
+<option>All Grades</option>
+<option>Grade 9</option>
+<option>Grade 10</option>
+<option>Grade 11</option>
+<option>Grade 12</option>
+</select>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Section</label>
+<select class="form-select w-full rounded border-outline-variant bg-surface text-body-sm p-sm focus:ring-primary focus:border-primary">
+<option>All Sections</option>
+<option>A - Alpha</option>
+<option>B - Bravo</option>
+<option>C - Charlie</option>
+</select>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Status</label>
+<select class="form-select w-full rounded border-outline-variant bg-surface text-body-sm p-sm focus:ring-primary focus:border-primary">
+<option>Any Status</option>
+<option>Active</option>
+<option>On Leave</option>
+<option>Graduated</option>
+</select>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Sort By</label>
+<select class="form-select w-full rounded border-outline-variant bg-surface text-body-sm p-sm focus:ring-primary focus:border-primary">
+<option>Name (A-Z)</option>
+<option>Student ID</option>
+<option>Recent Enrollment</option>
+</select>
+</div>
+<div class="flex items-center gap-sm">
+<button class="bg-secondary text-on-secondary px-lg py-sm rounded border border-secondary flex-grow font-label-md text-label-md hover:opacity-90 transition-all">
+                            Apply Filters
+                        </button>
+<button class="p-sm text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">restart_alt</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Student Directory Table -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<table class="w-full text-left student-table border-collapse">
+<thead class="bg-surface-container-high">
+<tr>
+<th class="p-lg font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Student Name</th>
+<th class="p-lg font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Student ID</th>
+<th class="p-lg font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Grade/Section</th>
+<th class="p-lg font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Guardian</th>
+<th class="p-lg font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Contact</th>
+<th class="p-lg font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Status</th>
+<th class="p-lg font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="text-body-sm">
+<!-- Row 1 -->
+<tr class="hover:bg-secondary-container/10 transition-colors group">
+<td class="p-lg">
+<div class="flex items-center gap-md">
+<img alt="Student Profile" class="w-10 h-10 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center font-bold" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLFqv1vnCs3BWGf8IRQ61PX9gkh21isDd8x5cgAiDRZlZPExviuwAq6XVCg4tjHgNf8KrfD1ukH6PFIQIwMm9vQ9mRmA2rbSFsixMiVWcCvQt9kvF5HZBYBMM48tJwV0DIjBODGw6pQiYzzCmNcwoU0U7CHrMXLdeq_36KCLN9zmAamUP6jYRBs03pFplekemXWwxYx3kwI-QvfOcjFt04ZgKvRrAfVcGPF6As0m7huEG56ahVcBSolOlw_9umS-jffojjo0qrELo">
+<div class="flex flex-col">
+<span class="font-bold text-on-surface">Jane Doe</span>
+<span class="text-xs text-on-surface-variant">Joined Aug 2022</span>
+</div>
+</div>
+</td>
+<td class="p-lg font-mono text-primary">#BA-2022-0482</td>
+<td class="p-lg text-on-surface">
+                                Grade 11 <span class="text-outline mx-xs">•</span> Section A
+                            </td>
+<td class="p-lg text-on-surface">Robert Doe</td>
+<td class="p-lg text-on-surface">+1 (555) 902-3481</td>
+<td class="p-lg">
+<span class="px-md py-xs bg-primary-fixed text-on-primary-fixed-variant rounded-full text-[10px] font-bold uppercase">Active</span>
+</td>
+<td class="p-lg text-right">
+<button class="p-xs hover:bg-surface-container rounded-full text-outline transition-colors"><span class="material-symbols-outlined text-[20px]">edit</span></button>
+<button class="p-xs hover:bg-surface-container rounded-full text-outline transition-colors"><span class="material-symbols-outlined text-[20px]">more_vert</span></button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-secondary-container/10 transition-colors group">
+<td class="p-lg">
+<div class="flex items-center gap-md">
+<img alt="Student Profile" class="w-10 h-10 rounded-full bg-primary-fixed-dim text-on-primary-fixed flex items-center justify-center font-bold" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNyjNQ36VOXUKbhcGw7v7rltoZYr232b66UzvaPZillz7gRPkN2SsfYDJC4PchVOXOkhtyfY36ErHT2FT65Y23fZGAxi4E3VeymDwxmaZ4bUv27_-7bG8Bo9GpVfjBLmgl5QEE3jdXFUvObIGzfoCS81UaqqDxHddajFN9Qasq_9YKv788hiAAGvaLcY66F1ZLvIjtG6nLE89-OsA_LVnVzLv5s4dQswsNYaspHQLJd9D3X11dbxGSA8f2Tb2Zb7NgiJBxn-g02e0">
+<div class="flex flex-col">
+<span class="font-bold text-on-surface">Michael Smith</span>
+<span class="text-xs text-on-surface-variant">Joined Sep 2021</span>
+</div>
+</div>
+</td>
+<td class="p-lg font-mono text-primary">#BA-2021-0115</td>
+<td class="p-lg text-on-surface">
+                                Grade 12 <span class="text-outline mx-xs">•</span> Section B
+                            </td>
+<td class="p-lg text-on-surface">Sarah Smith</td>
+<td class="p-lg text-on-surface">+1 (555) 123-4567</td>
+<td class="p-lg">
+<span class="px-md py-xs bg-tertiary-fixed text-on-tertiary-fixed-variant rounded-full text-[10px] font-bold uppercase">On Leave</span>
+</td>
+<td class="p-lg text-right">
+<button class="p-xs hover:bg-surface-container rounded-full text-outline transition-colors"><span class="material-symbols-outlined text-[20px]">edit</span></button>
+<button class="p-xs hover:bg-surface-container rounded-full text-outline transition-colors"><span class="material-symbols-outlined text-[20px]">more_vert</span></button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-secondary-container/10 transition-colors group">
+<td class="p-lg">
+<div class="flex items-center gap-md">
+<img alt="Student Profile" class="w-10 h-10 rounded-full bg-surface-container-highest text-primary flex items-center justify-center font-bold" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBY7cZcI4Wj_uQ-QkUM3cHVYg3t2zpK3mT-3SaPdmK6p2IKtI2GY8eBEFmIEMfO6KBwdAhIyGaT_UaJFEzJ0gUy1Ci4_tmph98vWy5spR3wn5IRj01NGA67t2EGDvrjKZV_Gf4SV7ghqHxYSHhT4-4V83NQ4TPFz-oUnhWc5Z2XfiCD1FWGWGvIIi1PyGzExeD_AYOB98o3Hm4HFr_dgV5p7nuOSRxhiFcwGY4IcXCyFZNhdI4TaRrzp2ZFenU-AvfgQ4YkP_iF3Tk">
+<div class="flex flex-col">
+<span class="font-bold text-on-surface">Alice Lee</span>
+<span class="text-xs text-on-surface-variant">Joined Jan 2023</span>
+</div>
+</div>
+</td>
+<td class="p-lg font-mono text-primary">#BA-2023-0912</td>
+<td class="p-lg text-on-surface">
+                                Grade 10 <span class="text-outline mx-xs">•</span> Section C
+                            </td>
+<td class="p-lg text-on-surface">Kevin Lee</td>
+<td class="p-lg text-on-surface">+1 (555) 789-0123</td>
+<td class="p-lg">
+<span class="px-md py-xs bg-primary-fixed text-on-primary-fixed-variant rounded-full text-[10px] font-bold uppercase">Active</span>
+</td>
+<td class="p-lg text-right">
+<button class="p-xs hover:bg-surface-container rounded-full text-outline transition-colors"><span class="material-symbols-outlined text-[20px]">edit</span></button>
+<button class="p-xs hover:bg-surface-container rounded-full text-outline transition-colors"><span class="material-symbols-outlined text-[20px]">more_vert</span></button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-secondary-container/10 transition-colors group">
+<td class="p-lg">
+<div class="flex items-center gap-md">
+<img alt="Student Profile" class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA06EALCJo9ub-IuORaQsK6d8H1Nodd3_fzFfvsx_plRBMZaEDItFZC9pTp_uHGJrbM_PBxI7O_fJyvQ2MlphO6B1umEem_G8UB1JUiaAwpMvN2Td_NIJLUbcdbjjQiVo8080HEwns_n3pVBoFd5urzhlPvrI-NR9UXGKjc99hxzbe6CmFEKlxa8Gs_jWIOqHNRvDMeu0fCUbR2RRIXp5a4iG3UNUeu2fEQVqSCnkGoJWT3ldEmXRcKbsu1PMyFkv7oc1kUW3F8Fb8">
+<div class="flex flex-col">
+<span class="font-bold text-on-surface">David Wilson</span>
+<span class="text-xs text-on-surface-variant">Joined Aug 2020</span>
+</div>
+</div>
+</td>
+<td class="p-lg font-mono text-primary">#BA-2020-0004</td>
+<td class="p-lg text-on-surface">
+                                Graduate <span class="text-outline mx-xs">•</span> Section A
+                            </td>
+<td class="p-lg text-on-surface">Linda Wilson</td>
+<td class="p-lg text-on-surface">+1 (555) 345-6789</td>
+<td class="p-lg">
+<span class="px-md py-xs bg-surface-variant text-on-surface-variant rounded-full text-[10px] font-bold uppercase">Graduated</span>
+</td>
+<td class="p-lg text-right">
+<button class="p-xs hover:bg-surface-container rounded-full text-outline transition-colors"><span class="material-symbols-outlined text-[20px]">edit</span></button>
+<button class="p-xs hover:bg-surface-container rounded-full text-outline transition-colors"><span class="material-symbols-outlined text-[20px]">more_vert</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination Section -->
+<div class="p-lg border-t border-outline-variant flex justify-between items-center bg-surface-container-low">
+<span class="text-label-sm text-on-surface-variant">Showing 1 to 4 of 1,248 students</span>
+<div class="flex gap-sm">
+<button class="px-md py-sm rounded-lg border border-outline-variant text-on-surface-variant bg-surface hover:bg-surface-container transition-all">Previous</button>
+<div class="flex gap-xs">
+<button class="w-10 h-10 rounded-lg bg-primary text-on-primary font-bold">1</button>
+<button class="w-10 h-10 rounded-lg border border-outline-variant bg-surface text-on-surface hover:bg-surface-container transition-all">2</button>
+<button class="w-10 h-10 rounded-lg border border-outline-variant bg-surface text-on-surface hover:bg-surface-container transition-all">3</button>
+<span class="px-sm self-center">...</span>
+<button class="w-10 h-10 rounded-lg border border-outline-variant bg-surface text-on-surface hover:bg-surface-container transition-all">312</button>
+</div>
+<button class="px-md py-sm rounded-lg border border-outline-variant text-on-surface-variant bg-surface hover:bg-surface-container transition-all">Next</button>
+</div>
+</div>
+</div>
+<!-- Contextual Card: Export & Reports -->
+<div class="mt-xxl grid grid-cols-1 md:grid-cols-2 gap-lg">
+<div class="bg-primary-container p-xl rounded-xl relative overflow-hidden flex items-center justify-between group">
+<div class="z-10">
+<h3 class="font-headline-sm text-headline-sm text-on-primary-container mb-sm">Generate Registry Report</h3>
+<p class="text-on-primary-container/80 text-body-sm max-w-[280px]">Download the current filtered view as a PDF or Excel spreadsheet for administration filing.</p>
+<button class="mt-lg bg-on-primary text-primary px-lg py-md rounded font-label-md text-label-md flex items-center gap-sm group-hover:gap-md transition-all">
+                            Export Data
+                            <span class="material-symbols-outlined">download</span>
+</button>
+</div>
+<span class="material-symbols-outlined text-[120px] text-on-primary-container/10 absolute -right-4 -bottom-4 rotate-12">file_save</span>
+</div>
+<div class="bg-surface-container-highest p-xl rounded-xl relative overflow-hidden flex items-center justify-between border border-outline-variant group">
+<div class="z-10">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-sm">Academic Calendars</h3>
+<p class="text-on-surface-variant text-body-sm max-w-[280px]">View all upcoming enrollment deadlines, exam schedules, and holiday periods for this semester.</p>
+<button class="mt-lg border border-primary text-primary px-lg py-md rounded font-label-md text-label-md flex items-center gap-sm group-hover:gap-md transition-all">
+                            View Calendar
+                            <span class="material-symbols-outlined">event</span>
+</button>
+</div>
+<span class="material-symbols-outlined text-[120px] text-primary/5 absolute -right-4 -bottom-4 -rotate-6">calendar_month</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button (FAB) - For New Enrollment on mobile/quick access -->
+<button class="fixed bottom-margin-mobile right-margin-mobile w-14 h-14 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-all md:hidden z-50">
+<span class="material-symbols-outlined">add</span>
+</button>
+<script>
+        // Micro-interaction for hover effects on rows
+        document.querySelectorAll('.student-table tbody tr').forEach(row => {
+            row.addEventListener('mouseenter', () => {
+                row.style.transform = 'translateX(4px)';
+                row.style.transition = 'transform 0.2s ease-out';
+            });
+            row.addEventListener('mouseleave', () => {
+                row.style.transform = 'translateX(0)';
+            });
+        });
+
+        // Simple search filter simulation
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            document.querySelectorAll('.student-table tbody tr').forEach(row => {
+                const text = row.innerText.toLowerCase();
+                row.style.display = text.includes(query) ? '' : 'none';
+            });
+        });
+    </script>
+
+
+
+
+
+
+</body></html>

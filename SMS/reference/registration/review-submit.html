@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Review &amp; Submit Registration | Bridges Academy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid #E0E0E0;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #CFD8DC;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#e9f6fd",
+                        "outline-variant": "#c6c5d4",
+                        "on-error-container": "#93000a",
+                        "secondary": "#4a626d",
+                        "surface-dim": "#cfdce4",
+                        "on-surface": "#111d23",
+                        "on-primary-container": "#8690ee",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#263238",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#343d96",
+                        "tertiary-fixed-dim": "#c4c6d2",
+                        "surface": "#f4faff",
+                        "on-secondary-fixed": "#051e28",
+                        "on-secondary-fixed-variant": "#334a55",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#2c3039",
+                        "on-tertiary-fixed-variant": "#434750",
+                        "inverse-primary": "#bdc2ff",
+                        "surface-container-highest": "#d7e4ec",
+                        "on-tertiary-container": "#9597a2",
+                        "surface-variant": "#d7e4ec",
+                        "secondary-fixed": "#cde6f4",
+                        "background": "#f4faff",
+                        "primary-fixed-dim": "#bdc2ff",
+                        "surface-container-high": "#ddeaf2",
+                        "surface-container": "#e3f0f8",
+                        "on-primary-fixed": "#000767",
+                        "secondary-fixed-dim": "#b1cad7",
+                        "primary-container": "#1a237e",
+                        "tertiary": "#181b23",
+                        "primary": "#000666",
+                        "surface-bright": "#f4faff",
+                        "inverse-on-surface": "#e6f3fb",
+                        "surface-tint": "#4c56af",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#e0e0ff",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#454652",
+                        "on-background": "#111d23",
+                        "tertiary-fixed": "#e0e2ee",
+                        "on-secondary-container": "#506873",
+                        "on-secondary": "#ffffff",
+                        "outline": "#767683",
+                        "on-tertiary-fixed": "#181b24"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xxl": "48px",
+                        "xs": "4px",
+                        "xl": "32px",
+                        "margin-desktop": "48px",
+                        "unit": "4px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "margin-mobile": "16px",
+                        "sm": "8px",
+                        "max-width": "1440px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface">
+<!-- SideNavBar (Shared Component) -->
+<aside class="flex flex-col gap-sm p-md w-[260px] h-screen fixed left-0 top-0 z-50 bg-surface-container border-r border-outline-variant hidden md:flex">
+<div class="mb-xl px-sm">
+<h1 class="font-headline-sm text-headline-sm font-black text-primary">Bridges Academy</h1>
+<p class="font-label-md text-label-md text-secondary">Admin Portal</p>
+</div>
+<nav class="flex flex-col gap-xs flex-1">
+<a class="flex items-center gap-md px-md py-sm text-secondary hover:bg-secondary-container/50 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm bg-primary-container text-on-primary-container font-semibold rounded-lg" href="#">
+<span class="material-symbols-outlined">person_add</span>
+<span class="font-label-md text-label-md">Students</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-secondary hover:bg-secondary-container/50 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-md text-label-md">Teachers</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-secondary hover:bg-secondary-container/50 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">class</span>
+<span class="font-label-md text-label-md">Classes</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-secondary hover:bg-secondary-container/50 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">event_available</span>
+<span class="font-label-md text-label-md">Attendance</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-secondary hover:bg-secondary-container/50 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">assessment</span>
+<span class="font-label-md text-label-md">Reports</span>
+</a>
+</nav>
+<div class="mt-auto flex flex-col gap-xs pt-md border-t border-outline-variant">
+<a class="flex items-center gap-md px-md py-sm text-secondary hover:bg-secondary-container/50 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-md text-label-md">Help Center</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-secondary hover:bg-secondary-container/50 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-[260px] min-h-screen flex flex-col">
+<!-- TopNavBar (Shared Component) -->
+<header class="flex justify-between items-center w-full px-margin-desktop py-md h-16 z-40 bg-surface border-b border-outline-variant sticky top-0">
+<div class="flex items-center gap-md">
+<span class="font-headline-sm text-headline-sm text-primary">Student Registration</span>
+</div>
+<div class="flex items-center gap-lg">
+<div class="hidden lg:flex items-center bg-surface-container rounded-full px-md py-xs border border-outline-variant">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm w-48" placeholder="Search student ID..." type="text"/>
+</div>
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-primary cursor-pointer active:opacity-70">notifications</button>
+<button class="material-symbols-outlined text-primary cursor-pointer active:opacity-70">settings</button>
+<div class="w-8 h-8 rounded-full bg-primary-fixed overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="Professional corporate headshot of a school administrator, middle-aged with a kind expression, wearing a tailored navy blazer and clean-cut glasses. The background is a softly blurred modern office interior with warm wooden accents and natural light, reflecting an authoritative and dependable institutional environment of Bridges Academy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmFHafpkNSJjV4gianUdIse8yXadUWShavXjuCWNDhnmddXSLcNQD-x0ZyOrBbpdcXEjzmk9LaaVM3q4kA4i5x6POoVTbgCY-uMu6dy-6lqzcKlRjhlvvRUt9ADRUfUExx6hm8eHNMEFvf2_w8MaNIWrfTChVfBl5fRNOviv9nBT09Lp74wApsNGps24LzQBZomVJxeELYJNzas7rR8GAMJE8SxermpzX3w6P3acb9zJzlzp99F_RB0TS9nSy-Nv_Ya4TRbE3YJNY"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Registration Flow Stepper (Custom for Task) -->
+<div class="px-margin-desktop py-xl bg-white/50 border-b border-outline-variant">
+<div class="max-w-4xl mx-auto flex items-center justify-between">
+<div class="flex flex-col items-center gap-sm opacity-50">
+<div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold">1</div>
+<span class="font-label-sm text-label-sm">Personal</span>
+</div>
+<div class="flex-1 h-[2px] bg-primary-fixed mx-md"></div>
+<div class="flex flex-col items-center gap-sm opacity-50">
+<div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold">2</div>
+<span class="font-label-sm text-label-sm">Academic</span>
+</div>
+<div class="flex-1 h-[2px] bg-primary-fixed mx-md"></div>
+<div class="flex flex-col items-center gap-sm opacity-50">
+<div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold">3</div>
+<span class="font-label-sm text-label-sm">Documents</span>
+</div>
+<div class="flex-1 h-[2px] bg-primary-fixed mx-md"></div>
+<div class="flex flex-col items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold ring-4 ring-primary-fixed">4</div>
+<span class="font-label-sm text-label-sm font-bold text-primary">Review</span>
+</div>
+</div>
+</div>
+<!-- Main Body: Review & Submit Summary -->
+<div class="flex-1 px-margin-desktop py-xxl overflow-y-auto">
+<div class="max-w-max-width mx-auto">
+<div class="mb-xl flex items-center justify-between">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary">Final Verification</h2>
+<p class="font-body-md text-body-md text-secondary">Please review all information before finalizing the student registration.</p>
+</div>
+<div class="flex gap-md">
+<button class="px-lg py-sm rounded-lg border border-secondary text-secondary font-semibold hover:bg-secondary-container/10 transition-colors">Save as Draft</button>
+<button class="px-lg py-sm rounded-lg bg-primary text-white font-bold shadow-lg hover:shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all">Confirm Registration</button>
+</div>
+</div>
+<!-- Bento Grid Layout for Summary Sections -->
+<div class="bento-grid">
+<!-- Section: Student Identity -->
+<div class="col-span-12 lg:col-span-4 glass-card p-xl rounded-xl">
+<div class="flex items-center justify-between mb-lg">
+<h3 class="font-headline-sm text-headline-sm text-primary">Identity</h3>
+<button class="text-primary hover:underline font-label-md">Edit</button>
+</div>
+<div class="flex flex-col items-center gap-md mb-xl">
+<div class="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-md">
+<img class="w-full h-full object-cover" data-alt="A portrait of a primary school student, a young boy with a bright smile, wearing a white collared shirt. The style is clean, academic photography with a soft blue studio background. High-quality lighting highlights a sense of achievement and readiness for learning in a modern corporate institutional setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSrlRt0VyE-56nICo4Fhqw3djt7vU5c4W6pqApR0Yv4mQ4bUVfEwRQq7t1UtgV7cTwDwXpQdfvmaUbs4abSKZnOfCeWj9glBq_LNdfxepz2QcAHmbI2xQt2fFeQ0PemE37Og8bT2plymEkyRj46liQnlHSgHqJFvhKt2Y39-xWV6-79U0zpOh7Z43BDMk7as8ls_nAAwjzd9nKfaBI-Cb3-Phne8INPUi4PkrIXCdz7SFwIawTMvHT9KxqtMVa9bkH9non1eN-Z4k"/>
+</div>
+<div class="text-center">
+<span class="px-md py-xs bg-success/10 text-emerald-700 text-label-sm rounded-full bg-emerald-50">Profile Photo Verified</span>
+</div>
+</div>
+<div class="space-y-md">
+<div class="flex justify-between border-b border-outline-variant pb-sm">
+<span class="text-secondary font-label-md">Full Name</span>
+<span class="font-body-md font-semibold">Julian R. Montgomery</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant pb-sm">
+<span class="text-secondary font-label-md">Date of Birth</span>
+<span class="font-body-md">Oct 12, 2012 (11 Years)</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant pb-sm">
+<span class="text-secondary font-label-md">Gender</span>
+<span class="font-body-md">Male</span>
+</div>
+<div class="flex justify-between">
+<span class="text-secondary font-label-md">Nationality</span>
+<span class="font-body-md">United Kingdom</span>
+</div>
+</div>
+</div>
+<!-- Section: Academic Profile -->
+<div class="col-span-12 lg:col-span-8 glass-card p-xl rounded-xl">
+<div class="flex items-center justify-between mb-lg border-b border-outline-variant pb-sm">
+<h3 class="font-headline-sm text-headline-sm text-primary">Academic Placement</h3>
+<button class="text-primary hover:underline font-label-md">Edit</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-xl">
+<div class="space-y-lg">
+<div>
+<label class="text-label-sm text-secondary uppercase tracking-wider block mb-xs">Assigned Grade</label>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary">school</span>
+<p class="font-headline-sm text-headline-sm">Grade 6 - Section A</p>
+</div>
+</div>
+<div>
+<label class="text-label-sm text-secondary uppercase tracking-wider block mb-xs">Curriculum Path</label>
+<p class="font-body-lg text-body-lg">International Baccalaureate (IB)</p>
+</div>
+<div>
+<label class="text-label-sm text-secondary uppercase tracking-wider block mb-xs">Language Proficiency</label>
+<div class="flex gap-sm">
+<span class="px-sm py-xs bg-primary-fixed text-primary text-label-sm rounded-lg">English (Native)</span>
+<span class="px-sm py-xs bg-secondary-fixed text-secondary text-label-sm rounded-lg">French (B1)</span>
+</div>
+</div>
+</div>
+<div class="space-y-lg">
+<div>
+<label class="text-label-sm text-secondary uppercase tracking-wider block mb-xs">Academic Advisor</label>
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined">person</span>
+</div>
+<div>
+<p class="font-label-md">Dr. Helena Vance</p>
+<p class="text-label-sm text-secondary">Head of Science</p>
+</div>
+</div>
+</div>
+<div>
+<label class="text-label-sm text-secondary uppercase tracking-wider block mb-xs">Previous School</label>
+<p class="font-body-md italic text-on-surface-variant">St. Jude's International Primary, London</p>
+</div>
+<div>
+<label class="text-label-sm text-secondary uppercase tracking-wider block mb-xs">Enrollment Date</label>
+<p class="font-body-md">September 01, 2024</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Section: Document Checklist (Asymmetric Layout) -->
+<div class="col-span-12 lg:col-span-7 glass-card p-xl rounded-xl">
+<div class="flex items-center justify-between mb-lg">
+<h3 class="font-headline-sm text-headline-sm text-primary">Uploaded Documents</h3>
+<span class="px-md py-xs bg-emerald-50 text-emerald-700 text-label-sm rounded-full font-bold">4 of 4 Completed</span>
+</div>
+<div class="space-y-sm">
+<div class="flex items-center justify-between p-md bg-surface-container rounded-lg border border-outline-variant">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">description</span>
+<div>
+<p class="font-label-md">Birth Certificate.pdf</p>
+<p class="text-label-sm text-secondary">2.4 MB • Verified by Admin</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-emerald-600">check_circle</span>
+</div>
+<div class="flex items-center justify-between p-md bg-surface-container rounded-lg border border-outline-variant">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">description</span>
+<div>
+<p class="font-label-md">Immunization Records.pdf</p>
+<p class="text-label-sm text-secondary">1.1 MB • Verified by Nurse</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-emerald-600">check_circle</span>
+</div>
+<div class="flex items-center justify-between p-md bg-surface-container rounded-lg border border-outline-variant">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">description</span>
+<div>
+<p class="font-label-md">Academic Transcript_2023.pdf</p>
+<p class="text-label-sm text-secondary">4.8 MB • OCR Scanned</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-emerald-600">check_circle</span>
+</div>
+<div class="flex items-center justify-between p-md bg-surface-container rounded-lg border border-outline-variant">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">description</span>
+<div>
+<p class="font-label-md">Guardian ID Copy.jpg</p>
+<p class="text-label-sm text-secondary">0.9 MB • Matches System Record</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-emerald-600">check_circle</span>
+</div>
+</div>
+</div>
+<!-- Section: Contact & Guardain (Small Card) -->
+<div class="col-span-12 lg:col-span-5 glass-card p-xl rounded-xl flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-lg">
+<h3 class="font-headline-sm text-headline-sm text-primary">Emergency Contact</h3>
+<button class="text-primary hover:underline font-label-md">Edit</button>
+</div>
+<div class="p-lg bg-primary-container/5 rounded-xl border border-primary/10">
+<div class="flex items-start gap-md mb-md">
+<div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold text-headline-sm">EM</div>
+<div>
+<p class="font-headline-sm text-headline-sm text-primary">Eleanor Montgomery</p>
+<p class="text-label-md text-secondary">Mother / Primary Guardian</p>
+</div>
+</div>
+<div class="space-y-sm">
+<div class="flex items-center gap-md text-secondary">
+<span class="material-symbols-outlined text-md">phone</span>
+<span class="font-body-md">+44 20 7946 0123</span>
+</div>
+<div class="flex items-center gap-md text-secondary">
+<span class="material-symbols-outlined text-md">mail</span>
+<span class="font-body-md">e.montgomery@domain.co.uk</span>
+</div>
+<div class="flex items-center gap-md text-secondary">
+<span class="material-symbols-outlined text-md">location_on</span>
+<span class="font-body-md">22 Baker Street, Marylebone, London</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-xl p-md bg-secondary-fixed/30 rounded-lg flex gap-md">
+<span class="material-symbols-outlined text-secondary">info</span>
+<p class="text-label-sm text-secondary italic">Secondary contact (Father) is available but marked for overflow only.</p>
+</div>
+</div>
+</div>
+<!-- Footer Action Bar -->
+<div class="mt-xxl pt-xl border-t border-outline-variant flex flex-col md:flex-row items-center justify-between gap-xl">
+<div class="flex items-center gap-md">
+<input class="rounded border-outline-variant text-primary focus:ring-primary h-5 w-5" id="terms" type="checkbox"/>
+<label class="text-body-sm text-secondary" for="terms">
+                            I certify that all the information provided is accurate and I have the authority to register this student.
+                        </label>
+</div>
+<div class="flex gap-md w-full md:w-auto">
+<button class="flex-1 md:flex-none px-xxl py-md rounded-lg border border-primary text-primary font-bold hover:bg-primary/5 transition-colors">Go Back</button>
+<button class="flex-1 md:flex-none px-xxl py-md rounded-lg bg-primary text-white font-extrabold text-lg shadow-xl hover:shadow-primary/30 transform hover:-translate-y-1 transition-all flex items-center justify-center gap-md" onclick="submitRegistration()">
+                            Confirm Registration
+                            <span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Success Modal (Hidden by default) -->
+<div class="fixed inset-0 z-[100] flex items-center justify-center bg-primary/40 backdrop-blur-md hidden opacity-0 transition-opacity duration-300" id="successModal">
+<div class="bg-white p-xxl rounded-xl shadow-2xl max-w-lg w-full text-center transform scale-90 transition-transform duration-300">
+<div class="w-24 h-24 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-xl">
+<span class="material-symbols-outlined text-6xl" style="font-variation-settings: 'wght' 700;">check_circle</span>
+</div>
+<h2 class="font-headline-xl text-headline-xl text-primary mb-md">Registration Successful!</h2>
+<p class="text-body-lg text-secondary mb-xl">Student ID <strong>#BA-2024-0082</strong> has been generated. Julian R. Montgomery is now enrolled for the upcoming term.</p>
+<div class="flex flex-col gap-md">
+<button class="w-full py-md bg-primary text-white font-bold rounded-lg">Go to Student Profile</button>
+<button class="w-full py-md text-secondary font-semibold" onclick="closeModal()">Print Admission Letter</button>
+</div>
+</div>
+</div>
+<script>
+        function submitRegistration() {
+            const modal = document.getElementById('successModal');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.add('opacity-100');
+                modal.firstElementChild.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('successModal');
+            modal.classList.remove('opacity-100');
+            modal.firstElementChild.classList.remove('scale-100');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Visual interaction for bento cards
+        const cards = document.querySelectorAll('.glass-card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.classList.add('border-secondary');
+            });
+            card.addEventListener('mouseleave', () => {
+                card.classList.remove('border-secondary');
+            });
+        });
+    </script>
+</body></html>

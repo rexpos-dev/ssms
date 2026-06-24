@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bridges Academy - School Management System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f4faff 0%, #e9f6fd 100%);
+            color: #111d23;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: #1a237e;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 40px;
+            font-weight: 700;
+            color: #000666;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #4a626d;
+            margin-bottom: 5px;
+        }
+
+        .version {
+            font-size: 14px;
+            color: #767683;
+            margin-top: 10px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid #d7e4ec;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(26, 35, 126, 0.04);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            border-color: #4a626d;
+            box-shadow: 0 8px 30px rgba(26, 35, 126, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            background: #cde6f4;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .card h2 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #000666;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #454652;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .card a {
+            display: inline-block;
+            color: #000666;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .card a:hover {
+            color: #4a626d;
+            text-decoration: underline;
+        }
+
+        .pages-list {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #ddeaf2;
+        }
+
+        .pages-list a {
+            display: block;
+            padding: 8px 0;
+            color: #4a626d;
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .pages-list a:hover {
+            color: #000666;
+            margin-left: 5px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: white;
+            border: 1px solid #d7e4ec;
+            border-radius: 12px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: #000666;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #767683;
+            margin-top: 5px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #767683;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">🏫</div>
+            <h1>Bridges Academy</h1>
+            <p class="subtitle">School Management System</p>
+            <p class="version">Version 1.0 | Complete Portal Suite</p>
+        </header>
+
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number">11</div>
+                <div class="stat-label">Portal Pages</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Module Categories</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Design Complete</div>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <h2>Admin Portal</h2>
+                <p>Comprehensive administrative dashboard with student management, faculty oversight, financial tracking, and system analytics.</p>
+                <div class="pages-list">
+                    <a href="admin/dashboard.html">↳ Dashboard</a>
+                    <a href="admin/student-directory.html">↳ Student Directory</a>
+                    <a href="admin/faculty-management.html">↳ Faculty Management</a>
+                    <a href="admin/academic-calendar.html">↳ Academic Calendar</a>
+                    <a href="admin/financial-reports.html">↳ Financial Reports</a>
+                    <a href="admin/reports-hub.html">↳ Reports Hub</a>
+                    <a href="admin/system-settings.html">↳ System Settings</a>
+                    <a href="admin/student-requirements.html">↳ Student Requirements</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📝</div>
+                <h2>Student Registration</h2>
+                <p>Streamlined multi-step registration workflow for new students with document management and verification system.</p>
+                <div class="pages-list">
+                    <a href="registration/academic-history.html">↳ Academic History</a>
+                    <a href="registration/document-upload.html">↳ Document Upload</a>
+                    <a href="registration/review-submit.html">↳ Review & Submit</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🎨</div>
+                <h2>Design System</h2>
+                <p>Complete Material Design 3 inspired system with detailed typography, color palette, spacing, and component guidelines.</p>
+                <div class="pages-list">
+                    <a href="../docs/DESIGN_SYSTEM.md">↳ Design Documentation</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="grid-column: 1 / -1;">
+            <h2 style="margin-bottom: 20px;">📂 Project Structure</h2>
+            <pre style="background: #f4faff; padding: 20px; border-radius: 8px; overflow-x: auto; font-size: 13px; line-height: 1.6; color: #111d23;">
+SMS/
+├── index.html                          (This file)
+├── README.md                           (Documentation)
+├── admin/                              (Admin Portal Pages)
+│   ├── dashboard.html                  Main dashboard with KPIs
+│   ├── student-directory.html         Student search & management
+│   ├── faculty-management.html        Faculty records & performance
+│   ├── academic-calendar.html         Academic schedule management
+│   ├── financial-reports.html         Financial analytics & reports
+│   ├── reports-hub.html               Comprehensive reporting hub
+│   ├── system-settings.html           System configuration
+│   └── student-requirements.html      Student prerequisites tracking
+├── registration/                       (Student Registration Flow)
+│   ├── academic-history.html          Academic background form
+│   ├── document-upload.html           Document submission interface
+│   └── review-submit.html             Final review & confirmation
+├── design/                            (Design Resources)
+│   └── DESIGN_SYSTEM.md              Complete design system documentation
+└── assets/                            (Media & Resources)
+    ├── mockups/                       UI Mockup Screenshots
+    │   ├── admin-dashboard.png
+    │   ├── student-directory.png
+    │   ├── faculty-management.png
+    │   ├── academic-calendar.png
+    │   ├── financial-reports.png
+    │   ├── reports-hub.png
+    │   ├── system-settings.png
+    │   ├── student-requirements.png
+    │   ├── registration-academic-history.png
+    │   ├── registration-document-upload.png
+    │   └── registration-review-submit.png
+    └── images/                       (Additional Assets)
+            </pre>
+        </div>
+
+        <div class="card" style="grid-column: 1 / -1; background: #f4faff; margin-top: 30px;">
+            <h2 style="margin-bottom: 15px;">🚀 Quick Start</h2>
+            <ol style="margin-left: 20px; line-height: 1.8; color: #454652;">
+                <li>Open any HTML file directly in a modern web browser</li>
+                <li>All pages are self-contained with embedded styles and scripts</li>
+                <li>No build process or dependencies required</li>
+                <li>Review the DESIGN_SYSTEM.md for component guidelines</li>
+                <li>Check mockup images in assets/mockups/ for UI references</li>
+            </ol>
+        </div>
+
+        <footer class="footer">
+            <p>Bridges Academy School Management System | Designed for institutional excellence</p>
+            <p style="margin-top: 10px; font-size: 12px;">Built with Inter typography | Material Design 3 inspired | Fully responsive</p>
+        </footer>
+    </div>
+</body>
+</html>

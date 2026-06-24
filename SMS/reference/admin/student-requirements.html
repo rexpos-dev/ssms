@@ -1,0 +1,511 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Student Requirements | Bridges Academy Admin Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed": "#e0e2ee",
+                    "outline-variant": "#c6c5d4",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed": "#051e28",
+                    "on-secondary-container": "#506873",
+                    "secondary-fixed-dim": "#b1cad7",
+                    "background": "#f4faff",
+                    "surface-bright": "#f4faff",
+                    "on-tertiary-container": "#9597a2",
+                    "surface-container-highest": "#d7e4ec",
+                    "surface-tint": "#4c56af",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#e3f0f8",
+                    "primary-container": "#1a237e",
+                    "on-background": "#111d23",
+                    "surface-variant": "#d7e4ec",
+                    "on-surface": "#111d23",
+                    "surface-dim": "#cfdce4",
+                    "inverse-primary": "#bdc2ff",
+                    "surface": "#f4faff",
+                    "secondary": "#4a626d",
+                    "outline": "#767683",
+                    "on-tertiary-fixed-variant": "#434750",
+                    "on-primary-fixed": "#000767",
+                    "tertiary-container": "#2c3039",
+                    "on-primary-container": "#8690ee",
+                    "on-primary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "inverse-surface": "#263238",
+                    "primary": "#000666",
+                    "secondary-container": "#cde6f4",
+                    "on-surface-variant": "#454652",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed-variant": "#334a55",
+                    "primary-fixed": "#e0e0ff",
+                    "on-primary-fixed-variant": "#343d96",
+                    "surface-container-high": "#ddeaf2",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed-dim": "#c4c6d2",
+                    "surface-container-low": "#e9f6fd",
+                    "secondary-fixed": "#cde6f4",
+                    "on-tertiary-fixed": "#181b24",
+                    "error": "#ba1a1a",
+                    "tertiary": "#181b23",
+                    "inverse-on-surface": "#e6f3fb",
+                    "primary-fixed-dim": "#bdc2ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-desktop": "48px",
+                    "xxl": "48px",
+                    "xs": "4px",
+                    "md": "16px",
+                    "gutter": "24px",
+                    "margin-mobile": "16px",
+                    "sm": "8px",
+                    "lg": "24px",
+                    "xl": "32px",
+                    "unit": "4px",
+                    "max-width": "1440px"
+            },
+            "fontFamily": {
+                    "headline-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-xl": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4faff;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        /* Custom scrollbar for side nav */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background">
+<!-- SIDEBAR NAVIGATION -->
+<aside class="w-[260px] h-screen fixed left-0 top-0 bg-tertiary flex flex-col h-full p-md border-r border-outline-variant z-50">
+<div class="flex items-center gap-md mb-xl px-sm">
+<div class="w-10 h-10 bg-on-tertiary rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[28px]" data-icon="school">school</span>
+</div>
+<div>
+<h1 class="font-headline-sm text-headline-sm text-on-tertiary leading-tight">Bridges Academy</h1>
+<p class="text-on-tertiary-container text-[11px] uppercase tracking-wider font-semibold">Admin Portal</p>
+</div>
+</div>
+<nav class="flex-1 overflow-y-auto custom-scrollbar space-y-xs">
+<a class="flex items-center gap-md px-md py-sm transition-colors duration-200 hover:bg-tertiary-container hover:text-on-tertiary text-on-tertiary-container rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span> Dashboard
+            </a>
+<a class="flex items-center gap-md px-md py-sm transition-colors duration-200 hover:bg-tertiary-container hover:text-on-tertiary text-on-tertiary-container rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span> Student Directory
+            </a>
+<a class="flex items-center gap-md px-md py-sm transition-colors duration-200 hover:bg-tertiary-container hover:text-on-tertiary text-on-tertiary-container rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="badge">badge</span> Faculty Management
+            </a>
+<a class="flex items-center gap-md px-md py-sm transition-colors duration-200 hover:bg-tertiary-container hover:text-on-tertiary text-on-tertiary-container rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span> Academic Calendar
+            </a>
+<a class="flex items-center gap-md px-md py-sm transition-colors duration-200 hover:bg-tertiary-container hover:text-on-tertiary text-on-tertiary-container rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span> Financials
+            </a>
+<a class="flex items-center gap-md px-md py-sm transition-colors duration-200 hover:bg-tertiary-container hover:text-on-tertiary text-on-tertiary-container rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="assessment">assessment</span> Reports
+            </a>
+<a class="flex items-center gap-md px-md py-sm transition-colors duration-200 hover:bg-tertiary-container hover:text-on-tertiary text-on-tertiary-container rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="diversity_3">diversity_3</span> School Life
+            </a>
+<a class="flex items-center gap-md px-md py-sm transition-colors duration-200 bg-primary/10 text-primary font-bold border-r-4 border-primary rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="description" style="font-variation-settings: &quot;FILL&quot; 1;">description</span> Requirements
+            </a>
+<a class="flex items-center gap-md px-md py-sm transition-colors duration-200 text-on-surface-variant hover:bg-surface-container-high rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="app_registration">app_registration</span> Registrar
+            </a>
+<a class="flex items-center gap-md px-md py-sm transition-colors duration-200 hover:bg-tertiary-container hover:text-on-tertiary text-on-tertiary-container rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="medical_services">medical_services</span> Medical
+            </a>
+<div class="pt-xl mt-xl border-t border-tertiary-container">
+<a class="flex items-center gap-md px-md py-sm transition-colors duration-200 hover:bg-tertiary-container hover:text-on-tertiary text-on-tertiary-container rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span> Settings
+                </a>
+</div>
+</nav>
+<div class="mt-auto pt-md">
+<button class="w-full bg-primary-container text-on-primary-container py-md rounded font-label-md text-label-md transition-all active:scale-95 duration-100 flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span> New Enrollment
+            </button>
+</div>
+</aside>
+<!-- TOP NAVIGATION -->
+<header class="h-16 fixed top-0 right-0 left-[260px] bg-surface flex justify-between items-center px-margin-desktop w-[calc(100%-260px)] z-40 border-b border-outline-variant">
+<div class="flex items-center gap-lg w-1/2">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container rounded-full border-none focus:ring-2 focus:ring-primary-container text-body-md font-body-md transition-all" placeholder="Search student requirements..." type="text">
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<button class="relative w-10 h-10 flex items-center justify-center text-primary-fixed-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center text-primary-fixed-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+</button>
+<div class="h-8 w-[1px] bg-outline-variant mx-sm"></div>
+<div class="flex items-center gap-md">
+<div class="text-right">
+<p class="font-label-md text-label-md text-primary leading-none">Admin Sarah</p>
+<p class="text-[11px] text-on-surface-variant font-medium">Head Registrar</p>
+</div>
+<img alt="Administrator Profile" class="w-10 h-10 rounded-full object-cover ring-2 ring-surface-container-highest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIhlcMuMcN_wdod7fVn0G29D1W_5RtQJqORhIqQxgvBSSkRVrKMpd0qivmPqOMgAAigqV2UNNb1v8WvRb29R5acSRXoQTyqstI6ImJL340S-VHERSSPwYrS8GZ5vNTHPuF-aBHHKCTzVf3491iWsJbbb624uvOiyKDjIJUhseRfpKX-LcVXORqtw8r57J9Wukr7dxaqSyCW0ieTsegbf-_CKAvd6N3SNKzjw5F1vY9MnKcu5HIBOy6o7R3-tvbr69ChBxUDMLt4Sw">
+</div>
+</div>
+</header>
+<!-- MAIN CONTENT AREA -->
+<main class="ml-[260px] mt-16 p-xl min-h-[calc(100vh-64px)] overflow-x-hidden">
+<!-- HEADER SECTION -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-lg mb-xl">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight">Student Requirements</h2>
+<p class="text-on-surface-variant font-body-md text-body-md mt-xs">Verification queue for Academic Year 2024-2025</p>
+</div>
+<div class="flex items-center gap-md">
+<button class="px-lg py-md bg-on-tertiary border border-secondary text-secondary rounded flex items-center gap-sm font-label-md text-label-md hover:bg-secondary-container transition-all">
+<span class="material-symbols-outlined text-[18px]" data-icon="filter_list">filter_list</span> Export Data
+                </button>
+<button class="px-lg py-md bg-primary-container text-on-primary text-white rounded shadow-sm hover:opacity-90 transition-all font-label-md text-label-md flex items-center gap-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="add_circle">add_circle</span> New Requirement Type
+                </button>
+</div>
+</div>
+<!-- METRICS OVERVIEW (Bento Grid) -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-lg mb-xl">
+<div class="bg-surface-container-lowest p-xl rounded-xl border border-outline-variant flex flex-col gap-sm">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined p-sm bg-primary-fixed text-on-primary-fixed rounded-lg" data-icon="inventory_2">inventory_2</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">+4% vs last month</span>
+</div>
+<p class="text-on-surface-variant font-label-md text-label-md mt-md">Total Requirements</p>
+<h3 class="font-headline-lg text-headline-lg text-primary">2,482</h3>
+</div>
+<div class="bg-surface-container-lowest p-xl rounded-xl border border-outline-variant flex flex-col gap-sm">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined p-sm bg-secondary-container text-on-secondary-container rounded-lg" data-icon="pending_actions">pending_actions</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">High Priority</span>
+</div>
+<p class="text-on-surface-variant font-label-md text-label-md mt-md">Pending Verifications</p>
+<h3 class="font-headline-lg text-headline-lg text-primary">156</h3>
+</div>
+<div class="bg-surface-container-lowest p-xl rounded-xl border border-outline-variant flex flex-col gap-sm">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined p-sm bg-error-container text-on-error-container rounded-lg" data-icon="event_busy">event_busy</span>
+<span class="text-error font-label-sm text-label-sm">Attention Needed</span>
+</div>
+<p class="text-on-surface-variant font-label-md text-label-md mt-md">Overdue Documents</p>
+<h3 class="font-headline-lg text-headline-lg text-error">42</h3>
+</div>
+<div class="bg-surface-container-lowest p-xl rounded-xl border border-outline-variant flex flex-col gap-sm">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined p-sm bg-green-100 text-green-800 rounded-lg" data-icon="check_circle">check_circle</span>
+<span class="text-green-700 font-label-sm text-label-sm">Target: 90%</span>
+</div>
+<p class="text-on-surface-variant font-label-md text-label-md mt-md">Completion Rate</p>
+<h3 class="font-headline-lg text-headline-lg text-primary">84.5%</h3>
+</div>
+</div>
+<!-- FILTERS & LIST -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden shadow-sm">
+<!-- Table Controls -->
+<div class="p-lg flex flex-wrap items-center justify-between gap-md border-b border-surface-container-highest">
+<div class="flex flex-wrap items-center gap-md">
+<select class="bg-surface border-outline-variant rounded-lg font-label-md text-label-md px-md py-sm focus:ring-primary focus:border-primary">
+<option>All Grade Levels</option>
+<option>Elementary</option>
+<option>Junior High School</option>
+<option>Senior High School</option>
+</select>
+<select class="bg-surface border-outline-variant rounded-lg font-label-md text-label-md px-md py-sm focus:ring-primary focus:border-primary">
+<option>All Statuses</option>
+<option>Submitted</option>
+<option>Pending</option>
+<option>Under Review</option>
+<option>Missing</option>
+</select>
+<select class="bg-surface border-outline-variant rounded-lg font-label-md text-label-md px-md py-sm focus:ring-primary focus:border-primary">
+<option>Requirement Type</option>
+<option>Birth Certificate</option>
+<option>Transcript of Records</option>
+<option>Good Moral Character</option>
+<option>Health Records</option>
+</select>
+</div>
+<div class="text-on-surface-variant font-body-sm text-body-sm">
+                    Showing <span class="font-bold text-primary">1-10</span> of 156 pending
+                </div>
+</div>
+<!-- TABLE -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low border-b border-surface-container-highest">
+<tr>
+<th class="px-xl py-md font-label-sm text-label-sm uppercase text-on-surface-variant tracking-wider">Student Name</th>
+<th class="px-xl py-md font-label-sm text-label-sm uppercase text-on-surface-variant tracking-wider">Document Type</th>
+<th class="px-xl py-md font-label-sm text-label-sm uppercase text-on-surface-variant tracking-wider">Submission Status</th>
+<th class="px-xl py-md font-label-sm text-label-sm uppercase text-on-surface-variant tracking-wider">Date Received</th>
+<th class="px-xl py-md font-label-sm text-label-sm uppercase text-on-surface-variant tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-highest">
+<!-- Row 1 -->
+<tr class="hover:bg-tertiary-fixed transition-colors">
+<td class="px-xl py-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center font-bold text-on-secondary-container">AL</div>
+<div>
+<p class="font-label-md text-label-md text-primary">Anderson, Lucas M.</p>
+<p class="text-[12px] text-on-surface-variant">Grade 11 - STEM</p>
+</div>
+</div>
+</td>
+<td class="px-xl py-md text-on-surface-variant font-body-md text-body-md">Transcript of Records</td>
+<td class="px-xl py-md">
+<span class="px-sm py-1 bg-blue-100 text-blue-700 rounded-lg text-[12px] font-bold uppercase tracking-tight flex items-center gap-1 w-fit">
+<span class="material-symbols-outlined text-[14px]" data-icon="search">search</span> Under Review
+                                </span>
+</td>
+<td class="px-xl py-md text-on-surface-variant font-body-md text-body-md">Oct 24, 2023</td>
+<td class="px-xl py-md text-right space-x-sm">
+<button class="p-sm text-primary hover:bg-primary-fixed rounded transition-all" title="View"><span class="material-symbols-outlined" data-icon="visibility">visibility</span></button>
+<button class="p-sm text-green-600 hover:bg-green-50 rounded transition-all" title="Approve"><span class="material-symbols-outlined" data-icon="check">check</span></button>
+<button class="p-sm text-error hover:bg-error-container rounded transition-all" title="Reject"><span class="material-symbols-outlined" data-icon="close">close</span></button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="bg-tertiary-fixed bg-opacity-25 hover:bg-tertiary-fixed transition-colors">
+<td class="px-xl py-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center font-bold text-on-primary-fixed">SC</div>
+<div>
+<p class="font-label-md text-label-md text-primary">Santiago, Clara J.</p>
+<p class="text-[12px] text-on-surface-variant">Grade 7 - Diamond</p>
+</div>
+</div>
+</td>
+<td class="px-xl py-md text-on-surface-variant font-body-md text-body-md">Birth Certificate (PSA)</td>
+<td class="px-xl py-md">
+<span class="px-sm py-1 bg-green-100 text-green-700 rounded-lg text-[12px] font-bold uppercase tracking-tight flex items-center gap-1 w-fit">
+<span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span> Submitted
+                                </span>
+</td>
+<td class="px-xl py-md text-on-surface-variant font-body-md text-body-md">Oct 22, 2023</td>
+<td class="px-xl py-md text-right space-x-sm">
+<button class="p-sm text-primary hover:bg-primary-fixed rounded transition-all" title="View"><span class="material-symbols-outlined" data-icon="visibility">visibility</span></button>
+<button class="p-sm text-green-600 hover:bg-green-50 rounded transition-all" title="Approve"><span class="material-symbols-outlined" data-icon="check">check</span></button>
+<button class="p-sm text-error hover:bg-error-container rounded transition-all" title="Reject"><span class="material-symbols-outlined" data-icon="close">close</span></button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-tertiary-fixed transition-colors">
+<td class="px-xl py-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-on-secondary-container text-white flex items-center justify-center font-bold">BK</div>
+<div>
+<p class="font-label-md text-label-md text-primary">Bennett, Kevin O.</p>
+<p class="text-[12px] text-on-surface-variant">Grade 12 - HUMSS</p>
+</div>
+</div>
+</td>
+<td class="px-xl py-md text-on-surface-variant font-body-md text-body-md">Good Moral Character</td>
+<td class="px-xl py-md">
+<span class="px-sm py-1 bg-yellow-100 text-yellow-700 rounded-lg text-[12px] font-bold uppercase tracking-tight flex items-center gap-1 w-fit">
+<span class="material-symbols-outlined text-[14px]" data-icon="schedule">schedule</span> Pending
+                                </span>
+</td>
+<td class="px-xl py-md text-on-surface-variant font-body-md text-body-md">--</td>
+<td class="px-xl py-md text-right space-x-sm">
+<button class="p-sm text-primary hover:bg-primary-fixed rounded transition-all" title="Send Reminder"><span class="material-symbols-outlined" data-icon="mail">mail</span></button>
+<button class="p-sm text-on-surface-variant opacity-50 cursor-not-allowed"><span class="material-symbols-outlined" data-icon="visibility">visibility</span></button>
+<button class="p-sm text-error hover:bg-error-container rounded transition-all" title="Mark Missing"><span class="material-symbols-outlined" data-icon="report">report</span></button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="bg-tertiary-fixed bg-opacity-25 hover:bg-tertiary-fixed transition-colors">
+<td class="px-xl py-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-error-container text-on-error-container flex items-center justify-center font-bold">MV</div>
+<div>
+<p class="font-label-md text-label-md text-primary">Mendoza, Valerie T.</p>
+<p class="text-[12px] text-on-surface-variant">Grade 4 - Narra</p>
+</div>
+</div>
+</td>
+<td class="px-xl py-md text-on-surface-variant font-body-md text-body-md">Form 137 / SF10</td>
+<td class="px-xl py-md">
+<span class="px-sm py-1 bg-red-100 text-red-700 rounded-lg text-[12px] font-bold uppercase tracking-tight flex items-center gap-1 w-fit">
+<span class="material-symbols-outlined text-[14px]" data-icon="cancel">cancel</span> Missing
+                                </span>
+</td>
+<td class="px-xl py-md text-on-surface-variant font-body-md text-body-md">--</td>
+<td class="px-xl py-md text-right space-x-sm">
+<button class="p-sm text-error hover:bg-error-container rounded transition-all" title="Emergency Contact"><span class="material-symbols-outlined" data-icon="call">call</span></button>
+<button class="p-sm text-primary hover:bg-primary-fixed rounded transition-all" title="Send Request"><span class="material-symbols-outlined" data-icon="outgoing_mail">outgoing_mail</span></button>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-tertiary-fixed transition-colors">
+<td class="px-xl py-md">
+<div class="flex items-center gap-md">
+<img alt="Student Profile" class="w-10 h-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsfGlhx-wFMCgcrVY8x7CKNlj8YbGrhqufE6sqetFFiOFSTIrkjCdj8oCpaYXlrg6JCsFT4kMNFEDGNbbq8MgTA9Vw00k1rFTjcowamAtYlWkniSlM038LFHRtKPLBLQ9HrNRuOBVqV1UxvIoWC1C3zYyn9hEH4asEnRRvkPJdAvHgQyNc12gYGBcf1JqDTmkL0qALaBofkx5_BsVVz3u2WMnDBMZRCIDMQT1lQcrj_OJsN5jj7POVV3ytgsOniQDTFL9sRqnyfrU">
+<div>
+<p class="font-label-md text-label-md text-primary">Wong, Ethan S.</p>
+<p class="text-[12px] text-on-surface-variant">Grade 10 - Newton</p>
+</div>
+</div>
+</td>
+<td class="px-xl py-md text-on-surface-variant font-body-md text-body-md">Medical Certificate</td>
+<td class="px-xl py-md">
+<span class="px-sm py-1 bg-green-100 text-green-700 rounded-lg text-[12px] font-bold uppercase tracking-tight flex items-center gap-1 w-fit">
+<span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span> Submitted
+                                </span>
+</td>
+<td class="px-xl py-md text-on-surface-variant font-body-md text-body-md">Oct 26, 2023</td>
+<td class="px-xl py-md text-right space-x-sm">
+<button class="p-sm text-primary hover:bg-primary-fixed rounded transition-all" title="View"><span class="material-symbols-outlined" data-icon="visibility">visibility</span></button>
+<button class="p-sm text-green-600 hover:bg-green-50 rounded transition-all" title="Approve"><span class="material-symbols-outlined" data-icon="check">check</span></button>
+<button class="p-sm text-error hover:bg-error-container rounded transition-all" title="Reject"><span class="material-symbols-outlined" data-icon="close">close</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- PAGINATION -->
+<div class="px-xl py-lg flex items-center justify-between bg-surface-container-low border-t border-surface-container-highest">
+<button class="flex items-center gap-sm font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span> Previous
+                </button>
+<div class="flex items-center gap-sm">
+<button class="w-8 h-8 rounded bg-primary text-white font-label-md text-label-md">1</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container-highest transition-all font-label-md text-label-md">2</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container-highest transition-all font-label-md text-label-md">3</button>
+<span class="px-sm">...</span>
+<button class="w-8 h-8 rounded hover:bg-surface-container-highest transition-all font-label-md text-label-md">16</button>
+</div>
+<button class="flex items-center gap-sm font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all">
+                    Next <span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- RECENT ACTIVITY ASIDE (Bento Style) -->
+<div class="mt-xl grid grid-cols-1 md:grid-cols-3 gap-lg">
+<div class="md:col-span-2 bg-surface-container-lowest p-xl rounded-xl border border-outline-variant">
+<h4 class="font-headline-sm text-headline-sm text-primary mb-lg">Requirements Distribution</h4>
+<div class="flex items-end gap-md h-48 mt-xl">
+<div class="flex-1 bg-primary-fixed rounded-t-lg relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-tertiary text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">820</div>
+<div class="h-[65%] bg-primary rounded-t-lg"></div>
+<p class="absolute -bottom-8 left-1/2 -translate-x-1/2 text-on-surface-variant text-[11px] font-semibold whitespace-nowrap">Birth Cert</p>
+</div>
+<div class="flex-1 bg-primary-fixed rounded-t-lg relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-tertiary text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">450</div>
+<div class="h-[40%] bg-primary rounded-t-lg"></div>
+<p class="absolute -bottom-8 left-1/2 -translate-x-1/2 text-on-surface-variant text-[11px] font-semibold whitespace-nowrap">Transcript</p>
+</div>
+<div class="flex-1 bg-primary-fixed rounded-t-lg relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-tertiary text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">910</div>
+<div class="h-[85%] bg-primary rounded-t-lg"></div>
+<p class="absolute -bottom-8 left-1/2 -translate-x-1/2 text-on-surface-variant text-[11px] font-semibold whitespace-nowrap">Good Moral</p>
+</div>
+<div class="flex-1 bg-primary-fixed rounded-t-lg relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-tertiary text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">300</div>
+<div class="h-[25%] bg-primary rounded-t-lg"></div>
+<p class="absolute -bottom-8 left-1/2 -translate-x-1/2 text-on-surface-variant text-[11px] font-semibold whitespace-nowrap">Health Card</p>
+</div>
+</div>
+</div>
+<div class="bg-primary-container text-on-primary p-xl rounded-xl border border-primary relative overflow-hidden">
+<div class="relative z-10">
+<h4 class="font-headline-sm text-headline-sm text-on-primary-container mb-md">Quick Guide</h4>
+<ul class="space-y-md">
+<li class="flex gap-md items-start">
+<span class="material-symbols-outlined text-primary-fixed" data-icon="lightbulb">lightbulb</span>
+<p class="font-body-sm text-body-sm text-tertiary-fixed leading-snug">Ensure all Birth Certificates are verified against the National PSA Registry.</p>
+</li>
+<li class="flex gap-md items-start">
+<span class="material-symbols-outlined text-primary-fixed" data-icon="verified_user">verified_user</span>
+<p class="font-body-sm text-body-sm text-tertiary-fixed leading-snug">Approved documents are automatically synced with the student's main directory profile.</p>
+</li>
+<li class="flex gap-md items-start">
+<span class="material-symbols-outlined text-primary-fixed" data-icon="help">help</span>
+<p class="font-body-sm text-body-sm text-tertiary-fixed leading-snug">Need help? Contact the Registrar Tech Support at ext. 402.</p>
+</li>
+</ul>
+<button class="mt-lg w-full py-md border border-on-primary-container text-on-primary-container rounded font-label-md text-label-md hover:bg-on-primary-container hover:text-primary-container transition-all">
+                        View Documentation
+                    </button>
+</div>
+<!-- Decorative element -->
+<div class="absolute -bottom-10 -right-10 w-40 h-40 bg-white/5 rounded-full blur-3xl"></div>
+</div>
+</div>
+</main>
+<script>
+        // Micro-interactions and effects
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                if(!btn.classList.contains('cursor-not-allowed')) {
+                    btn.style.transform = 'translateY(-1px)';
+                }
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Search bar focus effect
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('shadow-md');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('shadow-md');
+        });
+    </script>
+
+
+</body></html>
