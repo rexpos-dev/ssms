@@ -1,11 +1,7 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Button, Input, Card } from '../../components/ui';
-import { useAuth } from '../../context/AuthContext';
 
 export const Login = () => {
-  const navigate = useNavigate();
-  const { login, error: authError } = useAuth();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -28,7 +24,7 @@ export const Login = () => {
     return newErrors;
   };
 
-  const handleLogin = async (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
     const newErrors = validate();
 
@@ -38,8 +34,29 @@ export const Login = () => {
     }
 
     setLoading(true);
-    try {
-      const response = await login(formData.email, formData.password);
+
+    // Demo login credentials
+    const demoUsers = {
+      'admin@school.edu': { role: 'admin', name: 'Admin User' },
+      'teacher@school.edu': { role: 'teacher', name: 'Dr. Elena Rodriguez' },
+      'student@school.edu': { role: 'student', name: 'Elena Sterling' },
+      'parent@school.edu': { role: 'parent', name: 'Parent User' },
+    };
+
+    const demoUser = demoUsers[formData.email];
+
+    if (formData.password === 'demo123' && demoUser) {
+      // Create user data
+      const userData = {
+        ...demoUser,
+        email: formData.email,
+        id: Math.random().toString(36).substr(2, 9),
+      };
+
+      // Store in localStorage
+      const token = 'demo_token_' + Math.random().toString(36).substr(2, 9);
+      localStorage.setItem('sms_token', token);
+      localStorage.setItem('sms_user', JSON.stringify(userData));
 
       // Redirect based on role
       const roleRoutes = {
@@ -49,10 +66,10 @@ export const Login = () => {
         parent: '/parent',
       };
 
-      navigate(roleRoutes[response.user.role] || '/');
-    } catch (err) {
-      setErrors({ form: err.message });
-    } finally {
+      // Use window.location for immediate redirect with page reload
+      window.location.href = roleRoutes[demoUser.role] || '/';
+    } else {
+      setErrors({ form: 'Invalid credentials. Use demo123 with admin@school.edu, teacher@school.edu, student@school.edu, or parent@school.edu' });
       setLoading(false);
     }
   };
@@ -76,15 +93,20 @@ export const Login = () => {
 
           {/* Demo Credentials Info */}
           <div className="bg-primary-fixed rounded-lg p-md mb-lg border-l-4 border-primary">
-            <p className="text-label-sm font-label-md text-on-surface mb-xs">Demo Credentials:</p>
-            <p className="text-body-sm text-on-surface-variant">Email: admin@school.edu</p>
-            <p className="text-body-sm text-on-surface-variant">Password: demo123</p>
+            <p className="text-label-sm font-label-md text-on-surface mb-sm">Demo Credentials:</p>
+            <div className="text-body-sm text-on-surface-variant space-y-xs">
+              <p><strong>Admin:</strong> admin@school.edu</p>
+              <p><strong>Teacher:</strong> teacher@school.edu</p>
+              <p><strong>Student:</strong> student@school.edu</p>
+              <p><strong>Parent:</strong> parent@school.edu</p>
+              <p className="border-t border-white/20 pt-xs mt-xs"><strong>Password:</strong> demo123 (all users)</p>
+            </div>
           </div>
 
           {/* Error Message */}
-          {(errors.form || authError) && (
+          {errors.form && (
             <div className="bg-error/10 border border-error rounded-lg p-md mb-lg">
-              <p className="text-error text-body-sm">{errors.form || authError}</p>
+              <p className="text-error text-body-sm">{errors.form}</p>
             </div>
           )}
 
@@ -98,9 +120,7 @@ export const Login = () => {
               onChange={handleChange}
               error={errors.email}
               placeholder="admin@school.edu"
-              disabled={loading}
             />
-
             <Input
               label="Password"
               type="password"
@@ -109,84 +129,16 @@ export const Login = () => {
               onChange={handleChange}
               error={errors.password}
               placeholder="••••••••"
-              disabled={loading}
             />
-
-            {/* Remember Me & Forgot Password */}
-            <div className="flex justify-between items-center mb-lg">
-              <label className="flex items-center gap-sm">
-                <input type="checkbox" className="rounded" />
-                <span className="text-body-sm text-on-surface">Remember me</span>
-              </label>
-              <a href="#" className="text-primary text-body-sm hover:underline">Forgot password?</a>
-            </div>
-
-            {/* Submit Button */}
             <Button
               type="submit"
-              variant="primary"
-              className="w-full"
               disabled={loading}
+              className="w-full mt-lg"
             >
               {loading ? 'Signing in...' : 'Sign In'}
             </Button>
           </form>
-
-          {/* Divider */}
-          <div className="my-lg flex items-center gap-md">
-            <div className="flex-1 h-px bg-outline-variant"></div>
-            <span className="text-on-surface-variant text-label-sm">Test Accounts</span>
-            <div className="flex-1 h-px bg-outline-variant"></div>
-          </div>
-
-          {/* Role Quick Links */}
-          <div className="space-y-sm">
-            <p className="text-label-sm text-on-surface-variant text-center font-label-md">Try Different Roles:</p>
-            <div className="grid grid-cols-2 gap-sm">
-              <button
-                type="button"
-                onClick={() => {
-                  setFormData({ email: 'admin@school.edu', password: 'demo123' });
-                }}
-                className="py-sm px-md bg-secondary-fixed text-on-secondary-fixed rounded hover:bg-secondary-fixed/80 transition text-body-sm"
-              >
-                Admin
-              </button>
-              <button
-                type="button"
-                onClick={() => {
-                  setFormData({ email: 'teacher@school.edu', password: 'demo123' });
-                }}
-                className="py-sm px-md bg-secondary-fixed text-on-secondary-fixed rounded hover:bg-secondary-fixed/80 transition text-body-sm"
-              >
-                Teacher
-              </button>
-              <button
-                type="button"
-                onClick={() => {
-                  setFormData({ email: 'student@school.edu', password: 'demo123' });
-                }}
-                className="py-sm px-md bg-secondary-fixed text-on-secondary-fixed rounded hover:bg-secondary-fixed/80 transition text-body-sm"
-              >
-                Student
-              </button>
-              <button
-                type="button"
-                onClick={() => {
-                  setFormData({ email: 'parent@school.edu', password: 'demo123' });
-                }}
-                className="py-sm px-md bg-secondary-fixed text-on-secondary-fixed rounded hover:bg-secondary-fixed/80 transition text-body-sm"
-              >
-                Parent
-              </button>
-            </div>
-          </div>
         </Card>
-
-        {/* Footer */}
-        <p className="text-center text-on-primary/70 text-body-sm mt-lg">
-          © 2026 Bridges Academy. All rights reserved.
-        </p>
       </div>
     </div>
   );
