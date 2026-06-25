@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, BookOpen, ClipboardCheck, BarChart3 } from 'lucide-react';
+import { LayoutDashboard, BookOpen, ClipboardCheck, MessageSquare, Users2 } from 'lucide-react';
 
 export const TeacherSidebar = ({ open }) => {
   const navItems = [
@@ -8,7 +8,8 @@ export const TeacherSidebar = ({ open }) => {
     { label: 'Attendance', href: '/teacher/attendance', icon: ClipboardCheck },
     { label: 'Grading', href: '/teacher/grading', icon: ClipboardCheck },
     { label: 'Assignments', href: '/teacher/assignments', icon: BookOpen },
-    { label: 'Communication', href: '/teacher/communication', icon: LayoutDashboard },
+    { label: 'Communication', href: '/teacher/communication', icon: MessageSquare },
+    { label: 'School Life', href: '/teacher/school-life', icon: Users2 },
   ];
 
   return (

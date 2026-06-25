@@ -1,0 +1,337 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>My Subjects | Bridges Academy Student Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed": "#cde6f4",
+                      "surface-container-low": "#e9f6fd",
+                      "secondary": "#4a626d",
+                      "on-primary": "#ffffff",
+                      "surface-tint": "#4c56af",
+                      "on-error": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "inverse-primary": "#bdc2ff",
+                      "outline-variant": "#c6c5d4",
+                      "error-container": "#ffdad6",
+                      "surface-container-highest": "#d7e4ec",
+                      "on-secondary-fixed-variant": "#334a55",
+                      "surface-container-high": "#ddeaf2",
+                      "on-surface-variant": "#454652",
+                      "background": "#f4faff",
+                      "primary-container": "#1a237e",
+                      "on-secondary-fixed": "#051e28",
+                      "on-secondary": "#ffffff",
+                      "tertiary-fixed": "#e0e2ee",
+                      "secondary-fixed-dim": "#b1cad7",
+                      "tertiary-fixed-dim": "#c4c6d2",
+                      "primary-fixed": "#e0e0ff",
+                      "on-primary-fixed-variant": "#343d96",
+                      "inverse-on-surface": "#e6f3fb",
+                      "primary-fixed-dim": "#bdc2ff",
+                      "on-background": "#111d23",
+                      "error": "#ba1a1a",
+                      "on-surface": "#111d23",
+                      "surface-variant": "#d7e4ec",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-fixed": "#000767",
+                      "on-tertiary-fixed-variant": "#434750",
+                      "secondary-container": "#cde6f4",
+                      "primary": "#000666",
+                      "outline": "#767683",
+                      "on-tertiary-fixed": "#181b24",
+                      "surface": "#f4faff",
+                      "tertiary-container": "#2c3039",
+                      "on-secondary-container": "#506873",
+                      "surface-bright": "#f4faff",
+                      "tertiary": "#181b23",
+                      "on-primary-container": "#8690ee",
+                      "inverse-surface": "#263238",
+                      "on-tertiary-container": "#9597a2",
+                      "surface-dim": "#cfdce4",
+                      "surface-container": "#e3f0f8"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "xs": "4px",
+                      "xl": "32px",
+                      "margin-mobile": "16px",
+                      "margin-desktop": "48px",
+                      "sm": "8px",
+                      "max-width": "1440px",
+                      "xxl": "48px",
+                      "gutter": "24px",
+                      "unit": "4px",
+                      "lg": "24px",
+                      "md": "16px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Inter"],
+                      "body-md": ["Inter"],
+                      "headline-lg-mobile": ["Inter"],
+                      "headline-sm": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "label-md": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "headline-xl": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "body-sm": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        body {
+            background-color: #f4faff;
+            color: #111d23;
+            font-family: 'Inter', sans-serif;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        .course-card {
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+        .course-card:hover {
+            border-color: #78909C;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+<!-- SideNavBar (Authority: JSON) -->
+<aside class="fixed left-0 top-0 h-full w-[260px] z-50 bg-surface-container-low dark:bg-tertiary-container border-r border-outline-variant dark:border-outline shadow-sm dark:shadow-none flex flex-col gap-sm p-md h-full">
+<div class="flex items-center gap-md mb-xl px-sm">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined">school</span>
+</div>
+<div>
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed-dim">Bridges Academy</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Student Portal</p>
+</div>
+</div>
+<nav class="flex flex-col gap-xs">
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-variant transition-colors active:scale-95 duration-150 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-variant transition-colors active:scale-95 duration-150 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="">My Schedule</span>
+</a>
+<!-- Active State: Courses -->
+<a class="flex items-center gap-md px-md py-sm bg-secondary-container dark:bg-primary-container text-on-secondary-container dark:text-on-primary-container font-bold rounded-lg active:scale-95 transition-all duration-150 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="">Subjet</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-variant transition-colors active:scale-95 duration-150 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">grade</span>
+<span class="">Grades</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-variant transition-colors active:scale-95 duration-150 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="">Assignments</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-variant transition-colors active:scale-95 duration-150 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="">School Life</span>
+</a>
+</nav>
+<div class="mt-auto pt-lg border-t border-outline-variant">
+<div class="flex items-center gap-md px-sm">
+<img alt="Student avatar" class="w-10 h-10 rounded-full object-cover" data-alt="A professional, high-resolution portrait of a university student with a warm, focused expression, set against a soft-focus campus background. The lighting is natural and bright, conveying a sense of ambition and institutional excellence within the academy's modern academic setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9OIEOG5172g0Zxv4BwTRnDrtc5YoDn9B8wNA-bK1gB4dLmDwRVrhEjSUq9nOR0Q2HAWYQAs9N3A1-PBQyBq6oPv00H0ZVHJxLH8ZSgqDwuIDczDth13TI2FKPdDKvsFNEz2H7IQbSA_9FytzpPki8hJACOc1i2ACXFapveglIvc3-6whJrKL-FsJjMf32zPbE7JpV-zl7NWgmoC5tOWld37DmU37s29JMHNlCQfYd2M0AN9j3xW8yHhH9VSM-wflVM7wRxmQQxdk">
+<div class="overflow-hidden">
+<p class="font-label-md text-label-md font-bold truncate">Alex Sterling</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">Year 4, Honors</p>
+</div>
+</div>
+</div></aside>
+<!-- TopNavBar (Authority: JSON) -->
+<header class="flex items-center justify-between px-lg py-sm w-full ml-[260px] max-w-[calc(1440px-260px)] bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline shadow-sm dark:shadow-none fixed top-0 z-40">
+<div class="flex items-center gap-xl">
+<h2 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">My Subjects</h2>
+<div class="relative w-80">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-lg py-2 pl-10 pr-4 text-body-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" placeholder="Search courses, instructors..." type="text">
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="p-sm text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-full relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="p-sm text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-full">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-[260px] pt-[84px] px-xxl pb-xxl max-w-[calc(1440px-260px)]">
+<!-- Welcome Section -->
+<section class="mb-xl">
+<p class="font-body-md text-body-md text-on-surface-variant mb-xs">Spring Semester 2024</p>
+<h3 class="font-headline-lg text-headline-lg text-primary">Academic Overview</h3>
+<div class="mt-md flex gap-lg">
+<div class="bg-primary text-on-primary px-xl py-lg rounded-xl shadow-sm flex items-center gap-xl">
+<div>
+<p class="font-label-sm text-label-sm opacity-80 uppercase tracking-wider">Current GPA</p>
+<p class="font-headline-xl text-headline-xl">3.92</p>
+</div>
+<div class="h-12 w-[1px] bg-white/20"></div>
+<div>
+<p class="font-label-sm text-label-sm opacity-80 uppercase tracking-wider">Credits Enrolled</p>
+<p class="font-headline-xl text-headline-xl">18</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Subjects Layout -->
+<div class="bento-grid">
+<!-- AP Calculus BC Card -->
+<div class="course-card col-span-12 md:col-span-8 bg-surface-container-lowest border border-outline-variant rounded-xl p-lg flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-md">
+<div>
+<span class="bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-label-sm px-sm py-xs rounded-lg mb-sm inline-block">MATH402</span>
+<h4 class="font-headline-md text-headline-md text-primary">AP Calculus BC</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Instructor: Dr. Elena Rodriguez</p>
+</div>
+<div class="text-right">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Current Grade</p>
+<p class="font-headline-lg text-headline-lg text-primary">94% <span class="text-headline-sm font-normal text-on-surface-variant">(A)</span></p>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mb-lg">
+                        An intensive exploration of differential and integral calculus, including sequences, series, and polar coordinates. Designed for advanced engineering and physics pathways.
+                    </p>
+</div>
+<div class="flex items-center justify-between pt-md border-t border-surface-variant">
+<div class="flex gap-md">
+<a class="flex items-center gap-xs text-primary font-label-md text-label-md hover:underline" href="#">
+<span class="material-symbols-outlined text-[18px]">description</span> Syllabus
+                        </a>
+<a class="flex items-center gap-xs text-primary font-label-md text-label-md hover:underline" href="#">
+<span class="material-symbols-outlined text-[18px]">forum</span> Course Chat
+                        </a>
+</div>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-lg py-sm rounded-lg hover:opacity-90 transition-opacity">View Course Materials</button>
+</div>
+</div>
+<!-- Advanced Microeconomics Card -->
+<div class="course-card col-span-12 md:col-span-4 bg-surface-container-lowest border border-outline-variant rounded-xl p-lg flex flex-col">
+<div class="mb-md">
+<span class="bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-label-sm px-sm py-xs rounded-lg mb-sm inline-block">ECON301</span>
+<h4 class="font-headline-sm text-headline-sm text-primary">Advanced Microeconomics</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">Prof. Marcus Chen</p>
+</div>
+<div class="bg-surface-container-low rounded-lg p-md mb-lg">
+<div class="flex justify-between items-center mb-xs">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Grade Progress</p>
+<p class="font-label-md text-label-md font-bold">88% (B+)</p>
+</div>
+<div class="w-full bg-outline-variant h-1 rounded-full">
+<div class="bg-secondary w-[88%] h-1 rounded-full"></div>
+</div>
+</div>
+<div class="mt-auto">
+<a class="flex items-center justify-center w-full border border-secondary text-secondary font-label-md text-label-md py-sm rounded-lg hover:bg-secondary-fixed transition-colors" href="#">Course Materials</a>
+</div>
+</div>
+<!-- World Literature IV Card -->
+<div class="course-card col-span-12 md:col-span-6 bg-surface-container-lowest border border-outline-variant rounded-xl p-lg flex flex-col">
+<div class="flex items-start gap-lg mb-lg">
+<div class="w-24 h-24 rounded-lg bg-tertiary-fixed flex-shrink-0 overflow-hidden">
+<img alt="Literature book cover" class="w-full h-full object-cover" data-alt="A macro photograph of an antique, leather-bound book lying open on a dark mahogany table. The lighting is cinematic and low-key, with a warm golden glow highlighting the texture of the parchment paper. The scene evokes a scholarly, classical academic atmosphere, perfectly aligned with the academy's traditional and high-end brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDw30P4xctEtljxdTRfxq8dxuShfVTZZzD_QYuXZmyWPggmTeVjDJ6hMHSbsHSqy_1xD_gnj_EdJnKkZFDwJGv6qKijyns5aNrrqkb80-dR1We06LpWQxigPjlCNuG1e8YasYfc2tv73YiteBUtgxLaHgmVTaLzcXytB2iXoUDDUuZdysF6-YJC6aPXsc6FH1LO42Zv8Mkkck5gNHkfPYX56tQbUt63xgIuf5GyokpkWE-2X-RmGXc79MKIiHKhghp7zpWKeyadpf8">
+</div>
+<div>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-sm text-label-sm px-sm py-xs rounded-lg mb-sm inline-block">ENGL404</span>
+<h4 class="font-headline-sm text-headline-sm text-primary">World Literature IV</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Dr. Sarah Jenkins</p>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-lg">Focusing on Post-Modernist movements across the Eastern hemisphere. Recent studies in Murakami and Desai.</p>
+<div class="flex items-center justify-between border-t border-surface-variant pt-md mt-auto">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Grade</p>
+<p class="font-headline-sm text-headline-sm text-primary">92%</p>
+</div>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-lg py-sm rounded-lg hover:opacity-90 transition-opacity">Enter Classroom</button>
+</div>
+</div>
+<!-- Organic Chemistry I Card -->
+<div class="course-card col-span-12 md:col-span-6 bg-surface-container-lowest border border-outline-variant rounded-xl p-lg flex flex-col">
+<div class="flex justify-between items-start mb-md">
+<div>
+<span class="bg-error-container text-on-error-container font-label-sm text-label-sm px-sm py-xs rounded-lg mb-sm inline-block">CHEM301</span>
+<h4 class="font-headline-sm text-headline-sm text-primary">Organic Chemistry I</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">Dr. Julian Vane</p>
+</div>
+<div class="flex flex-col items-end">
+<div class="w-12 h-12 rounded-full border-4 border-secondary/20 border-t-secondary flex items-center justify-center">
+<span class="font-label-sm text-label-sm font-bold">85%</span>
+</div>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-lg">Foundational concepts in molecular structure, bonding, and reaction mechanisms of carbon-based compounds.</p>
+<div class="flex gap-md mt-auto">
+<button class="flex-1 bg-primary text-on-primary font-label-md text-label-md py-sm rounded-lg hover:opacity-90 transition-opacity">Course Materials</button>
+<button class="flex-1 border border-outline text-on-surface-variant font-label-md text-label-md py-sm rounded-lg hover:bg-surface-variant transition-colors">Lab Schedule</button>
+</div>
+</div>
+<!-- Empty State / Add Course Suggestion -->
+<div class="col-span-12 lg:col-span-12 bg-primary-container text-on-primary-container p-xl rounded-xl flex items-center justify-between">
+<div class="max-w-2xl">
+<h4 class="font-headline-sm text-headline-sm mb-xs">Looking to expand your curriculum?</h4>
+<p class="font-body-md text-body-md opacity-90">Enrollment for Summer Session 2024 Electives is now open. Explore over 40 new interdisciplinary courses in Emerging Tech and Global Policy.</p>
+</div>
+<button class="bg-on-primary-container text-primary-container px-xl py-md rounded-lg font-bold hover:scale-105 transition-transform">Browse Catalog</button>
+</div>
+</div>
+</main>
+<!-- Contextual FAB (Mandatory Suppression on Sub-pages usually, but here we provide 'Add Course' if on Top Level) -->
+<!-- Suppressing based on "Details/Subpage" logic from system prompts -->
+<script>
+        // Micro-interaction for hover states
+        document.querySelectorAll('.course-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                // Potential for adding visual flare if needed
+            });
+        });
+    </script>
+
+
+</body></html>

@@ -1,0 +1,412 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Communication Hub - Bridges Academy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#181b24",
+                        "inverse-surface": "#263238",
+                        "tertiary-fixed": "#e0e2ee",
+                        "on-surface": "#111d23",
+                        "on-surface-variant": "#454652",
+                        "tertiary-fixed-dim": "#c4c6d2",
+                        "surface-tint": "#4c56af",
+                        "on-error-container": "#93000a",
+                        "primary": "#000666",
+                        "on-background": "#111d23",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#434750",
+                        "on-secondary": "#ffffff",
+                        "background": "#f4faff",
+                        "tertiary-container": "#2c3039",
+                        "on-secondary-fixed": "#051e28",
+                        "outline": "#767683",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#f4faff",
+                        "primary-fixed-dim": "#bdc2ff",
+                        "surface-container-high": "#ddeaf2",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#e0e0ff",
+                        "outline-variant": "#c6c5d4",
+                        "surface-container": "#e3f0f8",
+                        "primary-container": "#1a237e",
+                        "on-secondary-fixed-variant": "#334a55",
+                        "on-primary-fixed": "#000767",
+                        "surface-container-highest": "#d7e4ec",
+                        "on-error": "#ffffff",
+                        "surface": "#f4faff",
+                        "inverse-primary": "#bdc2ff",
+                        "secondary-container": "#cde6f4",
+                        "surface-dim": "#cfdce4",
+                        "secondary-fixed-dim": "#b1cad7",
+                        "on-primary-container": "#8690ee",
+                        "error": "#ba1a1a",
+                        "inverse-on-surface": "#e6f3fb",
+                        "surface-variant": "#d7e4ec",
+                        "surface-container-low": "#e9f6fd",
+                        "secondary": "#4a626d",
+                        "on-secondary-container": "#506873",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#181b23",
+                        "secondary-fixed": "#cde6f4",
+                        "on-tertiary-container": "#9597a2",
+                        "on-primary-fixed-variant": "#343d96"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "gutter": "24px",
+                        "sm": "8px",
+                        "xs": "4px",
+                        "margin-desktop": "48px",
+                        "xl": "32px",
+                        "xxl": "48px",
+                        "max-width": "1440px",
+                        "unit": "4px",
+                        "margin-mobile": "16px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .chat-scrollbar::-webkit-scrollbar { width: 6px; }
+        .chat-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .chat-scrollbar::-webkit-scrollbar-thumb { background: #cfdce4; border-radius: 10px; }
+        .mask-gradient {
+            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex overflow-hidden">
+<!-- SideNavBar (Shared Component) -->
+<aside class="fixed left-0 top-0 h-full w-[260px] bg-surface-container-low dark:bg-tertiary-container border-r border-outline-variant dark:border-outline flex flex-col p-md gap-sm z-30">
+<div class="flex items-center gap-sm mb-lg px-xs">
+<div class="w-10 h-10 bg-primary-container rounded flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-headline-sm">account_balance</span>
+</div>
+<div>
+<h1 class="font-headline-sm text-headline-sm font-black text-primary dark:text-inverse-primary leading-tight">Bridges Academy</h1>
+<p class="font-label-sm text-label-sm text-secondary">Parent Portal</p>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-xs">
+<a class="flex items-center gap-md px-md py-sm text-secondary dark:text-secondary-fixed hover:bg-surface-container-high dark:hover:bg-surface-variant rounded-lg transition-all font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-md px-md py-sm text-secondary dark:text-secondary-fixed hover:bg-surface-container-high dark:hover:bg-surface-variant rounded-lg transition-all font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">school</span>
+                Academic Progress
+            </a>
+<a class="flex items-center gap-md px-md py-sm text-secondary dark:text-secondary-fixed hover:bg-surface-container-high dark:hover:bg-surface-variant rounded-lg transition-all font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">event_available</span>
+                Attendance
+            </a>
+<a class="flex items-center gap-md px-md py-sm text-secondary dark:text-secondary-fixed hover:bg-surface-container-high dark:hover:bg-surface-variant rounded-lg transition-all font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">payments</span>
+                Fees &amp; Finance
+            </a>
+<a class="flex items-center gap-md px-md py-sm bg-primary dark:bg-primary-fixed text-on-primary dark:text-on-primary-fixed rounded-lg transition-all font-label-md text-label-md scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">chat</span>
+                Communication
+            </a>
+</nav>
+<div class="mt-auto border-t border-outline-variant pt-md flex flex-col gap-xs">
+<a class="flex items-center gap-md px-md py-sm text-secondary dark:text-secondary-fixed hover:bg-surface-container-high dark:hover:bg-surface-variant rounded-lg transition-all font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">help</span>
+                Help Center
+            </a>
+<a class="flex items-center gap-md px-md py-sm text-error hover:bg-error-container/20 rounded-lg transition-all font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">logout</span>
+                Logout
+            </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-[260px] flex-1 flex flex-col h-screen relative">
+<!-- TopAppBar (Shared Component) -->
+<header class="bg-surface dark:bg-surface text-primary dark:text-inverse-primary border-b border-outline-variant dark:border-outline flex justify-between items-center w-full px-margin-desktop py-md z-20">
+<div class="flex items-center gap-lg">
+<h2 class="font-headline-sm text-headline-sm font-bold">Communication Hub</h2>
+<div class="hidden md:flex gap-md">
+<button class="px-md py-sm font-label-md text-label-md text-primary border-b-2 border-primary">Messages</button>
+<button class="px-md py-sm font-label-md text-label-md text-secondary hover:bg-surface-container-low transition-colors">Announcements</button>
+<button class="px-md py-sm font-label-md text-label-md text-secondary hover:bg-surface-container-low transition-colors">Calendar</button>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="w-10 h-10 flex items-center justify-center text-secondary hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center text-secondary hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="flex items-center gap-sm ml-md">
+<div class="text-right">
+<p class="font-label-md text-label-md font-bold text-primary">Sarah Sterling</p>
+<p class="font-label-sm text-label-sm text-secondary">Grade 4 Parent</p>
+</div>
+<img alt="Parent Profile" class="w-10 h-10 rounded-full border border-outline-variant object-cover" data-alt="A professional headshot of a middle-aged woman named Sarah with a warm smile, wearing a sophisticated navy blazer. The lighting is soft and natural, suggesting a high-end corporate setting with a clean, minimalist background that fits a modern school management interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr-UzptEjOJgeHX3fypOy4-Awz9hDn1gj2K1qKoXOJTZaoOk7wXQiKYZrVs4KpyOvSK3Tpak15IyUMO7CuOmx1vWlPk5HBdyD3VMoqGzGBibPWU_Mlih3SWSB4THGjYuWc0W8CfsRpHE-KgWGiSwCworLCha3dH-hI6TYYuBC_LeGRPZM8qSTyc7hZOI8_Q7ACz5mBvOR7J10m29T1326bfkKa2I-WpPhSSN5lwq5fkBaFPDQTBpXrGyS5Je6dj-ksneI5UeeNlZU">
+</div>
+</div>
+</header>
+<!-- Dynamic Content Area -->
+<div class="flex-1 flex overflow-hidden p-lg gap-lg">
+<!-- Column 1: Messaging Hub Sidebar -->
+<div class="w-1/3 flex flex-col gap-md">
+<!-- Quick Actions & Search -->
+<div class="flex flex-col gap-sm">
+<button class="w-full bg-primary text-on-primary py-md rounded-lg flex items-center justify-center gap-sm font-label-md text-label-md hover:opacity-90 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined">edit_square</span>
+                        COMPOSE NEW MESSAGE
+                    </button>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-xl pr-md py-sm bg-surface-container-lowest border border-outline-variant rounded-lg font-body-sm text-body-sm focus:ring-1 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="Search teachers or offices..." type="text">
+</div>
+</div>
+<!-- Inbox List -->
+<div class="flex-1 bg-surface-container-lowest border border-outline-variant rounded-xl flex flex-col overflow-hidden shadow-sm"><div class="flex border-b border-outline-variant bg-surface-container-low/30">
+    <button class="flex-1 py-sm font-label-md text-label-md text-primary border-b-2 border-primary bg-white/50 transition-all">
+        Marcus (Gr. 10)
+    </button>
+    <button class="flex-1 py-sm font-label-md text-label-md text-secondary hover:bg-surface-container-low transition-all">
+        Elena (Gr. 7)
+    </button>
+</div>
+<div class="p-md border-b border-outline-variant bg-surface-container-low/30 flex justify-between items-center">
+<h3 class="font-label-md text-label-md text-primary uppercase tracking-wider">Conversations</h3>
+<span class="px-sm py-xs bg-primary-container text-on-primary-container text-label-sm font-bold rounded-full">3 New</span>
+</div>
+<div class="flex-1 overflow-y-auto chat-scrollbar">
+<!-- Active Conversation -->
+<div class="p-md border-b border-outline-variant bg-primary/5 border-l-4 border-l-primary flex gap-sm cursor-pointer hover:bg-surface-container-low transition-colors">
+<img class="w-12 h-12 rounded-lg object-cover bg-surface-dim" data-alt="A portrait of a male educator, Mr. Henderson, with a friendly and authoritative demeanor. He is wearing a charcoal grey suit and glasses, sitting in a modern, well-lit classroom office with books in the background. The aesthetic is clean, professional, and trustworthy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-juOMf0pJEgtQNKIOYHVKdJoNad5CUCgUnQllbMQqiOh2YyEOrHqHYrsJEMD_ZWfLCajnsrK_tYKrEetH7fZI2IdYaXdyNLzUYm-qiNWeVfb8a6lsDFi-9EGxThyy7mWLVbtXnzl2MnEBZe4cCpsKXHcEmhu8-VHe2t7p7RGL92D6GfS6-QK9eTCUiFHlb7rzmkdAyxhYeqwziRh5hIYgIFUHbRyJwFxlvgxALjmS1LypNoxkGoY-8vOjgDB2O5Dft_fSODib9Bs">
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-label-md text-label-md text-on-surface truncate">Mr. James Henderson</h4>
+<span class="text-label-sm font-medium text-secondary">10:45 AM</span>
+</div>
+<p class="text-body-sm text-on-surface-variant truncate font-medium">Thank you for the update regarding Leo's science project...</p>
+<div class="mt-1 flex items-center gap-xs">
+<span class="w-2 h-2 bg-primary rounded-full"></span>
+<span class="text-label-sm text-primary font-bold">Unread</span>
+</div>
+</div>
+</div>
+<!-- Chat Item -->
+<div class="p-md border-b border-outline-variant flex gap-sm cursor-pointer hover:bg-surface-container-low transition-colors">
+<div class="w-12 h-12 rounded-lg bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined">corporate_fare</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-label-md text-label-md text-on-surface truncate">Administrative Office</h4>
+<span class="text-label-sm font-medium text-secondary">Yesterday</span>
+</div>
+<p class="text-body-sm text-secondary truncate">Regarding the upcoming field trip forms for October...</p>
+</div>
+</div>
+<!-- Chat Item -->
+<div class="p-md border-b border-outline-variant flex gap-sm cursor-pointer hover:bg-surface-container-low transition-colors">
+<img class="w-12 h-12 rounded-lg object-cover bg-surface-dim" data-alt="A portrait of a female teacher, Mrs. Sterling, smiling warmly. She is in a bright school library setting, wearing a professional emerald green blouse. The image has a shallow depth of field, giving it a high-quality, modern, and institutional feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6s0ESE29K3IT6FQ0O95bNS6SJHObit7y17ZQkT-o4yd0d-4paloUYihDAEiE03Kkzzn3nVOF5MN4YQZByjVqSHgVA0jXxfbgT9mV66sMABtkrZj2g_QCh94FTa6XWyPgxVSu3GNJx2SeGEqQbhKLL05jEV-w-YztJLF_TMqKCP4MRvBERCMGjwKDBaLtCODlUF0q-KqpfnOKczvONTYO-tO_i6zV9QdGq6cr2aec_VJXWfjRRi1ynA33waY3Dq0tsuMhal4Zs5wk">
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-label-md text-label-md text-on-surface truncate">Mrs. Anita Sterling</h4>
+<span class="text-label-sm font-medium text-secondary">Tue</span>
+</div>
+<p class="text-body-sm text-secondary truncate">The music department has confirmed the rehearsals...</p>
+<div class="mt-1 flex items-center gap-xs text-on-secondary-fixed-variant">
+<span class="material-symbols-outlined text-[16px]">done_all</span>
+<span class="text-label-sm">Read</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Column 2 & 3 Combined: Active Chat & Context -->
+<div class="flex-1 flex flex-col bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm overflow-hidden">
+<!-- Chat Header -->
+<div class="p-md border-b border-outline-variant flex justify-between items-center bg-surface-container-low/30">
+<div class="flex items-center gap-md">
+<img class="w-10 h-10 rounded-full object-cover border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTZOjQ8ZBZr1lINvELq91VElPJPQj-N16fdEpoiTYMjaGiPorWvC-6nxFTAcnRrxbMg1tFTlEGS8jRKQ4EvypSq3_2PRhPrhSgUK4v_16Y0K8X87yIwOhtEmrZyvWIGDOh9V2w5WjscRrIkyOn89uHYXz_BUBGiB-v_VD5CWrPRLrYVQ68wq4TJ7fYVLOi76GrXOuN2E_ve6GHnw5zuzp9DzbsZMmP5pZM-zaXlRBlu0m1uwt-VWkGCBG4J7RMxJYnfbowKTi2HFI">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary leading-tight">Mr. James Henderson</h3>
+<p class="text-label-sm text-secondary">Science &amp; Technology Head • Grade 4-B</p>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<button class="px-md py-sm bg-surface text-secondary border border-outline-variant rounded-lg flex items-center gap-sm font-label-md text-label-md hover:bg-surface-container-low transition-all">
+<span class="material-symbols-outlined text-[20px]">calendar_today</span>
+                            REQUEST MEETING
+                        </button>
+<button class="w-10 h-10 flex items-center justify-center text-secondary hover:bg-surface-container-low rounded-full">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Chat Messages Area -->
+<div class="flex-1 overflow-y-auto p-lg flex flex-col gap-lg chat-scrollbar bg-surface/50">
+<div class="flex justify-center">
+<span class="px-md py-xs bg-surface-container-high rounded-full text-label-sm text-secondary">Monday, September 25</span>
+</div>
+<!-- Message From Me -->
+<div class="flex flex-col items-end gap-sm max-w-[80%] self-end">
+<div class="bg-primary text-on-primary p-md rounded-xl rounded-tr-none shadow-sm">
+<p class="text-body-md">Good morning Mr. Henderson. I was checking Leo's progress on the Solar System project. Does he need to bring any special materials for the demonstration tomorrow?</p>
+</div>
+<span class="text-label-sm text-secondary">09:12 AM • Sent</span>
+</div>
+<!-- Message From Teacher -->
+<div class="flex flex-col items-start gap-sm max-w-[80%] self-start">
+<div class="bg-white border border-outline-variant p-md rounded-xl rounded-tl-none shadow-sm">
+<p class="text-body-md text-on-surface">Hello Sarah! No extra materials are strictly necessary. We have the base kits ready in the lab. However, if he wants to use specific colors for his model's rings, he can bring his own acrylic paints.</p>
+</div>
+<span class="text-label-sm text-secondary">09:45 AM</span>
+</div>
+<!-- Message From Teacher (New) -->
+<div class="flex flex-col items-start gap-sm max-w-[80%] self-start">
+<div class="bg-white border border-outline-variant p-md rounded-xl rounded-tl-none shadow-sm relative ring-2 ring-primary/20">
+<p class="text-body-md text-on-surface">Thank you for the update regarding Leo's science project earlier. I've noted that he will be bringing his own materials. He's been doing excellent work in class lately!</p>
+</div>
+<div class="flex items-center gap-xs">
+<span class="text-label-sm text-secondary">10:45 AM</span>
+<span class="text-primary font-bold text-[10px] uppercase tracking-tighter bg-primary/10 px-1 rounded">New</span>
+</div>
+</div>
+</div>
+<!-- Chat Input -->
+<div class="p-lg bg-white border-t border-outline-variant">
+<div class="flex items-end gap-md">
+<div class="flex gap-sm pb-1">
+<button class="w-10 h-10 flex items-center justify-center text-secondary hover:bg-surface-container-low rounded-lg transition-colors">
+<span class="material-symbols-outlined">attach_file</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center text-secondary hover:bg-surface-container-low rounded-lg transition-colors">
+<span class="material-symbols-outlined">mood</span>
+</button>
+</div>
+<div class="flex-1 relative">
+<textarea class="w-full p-md bg-background border border-outline-variant rounded-xl font-body-md text-body-md focus:ring-1 focus:ring-primary focus:border-primary outline-none transition-all resize-none max-h-32" placeholder="Type your message to Mr. Henderson..." rows="1"></textarea>
+</div>
+<button class="w-12 h-12 bg-primary text-on-primary rounded-xl flex items-center justify-center shadow-lg hover:shadow-primary/20 active:scale-95 transition-all">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Column 4: Announcements & Info -->
+<div class="w-80 flex flex-col gap-lg">
+<!-- Directory Search -->
+<div class="bg-primary-container p-lg rounded-xl text-on-primary shadow-lg relative overflow-hidden group">
+<div class="absolute -right-4 -bottom-4 opacity-10 group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-[120px]">diversity_3</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm mb-xs relative z-10">Faculty Directory</h3>
+<p class="text-body-sm text-on-primary/80 mb-md relative z-10">Connect with subject teachers or grade coordinators.</p>
+<button class="w-full py-sm bg-white text-primary rounded-lg font-label-md text-label-md hover:bg-surface-container-lowest transition-colors relative z-10">
+                        BROWSE DIRECTORY
+                    </button>
+</div>
+<!-- Announcements Feed -->
+<div class="flex-1 flex flex-col gap-md">
+<div class="flex items-center justify-between px-xs">
+<h3 class="font-label-md text-label-md text-primary uppercase tracking-widest">Announcements</h3>
+<a class="text-label-sm text-secondary hover:text-primary underline" href="#">View All</a>
+</div>
+<div class="space-y-md">
+<!-- Announcement Card -->
+<div class="bg-white border border-outline-variant p-md rounded-xl shadow-sm hover:border-secondary transition-all cursor-pointer">
+<div class="flex items-center gap-xs mb-sm">
+<span class="w-2 h-2 bg-error rounded-full"></span>
+<span class="text-[10px] font-black text-error uppercase tracking-tighter">Urgent</span>
+<span class="text-label-sm text-secondary ml-auto">2h ago</span>
+</div>
+<h4 class="font-label-md text-label-md text-on-surface mb-xs leading-tight">School Suspension: September 28</h4>
+<p class="text-body-sm text-secondary line-clamp-2">Due to local festivities, classes will be suspended this Thursday...</p>
+</div>
+<!-- Announcement Card -->
+<div class="bg-white border border-outline-variant p-md rounded-xl shadow-sm hover:border-secondary transition-all cursor-pointer">
+<div class="flex items-center gap-xs mb-sm">
+<span class="w-2 h-2 bg-secondary rounded-full"></span>
+<span class="text-[10px] font-black text-secondary uppercase tracking-tighter">Broadcast</span>
+<span class="text-label-sm text-secondary ml-auto">Yesterday</span>
+</div>
+<h4 class="font-label-md text-label-md text-on-surface mb-xs leading-tight">Monthly Newsletter: October Edition</h4>
+<p class="text-body-sm text-secondary line-clamp-2">The latest Bridges Academy updates are now available for viewing...</p>
+</div>
+</div>
+<!-- Context Card -->
+
+</div>
+</div>
+</div>
+</main>
+<script>
+        // Simple micro-interaction for the chat textarea
+        const textarea = document.querySelector('textarea');
+        textarea.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = (this.scrollHeight) + 'px';
+        });
+
+        // Tab selection logic (Simulation)
+        const tabs = document.querySelectorAll('.md\\:flex button');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => {
+                    t.classList.remove('text-primary', 'border-b-2', 'border-primary');
+                    t.classList.add('text-secondary');
+                });
+                tab.classList.add('text-primary', 'border-b-2', 'border-primary');
+                tab.classList.remove('text-secondary');
+            });
+        });
+    </script>
+
+
+</body></html>

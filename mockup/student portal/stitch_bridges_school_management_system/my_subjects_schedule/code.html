@@ -1,0 +1,346 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Courses &amp; Schedule | Bridges Academy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#2c3039",
+                    "surface-container": "#e3f0f8",
+                    "tertiary-fixed-dim": "#c4c6d2",
+                    "on-primary-fixed": "#000767",
+                    "primary-fixed": "#e0e0ff",
+                    "error-container": "#ffdad6",
+                    "surface-container-low": "#e9f6fd",
+                    "secondary": "#4a626d",
+                    "on-surface": "#111d23",
+                    "background": "#f4faff",
+                    "surface-variant": "#d7e4ec",
+                    "on-secondary-container": "#506873",
+                    "surface-container-highest": "#d7e4ec",
+                    "inverse-primary": "#bdc2ff",
+                    "secondary-container": "#cde6f4",
+                    "secondary-fixed-dim": "#b1cad7",
+                    "primary-container": "#1a237e",
+                    "tertiary": "#181b23",
+                    "on-secondary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error": "#ffffff",
+                    "outline-variant": "#c6c5d4",
+                    "surface-bright": "#f4faff",
+                    "inverse-on-surface": "#e6f3fb",
+                    "surface-container-high": "#ddeaf2",
+                    "secondary-fixed": "#cde6f4",
+                    "surface-tint": "#4c56af",
+                    "on-primary-fixed-variant": "#343d96",
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-surface-variant": "#454652",
+                    "on-secondary-fixed-variant": "#334a55",
+                    "on-primary-container": "#8690ee",
+                    "surface": "#f4faff",
+                    "primary": "#000666",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#434750",
+                    "on-secondary-fixed": "#051e28",
+                    "inverse-surface": "#263238",
+                    "on-error-container": "#93000a",
+                    "primary-fixed-dim": "#bdc2ff",
+                    "tertiary-fixed": "#e0e2ee",
+                    "on-tertiary-fixed": "#181b24",
+                    "on-background": "#111d23",
+                    "surface-dim": "#cfdce4",
+                    "outline": "#767683",
+                    "on-tertiary-container": "#9597a2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-desktop": "48px",
+                    "sm": "8px",
+                    "xl": "32px",
+                    "max-width": "1440px",
+                    "gutter": "24px",
+                    "md": "16px",
+                    "lg": "24px",
+                    "xxl": "48px",
+                    "xs": "4px",
+                    "unit": "4px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-sm": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "headline-xl": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "headline-lg-mobile": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: 80px repeat(5, 1fr);
+            grid-template-rows: 40px repeat(12, 60px);
+        }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-secondary-container">
+<!-- SideNavBar (Shared Component) -->
+<aside class="fixed left-0 top-0 h-full w-[260px] z-50 bg-surface-container-low dark:bg-tertiary-container border-r border-outline-variant dark:border-outline shadow-sm dark:shadow-none flex flex-col gap-sm p-md h-full">
+<div class="flex items-center gap-md px-sm py-md mb-md">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">school</span>
+</div>
+<div>
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed-dim">Bridges Academy</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Student Portal</p>
+</div>
+</div>
+<nav class="flex flex-col gap-xs flex-1">
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant font-label-md text-label-md hover:bg-surface-variant dark:hover:bg-secondary-container transition-colors active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">dashboard</span> Dashboard
+            </a>
+<a class="flex items-center gap-md px-md py-sm bg-secondary-container dark:bg-primary-container text-on-secondary-container dark:text-on-primary-container font-bold rounded-lg font-label-md text-label-md active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">calendar_today</span> My Schedule
+            </a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant font-label-md text-label-md hover:bg-surface-variant dark:hover:bg-secondary-container transition-colors active:scale-95 transition-transform duration-150" href="#"><span class="material-symbols-outlined">school</span> Subjects</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant font-label-md text-label-md hover:bg-surface-variant dark:hover:bg-secondary-container transition-colors active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">grade</span> Grades
+            </a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant font-label-md text-label-md hover:bg-surface-variant dark:hover:bg-secondary-container transition-colors active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">assignment</span> Assignments
+            </a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant font-label-md text-label-md hover:bg-surface-variant dark:hover:bg-secondary-container transition-colors active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">groups</span> School Life
+            </a>
+</nav>
+<div class="mt-auto pt-md border-t border-outline-variant">
+<div class="flex items-center gap-md px-sm py-sm">
+<img alt="Student avatar" class="w-8 h-8 rounded-full bg-surface-variant" data-alt="A professional headshot of a diverse university student against a neutral, soft-lit library background. The student has a focused and friendly expression, wearing academic casual attire. The lighting is bright and clear, reflecting a high-key light mode aesthetic with soft shadows and sharp details in the facial features and texture of the clothing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDR0_Mbw4iSpIZUYJvSmKgnJGJMIs9817ZOw2uBiwywcsR_xkf92hLkxiLTJ75sgYyRq3Za5Nd5ySWRUEwvBnmLgniXSzl0GzrDSbn8z2YxVwDiWplhHq5GDuiyifbq-4hHl0tWYKKexUhZpFzl5ga_XkG8BH4hnF8YItcoHdZM5NpyAgeRwaaaAOAjVrn3cov5YL6j9-qsyYSG901cuXqf0Zyj4Es39fpwA78UazlKajeh1vbJDRwleSrybhb_rR9SNNWLj7BdXzs">
+<div class="overflow-hidden">
+<p class="text-label-md font-bold truncate">Julian Rivers</p>
+<p class="text-label-sm text-on-surface-variant">Class of 2026</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- TopNavBar (Shared Component) -->
+<header class="fixed top-0 right-0 left-0 ml-[260px] h-16 z-40 bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline shadow-sm dark:shadow-none flex items-center justify-between px-lg py-sm">
+<div class="flex items-center gap-md">
+<h2 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">Academic Center</h2>
+</div>
+<div class="flex items-center gap-lg">
+<div class="relative group">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined">search</span>
+</span>
+<input class="bg-surface-container border-none rounded-lg py-sm pl-10 pr-md text-label-md focus:ring-2 focus:ring-primary-container w-[300px] transition-all" placeholder="Search courses, instructors..." type="text">
+</div>
+<div class="flex items-center gap-sm">
+<button class="p-sm rounded-full text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-sm rounded-full text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="ml-[260px] pt-24 px-xxl pb-xxl max-w-[1440px]">
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Dual-View Section 1: Weekly Calendar Grid -->
+<section class="col-span-8 space-y-lg">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary">Fall Semester Schedule</h3>
+<p class="text-body-sm text-on-surface-variant">Current Week: Oct 14 - Oct 18, 2024</p>
+</div>
+<div class="flex bg-surface-container-low rounded-lg p-xs border border-outline-variant">
+<button class="px-md py-xs bg-white shadow-sm rounded-md font-label-md text-primary">Week</button>
+<button class="px-md py-xs hover:bg-surface-variant rounded-md font-label-md text-on-surface-variant transition-colors">Month</button>
+</div>
+</div>
+<div class="bg-white border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<!-- Calendar Header -->
+<div class="grid grid-cols-6 border-b border-outline-variant bg-surface-container-low">
+<div class="p-sm border-r border-outline-variant text-center"></div>
+<div class="p-sm border-r border-outline-variant text-center"><p class="font-label-md uppercase text-on-surface-variant">Mon</p><p class="font-headline-sm">14</p></div>
+<div class="p-sm border-r border-outline-variant text-center"><p class="font-label-md uppercase text-on-surface-variant">Tue</p><p class="font-headline-sm">15</p></div>
+<div class="p-sm border-r border-outline-variant text-center bg-secondary-container/30"><p class="font-label-md uppercase text-primary font-bold">Wed</p><p class="font-headline-sm text-primary font-bold">16</p></div>
+<div class="p-sm border-r border-outline-variant text-center"><p class="font-label-md uppercase text-on-surface-variant">Thu</p><p class="font-headline-sm">17</p></div>
+<div class="p-sm text-center"><p class="font-label-md uppercase text-on-surface-variant">Fri</p><p class="font-headline-sm">18</p></div>
+</div>
+<!-- Scrollable Calendar Body -->
+<div class="max-h-[600px] overflow-y-auto scrollbar-hide relative calendar-grid">
+<!-- Time Markers -->
+<div class="col-start-1 row-start-2 flex items-center justify-center text-label-sm text-outline border-b border-r border-outline-variant bg-surface-container-lowest">08:00</div>
+<div class="col-start-1 row-start-3 flex items-center justify-center text-label-sm text-outline border-b border-r border-outline-variant bg-surface-container-lowest">09:00</div>
+<div class="col-start-1 row-start-4 flex items-center justify-center text-label-sm text-outline border-b border-r border-outline-variant bg-surface-container-lowest">10:00</div>
+<div class="col-start-1 row-start-5 flex items-center justify-center text-label-sm text-outline border-b border-r border-outline-variant bg-surface-container-lowest">11:00</div>
+<div class="col-start-1 row-start-6 flex items-center justify-center text-label-sm text-outline border-b border-r border-outline-variant bg-surface-container-lowest">12:00</div>
+<div class="col-start-1 row-start-7 flex items-center justify-center text-label-sm text-outline border-b border-r border-outline-variant bg-surface-container-lowest">13:00</div>
+<div class="col-start-1 row-start-8 flex items-center justify-center text-label-sm text-outline border-b border-r border-outline-variant bg-surface-container-lowest">14:00</div>
+<div class="col-start-1 row-start-9 flex items-center justify-center text-label-sm text-outline border-b border-r border-outline-variant bg-surface-container-lowest">15:00</div>
+<div class="col-start-1 row-start-10 flex items-center justify-center text-label-sm text-outline border-b border-r border-outline-variant bg-surface-container-lowest">16:00</div>
+<div class="col-start-1 row-start-11 flex items-center justify-center text-label-sm text-outline border-b border-r border-outline-variant bg-surface-container-lowest">17:00</div>
+<div class="col-start-1 row-start-12 flex items-center justify-center text-label-sm text-outline border-b border-r border-outline-variant bg-surface-container-lowest">18:00</div>
+<!-- Grid Background Lines -->
+<!-- Loops not used to keep HTML pure, manually creating structure -->
+<div class="col-span-5 row-span-12 grid grid-cols-5 grid-rows-12 absolute inset-0 left-20 pointer-events-none">
+<div class="border-b border-r border-outline-variant/30"></div><div class="border-b border-r border-outline-variant/30"></div><div class="border-b border-r border-outline-variant/30"></div><div class="border-b border-r border-outline-variant/30"></div><div class="border-b border-outline-variant/30"></div>
+<!-- ... more rows ... -->
+</div>
+<!-- Scheduled Events -->
+<div class="col-start-2 row-start-3 row-span-2 m-1 bg-primary-container/10 border-l-4 border-primary rounded-lg p-sm active:scale-[0.98] transition-transform cursor-pointer">
+<p class="font-label-sm text-primary font-bold">ECON 302</p>
+<p class="text-[10px] text-on-surface-variant font-medium">Macro Theory • RM 402</p>
+</div>
+<div class="col-start-2 row-start-6 row-span-1 m-1 bg-secondary-container/30 border-l-4 border-secondary rounded-lg p-sm active:scale-[0.98] transition-transform cursor-pointer">
+<p class="font-label-sm text-on-secondary-container font-bold">HIST 210</p>
+<p class="text-[10px] text-on-surface-variant font-medium">World History • RM 112</p>
+</div>
+<div class="col-start-4 row-start-3 row-span-2 m-1 bg-primary-container/20 border-l-4 border-primary rounded-lg p-sm active:scale-[0.98] transition-transform cursor-pointer ring-2 ring-primary ring-offset-1">
+<div class="flex justify-between items-start">
+<p class="font-label-sm text-primary font-bold">ECON 302</p>
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+</div>
+<p class="text-[10px] text-on-surface-variant font-medium">Macro Theory • RM 402</p>
+<p class="text-[10px] font-bold text-primary mt-1">Happening Now</p>
+</div>
+<div class="col-start-5 row-start-5 row-span-3 m-1 bg-tertiary-fixed border-l-4 border-tertiary rounded-lg p-sm active:scale-[0.98] transition-transform cursor-pointer">
+<p class="font-label-sm text-on-tertiary-fixed font-bold">CS 440</p>
+<p class="text-[10px] text-on-surface-variant font-medium">Data Ethics • Lab B</p>
+</div>
+<div class="col-start-6 row-start-2 row-span-2 m-1 bg-secondary-container/30 border-l-4 border-secondary rounded-lg p-sm active:scale-[0.98] transition-transform cursor-pointer">
+<p class="font-label-sm text-on-secondary-container font-bold">MATH 311</p>
+<p class="text-[10px] text-on-surface-variant font-medium">Linear Algebra • RM 301</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Dual-View Section 2: Enrolled Courses List -->
+<aside class="col-span-4 space-y-lg">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary">Enrolled Courses</h3>
+<p class="text-body-sm text-on-surface-variant">5 Active Enrollments</p>
+</div>
+<div class="space-y-md">
+<!-- Course Card 1 -->
+<div class="bg-white border border-outline-variant rounded-xl p-md hover:border-secondary transition-colors group">
+<div class="flex items-start justify-between mb-sm">
+<div class="p-sm bg-surface-container rounded-lg text-primary group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<span class="text-label-sm font-bold text-on-surface-variant">3.0 Credits</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm mb-xs">ECON 302: Macroeconomic Theory</h4>
+<div class="flex items-center gap-sm text-body-sm text-on-surface-variant mb-md">
+<span class="material-symbols-outlined text-[18px]">person</span>
+<span>Dr. Helena Sterling</span>
+</div>
+<div class="pt-md border-t border-outline-variant flex items-center justify-between">
+<a class="text-primary font-bold font-label-md flex items-center gap-xs hover:gap-sm transition-all" href="#">
+                                Course Materials <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+<div class="w-2 h-2 rounded-full bg-error" title="Assignment Due Soon"></div>
+</div>
+</div>
+<!-- Course Card 2 -->
+<div class="bg-white border border-outline-variant rounded-xl p-md hover:border-secondary transition-colors group">
+<div class="flex items-start justify-between mb-sm">
+<div class="p-sm bg-surface-container rounded-lg text-primary group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined">terminal</span>
+</div>
+<span class="text-label-sm font-bold text-on-surface-variant">4.0 Credits</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm mb-xs">CS 440: Computer Data Ethics</h4>
+<div class="flex items-center gap-sm text-body-sm text-on-surface-variant mb-md">
+<span class="material-symbols-outlined text-[18px]">person</span>
+<span>Prof. Marcus Vane</span>
+</div>
+<div class="pt-md border-t border-outline-variant flex items-center justify-between">
+<a class="text-primary font-bold font-label-md flex items-center gap-xs hover:gap-sm transition-all" href="#">
+                                Course Materials <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Course Card 3 -->
+<div class="bg-white border border-outline-variant rounded-xl p-md hover:border-secondary transition-colors group">
+<div class="flex items-start justify-between mb-sm">
+<div class="p-sm bg-surface-container rounded-lg text-primary group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined">functions</span>
+</div>
+<span class="text-label-sm font-bold text-on-surface-variant">3.0 Credits</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm mb-xs">MATH 311: Linear Algebra II</h4>
+<div class="flex items-center gap-sm text-body-sm text-on-surface-variant mb-md">
+<span class="material-symbols-outlined text-[18px]">person</span>
+<span>Dr. Arthur Dent</span>
+</div>
+<div class="pt-md border-t border-outline-variant flex items-center justify-between">
+<a class="text-primary font-bold font-label-md flex items-center gap-xs hover:gap-sm transition-all" href="#">
+                                Course Materials <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- View All Button -->
+<button class="w-full py-md border-2 border-dashed border-outline-variant rounded-xl text-on-surface-variant font-label-md hover:bg-surface-container transition-colors">
+                        View Past Enrollments
+                    </button>
+</div>
+</aside>
+</div>
+<!-- Floating Quick Action for Add/Drop (only on appropriate screen) -->
+<button class="fixed bottom-xl right-xl w-14 h-14 bg-primary text-white rounded-full shadow-lg flex items-center justify-center active:scale-95 transition-transform hover:shadow-xl group">
+<span class="material-symbols-outlined">add</span>
+<span class="absolute right-full mr-md bg-inverse-surface text-white px-md py-xs rounded text-label-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">Register for Course</span>
+</button>
+</main>
+<!-- Visual Polish: Subtle Background Ornament -->
+<div class="fixed top-0 right-0 -z-10 w-1/3 h-full bg-gradient-to-l from-surface-container-low to-transparent opacity-50 pointer-events-none"></div>
+<script>
+        // Simple Interaction: Scroll to current time if needed
+        window.addEventListener('DOMContentLoaded', () => {
+            const calendar = document.querySelector('.calendar-grid').parentElement;
+            // Simulated: scroll to midday
+            calendar.scrollTop = 240;
+        });
+    </script>
+</body></html>

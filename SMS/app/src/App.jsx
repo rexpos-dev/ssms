@@ -18,7 +18,9 @@ import { SchoolLife } from './pages/admin/SchoolLife';
 // Student Pages
 import StudentDashboard from './pages/student/StudentDashboard';
 import StudentGrades from './pages/student/StudentGrades';
-import StudentClasses from './pages/student/StudentClasses';
+import StudentSubjects from './pages/student/StudentSubjects';
+import StudentCommunication from './pages/student/StudentCommunication';
+import StudentSchoolLife from './pages/student/StudentSchoolLife';
 
 // Teacher Pages
 import TeacherDashboard from './pages/teacher/TeacherDashboard';
@@ -27,6 +29,7 @@ import TeacherClasses from './pages/teacher/TeacherClasses';
 import TeacherAttendance from './pages/teacher/TeacherAttendance';
 import TeacherAssignments from './pages/teacher/TeacherAssignments';
 import TeacherCommunication from './pages/teacher/TeacherCommunication';
+import TeacherSchoolLife from './pages/teacher/TeacherSchoolLife';
 
 // Parent Pages
 import ParentDashboard from './pages/parent/ParentDashboard';
@@ -119,7 +122,10 @@ function AppContent() {
       {/* Student Portal */}
       <Route path="/student" element={<StudentPage><StudentDashboard /></StudentPage>} />
       <Route path="/student/grades" element={<StudentPage><StudentGrades /></StudentPage>} />
-      <Route path="/student/classes" element={<StudentPage><StudentClasses /></StudentPage>} />
+      <Route path="/student/subjects" element={<StudentPage><StudentSubjects /></StudentPage>} />
+      <Route path="/student/classes" element={<StudentPage><StudentSubjects /></StudentPage>} />
+      <Route path="/student/communication" element={<StudentPage><StudentCommunication /></StudentPage>} />
+      <Route path="/student/school-life" element={<StudentPage><StudentSchoolLife /></StudentPage>} />
 
       {/* Teacher Portal */}
       <Route path="/teacher" element={<TeacherPage><TeacherDashboard /></TeacherPage>} />
@@ -128,6 +134,7 @@ function AppContent() {
       <Route path="/teacher/grading" element={<TeacherPage><TeacherGrading /></TeacherPage>} />
       <Route path="/teacher/assignments" element={<TeacherPage><TeacherAssignments /></TeacherPage>} />
       <Route path="/teacher/communication" element={<TeacherPage><TeacherCommunication /></TeacherPage>} />
+      <Route path="/teacher/school-life" element={<TeacherPage><TeacherSchoolLife /></TeacherPage>} />
 
       {/* Parent Portal */}
       <Route path="/parent" element={<ParentPage><ParentDashboard /></ParentPage>} />

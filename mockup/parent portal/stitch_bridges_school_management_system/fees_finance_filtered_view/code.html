@@ -1,0 +1,269 @@
+<!DOCTYPE html><html lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Fees &amp; Finance - Parent Portal</title>
+<!-- BEGIN: Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- END: Tailwind CSS CDN -->
+<!-- BEGIN: Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'academy-navy': '#1a237e',
+            'academy-light-blue': '#f0f4f8',
+            'academy-accent': '#3f51b5',
+          }
+        }
+      }
+    }
+  </script>
+<!-- END: Tailwind Configuration -->
+<!-- BEGIN: Custom Styles -->
+<style data-purpose="layout-and-typography">
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: #f8fafc;
+      color: #334155;
+    }
+    .sidebar-active {
+      background-color: #0d124a;
+      border-left: 4px solid #fff;
+    }
+  </style>
+<!-- END: Custom Styles -->
+</head>
+<body class="flex min-h-screen">
+<!-- BEGIN: Sidebar Navigation -->
+<aside class="w-64 bg-academy-navy text-white flex flex-col shrink-0" data-purpose="main-sidebar">
+<div class="p-6 border-b border-white/10">
+<h1 class="text-xl font-bold tracking-tight">Bridges Academy</h1>
+<p class="text-xs text-blue-200">Parent Portal</p>
+</div>
+<nav class="flex-1 mt-6 px-3 space-y-1">
+<a class="flex items-center px-3 py-3 text-sm font-medium rounded-md hover:bg-white/10" href="#">
+<svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+        Dashboard
+      </a>
+<a class="flex items-center px-3 py-3 text-sm font-medium rounded-md hover:bg-white/10" href="#">
+<svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+        Academic Progress
+      </a>
+<a class="flex items-center px-3 py-3 text-sm font-medium rounded-md hover:bg-white/10" href="#">
+<svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+        Attendance
+      </a>
+<a class="flex items-center px-3 py-3 text-sm font-medium sidebar-active" href="#">
+<svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+        Fees &amp; Finance
+      </a>
+<a class="flex items-center px-3 py-3 text-sm font-medium rounded-md hover:bg-white/10" href="#">
+<svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+        Communication
+      </a>
+</nav>
+<div class="p-6 mt-auto border-t border-white/10 space-y-4">
+<a class="flex items-center text-sm text-blue-200 hover:text-white" href="#">
+<svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+        Help Center
+      </a>
+<a class="flex items-center text-sm text-blue-200 hover:text-white" href="#">
+<svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+        Logout
+      </a>
+</div>
+</aside>
+<!-- END: Sidebar Navigation -->
+<!-- BEGIN: Main Content Area -->
+<main class="flex-1 flex flex-col overflow-y-auto">
+<!-- BEGIN: Top Navigation Header -->
+<header class="h-16 bg-white border-b flex items-center justify-between px-8" data-purpose="top-header">
+<h2 class="text-xl font-semibold text-academy-navy">Fees &amp; Finance</h2>
+<div class="flex items-center space-x-6">
+<button class="text-slate-400 hover:text-slate-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button>
+<button class="text-slate-400 hover:text-slate-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button>
+<div class="flex items-center">
+<img alt="User Profile" class="w-8 h-8 rounded-full bg-gray-200" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdnxEwraWXjM_5sMxQszQxFuEBD1CLnjCwbWKuuVxKjXh4AfSfev7NM6fpBqr75j9ZQcEj5N5iZBhP68Zx1Fv9qAN_6O_TljPqQwkb44U1iutMxZfvTy7BVVQAC0lZK7tmcoU5I1eWNLbofj8ESgngW9VSTAJ5gLMlHi2OQE-IJkSxIpW4gWMizLcmnClpi_5dLZ_ebAXlA-FjIXlCgvakhEgip4wiG5KssiohhtmldF94isbhC8x6of5sML6dQ6ffx4i1za3yOig">
+</div>
+</div>
+</header>
+<!-- END: Top Navigation Header -->
+<div class="p-8 space-y-8 max-w-7xl mx-auto w-full">
+<!-- BEGIN: Overview Section -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-8" data-purpose="overview-cards">
+<!-- Current Outstanding Balance -->
+<div class="lg:col-span-1 bg-academy-navy rounded-xl p-8 text-white flex flex-col justify-between shadow-lg h-full">
+<div>
+<h3 class="text-xs font-bold uppercase tracking-widest opacity-80 mb-4">Current Outstanding Balance</h3>
+<p class="text-4xl font-bold mb-2">₱42,500.00</p>
+<p class="text-sm opacity-80">Due by October 15, 2023</p>
+</div>
+<button class="mt-8 w-full bg-white text-academy-navy py-4 rounded-lg font-bold hover:bg-blue-50 transition-colors shadow-md">Pay Now</button>
+<button class="mt-4 w-full border border-white/20 text-white py-4 rounded-lg font-bold hover:bg-white/10 transition-colors flex items-center justify-center gap-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>Download SOA</button></div>
+<!-- Bill Breakdown Card -->
+<div class="lg:col-span-2 bg-white border border-slate-200 rounded-xl p-8 shadow-sm flex flex-col">
+<div class="flex justify-between items-start mb-6">
+<h3 class="text-lg font-bold text-academy-navy">Bill Breakdown</h3>
+<span class="bg-red-50 text-red-600 px-3 py-1 rounded text-xs font-bold border border-red-100">SY Balance: ₱55,000.00</span>
+<div class="flex items-center gap-4"><div class="inline-flex rounded-lg border border-slate-200 p-1 bg-slate-50" data-purpose="timeframe-toggle"><button class="px-4 py-1.5 text-xs font-bold rounded-md transition-all bg-academy-navy text-white shadow-sm">Monthly</button><button class="px-4 py-1.5 text-xs font-bold rounded-md transition-all text-slate-500 hover:text-academy-navy">Quarterly</button><button class="px-4 py-1.5 text-xs font-bold rounded-md transition-all text-slate-500 hover:text-academy-navy">Yearly</button></div></div></div>
+<div class="grid grid-cols-3 gap-4 mb-8">
+<div class="border border-slate-200 rounded-lg p-4">
+<p class="text-[10px] text-slate-400 uppercase font-bold mb-1">registration fee</p>
+<p class="text-lg font-bold text-academy-navy">₱25,000/ ₱35,000.00</p>
+</div>
+<div class="border border-slate-200 rounded-lg p-4">
+<p class="text-[10px] text-slate-400 uppercase font-bold mb-1">Miscellaneous fee</p>
+<p class="text-lg font-bold text-academy-navy">₱4,500.00</p>
+</div>
+<div class="border border-slate-200 rounded-lg p-4">
+<p class="text-[10px] text-slate-400 uppercase font-bold mb-1">Tuition fee</p>
+<p class="text-lg font-bold text-academy-navy">₱3,000.00</p>
+</div>
+</div>
+<div class="bg-blue-50 border-l-4 border-academy-navy p-4 flex items-start">
+<svg class="w-5 h-5 text-academy-navy mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<p class="text-sm text-slate-600">The balance includes a carry-over from the previous term activities. Early bird discounts have been applied.</p>
+</div>
+</div>
+</section>
+<!-- END: Overview Section -->
+<!-- BEGIN: Transaction History Section -->
+<section class="bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden" data-purpose="transaction-history">
+<div class="p-6 border-b flex flex-col md:flex-row md:items-center justify-between gap-4">
+<h3 class="text-lg font-bold text-academy-navy">Transaction History</h3>
+<div class="flex flex-wrap items-center gap-4">
+<!-- Segmented Control Filter -->
+
+<!-- Action Buttons -->
+<div class="flex items-center gap-2">
+<button class="flex items-center px-4 py-2 text-sm border border-slate-200 rounded-lg text-slate-600 hover:bg-slate-50">
+<svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                Filter
+              </button>
+<button class="flex items-center px-4 py-2 text-sm bg-academy-navy text-white rounded-lg hover:bg-opacity-90">
+<svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                Export CSV
+              </button>
+</div>
+</div>
+</div>
+<!-- Transaction Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left" id="transaction-table">
+<thead>
+<tr class="bg-slate-50 border-b border-slate-100 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+<th class="px-6 py-4">Date</th>
+<th class="px-6 py-4">Description</th>
+<th class="px-6 py-4">Ref ID</th>
+<th class="px-6 py-4">Status</th>
+<th class="px-6 py-4">Amount</th>
+<th class="px-6 py-4 text-center">Invoice</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100">
+<tr class="hover:bg-slate-50/50">
+<td class="px-6 py-5 text-sm text-slate-600">Sep 24, 2023</td>
+<td class="px-6 py-5 text-sm font-medium text-academy-navy">Term 2 Tuition Fee</td>
+<td class="px-6 py-5 text-xs text-slate-400 font-mono">INV-2023-0042</td>
+<td class="px-6 py-5"><span class="bg-slate-100 text-slate-500 px-2.5 py-1 rounded text-xs">Pending</span></td>
+<td class="px-6 py-5 text-sm font-bold text-academy-navy">₱35,000.00</td>
+<td class="px-6 py-5 text-center">
+<button class="text-academy-navy hover:text-academy-accent"><svg class="w-5 h-5 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50">
+<td class="px-6 py-5 text-sm text-slate-600">Aug 12, 2023</td>
+<td class="px-6 py-5 text-sm font-medium text-academy-navy">Annual Science Journal Subscription</td>
+<td class="px-6 py-5 text-xs text-slate-400 font-mono">INV-2023-0015</td>
+<td class="px-6 py-5"><span class="bg-green-100 text-green-700 px-2.5 py-1 rounded text-xs font-medium">Paid</span></td>
+<td class="px-6 py-5 text-sm font-bold text-academy-navy">₱1,200.00</td>
+<td class="px-6 py-5 text-center">
+<button class="text-academy-navy hover:text-academy-accent"><svg class="w-5 h-5 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50">
+<td class="px-6 py-5 text-sm text-slate-600">Aug 05, 2023</td>
+<td class="px-6 py-5 text-sm font-medium text-academy-navy">School Bus Transport - Quarter 3</td>
+<td class="px-6 py-5 text-xs text-slate-400 font-mono">INV-2023-0009</td>
+<td class="px-6 py-5"><span class="bg-green-100 text-green-700 px-2.5 py-1 rounded text-xs font-medium">Paid</span></td>
+<td class="px-6 py-5 text-sm font-bold text-academy-navy">₱7,500.00</td>
+<td class="px-6 py-5 text-center">
+<button class="text-academy-navy hover:text-academy-accent"><svg class="w-5 h-5 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Pagination -->
+<div class="px-6 py-4 bg-slate-50 border-t flex items-center justify-between">
+<span class="text-xs text-slate-500">Showing 3 of 12 records</span>
+<div class="flex items-center gap-2">
+<button class="p-1 border rounded hover:bg-white text-slate-400 disabled:opacity-50" disabled="">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<button class="p-1 border rounded hover:bg-white text-slate-600">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+</section>
+<!-- END: Transaction History Section -->
+<!-- BEGIN: Footer Actions Grid -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-8 pb-12" data-purpose="footer-info">
+<!-- Payment Methods -->
+<div class="lg:col-span-2 bg-white border border-slate-200 rounded-xl p-8 shadow-sm">
+<h3 class="text-lg font-bold text-academy-navy mb-6">Payment Methods</h3>
+<div class="flex flex-col md:flex-row gap-6">
+<!-- Card 1 -->
+<div class="flex-1 border-2 border-academy-navy rounded-xl p-5 relative bg-blue-50/30">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-white rounded-lg shadow-sm border border-slate-100">
+<svg class="w-8 h-8 text-academy-navy" fill="currentColor" viewBox="0 0 24 24"><path d="M21 4H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H3V6h18v12zm-9-7c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path></svg>
+</div>
+<svg class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path></svg>
+</div>
+<div>
+<p class="font-bold text-academy-navy">Visa Ending in 4242</p>
+<p class="text-xs text-slate-500 mt-1">Default Method • Exp 12/25</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="flex-1 border border-slate-200 rounded-xl p-5 hover:border-academy-navy transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-slate-50 rounded-lg group-hover:bg-white transition-colors">
+<svg class="w-8 h-8 text-slate-400 group-hover:text-academy-navy" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V10h16v8zm0-12H4V6h16v2z"></path></svg>
+</div>
+</div>
+<div>
+<p class="font-bold text-slate-600 group-hover:text-academy-navy">Attached File Here</p>
+<p class="text-xs text-slate-400 mt-1">Use Screenshot or download (jpg, png, pdf)</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Actions -->
+<div class="lg:col-span-1 bg-white border border-slate-200 rounded-xl p-8 shadow-sm">
+<h3 class="text-lg font-bold text-academy-navy mb-6">Quick Actions</h3>
+<div class="space-y-3">
+<button class="w-full flex items-center justify-start px-4 py-3 border border-slate-200 rounded-lg text-sm text-slate-600 hover:bg-slate-50 font-medium">
+<svg class="w-5 h-5 mr-3 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+              Statement of Account
+            </button>
+<button class="w-full flex items-center justify-start px-4 py-3 border border-slate-200 rounded-lg text-sm text-slate-600 hover:bg-slate-50 font-medium">
+<svg class="w-5 h-5 mr-3 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+              Payment Schedule
+            </button>
+
+</div>
+</div>
+</section>
+<!-- END: Footer Actions Grid -->
+</div>
+</main>
+<!-- END: Main Content Area -->
+
+
+
+
+</body></html>

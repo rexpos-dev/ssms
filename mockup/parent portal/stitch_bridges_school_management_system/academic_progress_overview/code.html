@@ -1,0 +1,391 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Academic Progress | Bridges Academy Parent Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#9597a2",
+                        "secondary-fixed": "#cde6f4",
+                        "background": "#f4faff",
+                        "surface-tint": "#4c56af",
+                        "surface-container-highest": "#d7e4ec",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#e9f6fd",
+                        "surface": "#f4faff",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#181b23",
+                        "primary": "#000666",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#c4c6d2",
+                        "on-secondary-container": "#506873",
+                        "on-background": "#111d23",
+                        "tertiary-container": "#2c3039",
+                        "outline-variant": "#c6c5d4",
+                        "on-primary-container": "#8690ee",
+                        "on-secondary-fixed": "#051e28",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed": "#181b24",
+                        "surface-bright": "#f4faff",
+                        "primary-container": "#1a237e",
+                        "surface-variant": "#d7e4ec",
+                        "primary-fixed-dim": "#bdc2ff",
+                        "on-tertiary-fixed-variant": "#434750",
+                        "primary-fixed": "#e0e0ff",
+                        "surface-dim": "#cfdce4",
+                        "surface-container": "#e3f0f8",
+                        "on-surface": "#111d23",
+                        "tertiary-fixed": "#e0e2ee",
+                        "secondary-container": "#cde6f4",
+                        "inverse-on-surface": "#e6f3fb",
+                        "secondary-fixed-dim": "#b1cad7",
+                        "outline": "#767683",
+                        "inverse-primary": "#bdc2ff",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#000767",
+                        "secondary": "#4a626d",
+                        "on-surface-variant": "#454652",
+                        "surface-container-high": "#ddeaf2",
+                        "inverse-surface": "#263238",
+                        "on-secondary-fixed-variant": "#334a55",
+                        "on-primary-fixed-variant": "#343d96",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "2px",
+                        "lg": "4px",
+                        "xl": "8px",
+                        "full": "12px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "margin-mobile": "16px",
+                        "xxl": "48px",
+                        "xs": "4px",
+                        "margin-desktop": "48px",
+                        "xl": "32px",
+                        "md": "16px",
+                        "gutter": "24px",
+                        "max-width": "1440px",
+                        "lg": "24px",
+                        "sm": "8px"
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen">
+<!-- Sidebar Navigation -->
+<aside class="fixed left-0 top-0 h-full w-[260px] bg-surface-container-low border-r border-outline-variant flex flex-col p-md gap-sm z-50">
+<div class="flex flex-col gap-xs mb-xl">
+<h1 class="font-headline-sm text-headline-sm font-black text-primary">Bridges Academy</h1>
+<p class="font-label-md text-label-md text-secondary">Parent Portal</p>
+</div>
+<nav class="flex flex-col gap-sm flex-grow">
+<a class="flex items-center gap-md px-md py-sm text-secondary font-label-md text-label-md hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span> Dashboard
+            </a>
+<a class="flex items-center gap-md px-md py-sm bg-primary text-on-primary font-label-md text-label-md rounded-lg active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">school</span> Academic Progress
+            </a>
+<a class="flex items-center gap-md px-md py-sm text-secondary font-label-md text-label-md hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">event_available</span> Attendance
+            </a>
+<a class="flex items-center gap-md px-md py-sm text-secondary font-label-md text-label-md hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">payments</span> Fees &amp; Finance
+            </a>
+<a class="flex items-center gap-md px-md py-sm text-secondary font-label-md text-label-md hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">chat</span> Communication
+            </a>
+</nav>
+<div class="flex flex-col gap-sm border-t border-outline-variant pt-md">
+<a class="flex items-center gap-md px-md py-sm text-secondary font-label-md text-label-md hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">help</span> Help Center
+            </a>
+<a class="flex items-center gap-md px-md py-sm text-secondary font-label-md text-label-md hover:bg-surface-container-high transition-all rounded-lg text-error" href="#">
+<span class="material-symbols-outlined">logout</span> Logout
+            </a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-[260px] min-h-screen">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-40 bg-surface border-b border-outline-variant flex justify-between items-center w-full px-margin-desktop py-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-primary-fixed flex items-center justify-center">
+<img alt="Marcus Chen Profile" class="w-full h-full object-cover" data-alt="A professional studio portrait of a young male student named Marcus Chen wearing a navy school blazer with a gold crest. He has a friendly, confident expression against a soft-focus library background. The lighting is bright and clean, emphasizing a prestigious academic environment with high-end corporate photography aesthetics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRDK2Yn3NThK1bMmv3XDHLixzBTwFnxFaBodUkWDhMXRSaU8OJf1DJNNf2q-GOzyjTB3NTApEpPUF0oaRlvl5WynlVoIg1gI6nMoz5Q-GwOJuyEU23N6GX4B2BNUGRoZ-a0t_12ljdSgek-fcq1Mcud6nyy-a6Jxh6O-yf_rcn71WcEbHCCR8azVpU7f1IEZWz_gHeWlRfO1ACy9FtvHkW4Mzp8eG8K8WzBMu3CcJhE0RKXzneynqNmjihqgBonqj44N2KXbLdABs">
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary">Marcus Chen</h2>
+<p class="font-label-sm text-label-sm text-secondary">Grade 11 • Section B</p>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<button class="flex items-center gap-sm px-lg py-sm bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:opacity-90 active:scale-95 transition-all">
+<span class="material-symbols-outlined">download</span> Download Report
+                </button>
+<div class="flex items-center gap-md text-secondary">
+<span class="material-symbols-outlined cursor-pointer hover:bg-surface-container-low p-xs rounded-full">notifications</span>
+<span class="material-symbols-outlined cursor-pointer hover:bg-surface-container-low p-xs rounded-full">settings</span>
+<div class="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed text-xs font-bold">PC</div>
+</div>
+</div>
+</header>
+<!-- Canvas -->
+<div class="p-margin-desktop">
+<div class="bento-grid">
+<!-- Summary Stats (Top Row) -->
+<div class="col-span-3 bg-surface-container-lowest border border-outline-variant rounded-xl p-xl flex flex-col justify-between h-[160px]">
+<div class="flex justify-between items-start">
+<span class="text-secondary font-label-md text-label-md uppercase tracking-wider">Overall GPA</span>
+<span class="material-symbols-outlined text-primary">trending_up</span>
+</div>
+<div>
+<div class="font-headline-lg text-headline-lg text-primary">3.88</div>
+<p class="text-label-sm text-on-secondary-container">+0.12 from last term</p>
+</div>
+</div>
+<div class="col-span-3 bg-surface-container-lowest border border-outline-variant rounded-xl p-xl flex flex-col justify-between h-[160px]">
+<div class="flex justify-between items-start">
+<span class="text-secondary font-label-md text-label-md uppercase tracking-wider">Rank</span>
+<span class="material-symbols-outlined text-primary">military_tech</span>
+</div>
+<div>
+<div class="font-headline-lg text-headline-lg text-primary">12 / 180</div>
+<p class="text-label-sm text-secondary">Top 7% of Class</p>
+</div>
+</div>
+<div class="col-span-6 bg-primary-container text-on-primary rounded-xl p-xl relative overflow-hidden h-[160px]">
+<div class="relative z-10">
+<h3 class="font-headline-sm text-headline-sm text-on-primary-container mb-xs">Next Major Exam</h3>
+<p class="font-body-lg text-body-lg text-white font-bold">Advanced Physics Lab</p>
+<p class="font-label-md text-label-md opacity-80 mt-sm">Tuesday, Oct 24 • 09:00 AM</p>
+</div>
+<div class="absolute right-[-20px] bottom-[-20px] opacity-10">
+<span class="material-symbols-outlined text-[140px]" style="font-variation-settings: &quot;FILL&quot; 1;">science</span>
+</div>
+</div>
+<!-- GPA Trend Graph Area -->
+<div class="col-span-8 bg-surface-container-lowest border border-outline-variant rounded-xl p-xl">
+<div class="flex justify-between items-center mb-xl">
+<h3 class="font-headline-sm text-headline-sm text-primary">GPA Trend Over Time</h3>
+<div class="flex gap-sm">
+<span class="px-md py-xs bg-surface-container-high rounded-full font-label-sm text-label-sm text-secondary cursor-pointer">Quarterly</span>
+<span class="px-md py-xs bg-primary text-on-primary rounded-full font-label-sm text-label-sm cursor-pointer">Yearly</span>
+</div>
+</div>
+<!-- Mock Graph Representation -->
+<div class="h-[240px] w-full flex items-end gap-lg px-md relative">
+<!-- Grid Lines -->
+<div class="absolute inset-x-0 bottom-0 top-0 flex flex-col justify-between opacity-10 pointer-events-none">
+<div class="border-t border-on-surface"></div>
+<div class="border-t border-on-surface"></div>
+<div class="border-t border-on-surface"></div>
+<div class="border-t border-on-surface"></div>
+</div>
+<div class="flex-grow flex flex-col items-center gap-sm">
+<div class="w-full bg-primary-fixed-dim rounded-t-lg transition-all hover:bg-primary-container h-[60%]"></div>
+<span class="text-label-sm text-secondary">Grade 8</span>
+</div>
+<div class="flex-grow flex flex-col items-center gap-sm">
+<div class="w-full bg-primary-fixed-dim rounded-t-lg transition-all hover:bg-primary-container h-[75%]"></div>
+<span class="text-label-sm text-secondary">Grade 9</span>
+</div>
+<div class="flex-grow flex flex-col items-center gap-sm">
+<div class="w-full bg-primary-fixed-dim rounded-t-lg transition-all hover:bg-primary-container h-[82%]"></div>
+<span class="text-label-sm text-secondary">Grade 10</span>
+</div>
+<div class="flex-grow flex flex-col items-center gap-sm">
+<div class="w-full bg-primary rounded-t-lg transition-all hover:bg-primary-container h-[92%]"></div>
+<span class="text-label-sm text-primary font-bold">Grade 11</span>
+</div>
+</div>
+</div>
+<!-- Teacher Feedback Sidebar -->
+<div class="col-span-4 flex flex-col gap-gutter">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-xl flex-grow">
+<div class="flex justify-between items-center mb-lg">
+<h3 class="font-headline-sm text-headline-sm text-primary">Recent Feedback</h3>
+<span class="text-primary text-label-sm font-bold cursor-pointer hover:underline">View All</span>
+</div>
+<div class="flex flex-col gap-lg">
+<!-- Feedback Item -->
+<div class="flex gap-md border-b border-surface-container-high pb-md last:border-0 last:pb-0">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary-fixed-variant">person</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary">Mathematics (Calculus)</p>
+<p class="font-body-sm text-body-sm text-secondary mt-xs italic">"Marcus shows great aptitude for derivative analysis. His homework consistency is commendable."</p>
+<p class="text-[11px] uppercase tracking-tighter text-outline mt-sm font-bold">— Dr. Aris Thorne</p>
+</div>
+<div class="flex justify-end mt-xs"><span class="material-symbols-outlined text-primary cursor-pointer hover:bg-surface-container-high p-xs rounded-full text-[18px]">chat_bubble</span></div></div>
+<!-- Feedback Item 2 -->
+<div class="flex gap-md border-b border-surface-container-high pb-md last:border-0 last:pb-0">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-fixed-variant">person</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary">English Literature</p>
+<p class="font-body-sm text-body-sm text-secondary mt-xs italic">"Excellent essay on 'The Great Gatsby'. Depth of analysis has significantly improved this term."</p>
+<p class="text-[11px] uppercase tracking-tighter text-outline mt-sm font-bold">— Mrs. Elena Vance</p>
+</div>
+<div class="flex justify-end mt-xs"><span class="material-symbols-outlined text-primary cursor-pointer hover:bg-surface-container-high p-xs rounded-full text-[18px]">chat_bubble</span></div></div>
+</div>
+</div>
+</div>
+<!-- Subject Breakdown Table -->
+<div class="col-span-12 bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden">
+<div class="px-xl py-lg border-b border-outline-variant flex justify-between items-center">
+<h3 class="font-headline-sm text-headline-sm text-primary">Current Term Grades</h3>
+<div class="flex gap-md">
+<select class="bg-surface border border-outline rounded-lg text-label-md px-md py-xs focus:ring-1 focus:ring-primary outline-none">
+<option>Fall Term 2023</option>
+<option>Spring Term 2023</option>
+</select>
+</div>
+</div>
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low">
+<tr>
+<th class="px-xl py-md font-label-sm text-label-sm uppercase tracking-widest text-secondary">Subject</th>
+<th class="px-xl py-md font-label-sm text-label-sm uppercase tracking-widest text-secondary">Class Avg</th>
+<th class="px-xl py-md font-label-sm text-label-sm uppercase tracking-widest text-secondary">Assessment</th>
+<th class="px-xl py-md font-label-sm text-label-sm uppercase tracking-widest text-secondary">Final Grade</th>
+<th class="px-xl py-md font-label-sm text-label-sm uppercase tracking-widest text-secondary">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high">
+<tr class="hover:bg-tertiary-fixed transition-colors">
+<td class="px-xl py-lg">
+<div class="flex items-center gap-md">
+<div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[18px]">functions</span>
+</div>
+<span class="font-body-md text-body-md text-primary font-semibold">Mathematics (Calculus)</span>
+</div>
+</td>
+<td class="px-xl py-lg text-secondary">82%</td>
+<td class="px-xl py-lg">
+<div class="w-32 h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 94%"></div>
+</div>
+</td>
+<td class="px-xl py-lg font-headline-sm text-headline-sm text-primary">A</td>
+<td class="px-xl py-lg">
+<span class="px-md py-xs rounded bg-[#E8F5E9] text-[#2E7D32] font-label-sm text-label-sm">Distinction</span>
+</td>
+</tr>
+<tr class="hover:bg-tertiary-fixed transition-colors bg-tertiary/5">
+<td class="px-xl py-lg">
+<div class="flex items-center gap-md">
+<div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[18px]">science</span>
+</div>
+<span class="font-body-md text-body-md text-primary font-semibold">Physics (Advanced)</span>
+</div>
+</td>
+<td class="px-xl py-lg text-secondary">78%</td>
+<td class="px-xl py-lg">
+<div class="w-32 h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 88%"></div>
+</div>
+</td>
+<td class="px-xl py-lg font-headline-sm text-headline-sm text-primary">A-</td>
+<td class="px-xl py-lg">
+<span class="px-md py-xs rounded bg-[#E8F5E9] text-[#2E7D32] font-label-sm text-label-sm">Honors</span>
+</td>
+</tr>
+<tr class="hover:bg-tertiary-fixed transition-colors">
+<td class="px-xl py-lg">
+<div class="flex items-center gap-md">
+<div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[18px]">menu_book</span>
+</div>
+<span class="font-body-md text-body-md text-primary font-semibold">English Literature</span>
+</div>
+</td>
+<td class="px-xl py-lg text-secondary">85%</td>
+<td class="px-xl py-lg">
+<div class="w-32 h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 92%"></div>
+</div>
+</td>
+<td class="px-xl py-lg font-headline-sm text-headline-sm text-primary">A</td>
+<td class="px-xl py-lg">
+<span class="px-md py-xs rounded bg-[#E8F5E9] text-[#2E7D32] font-label-sm text-label-sm">Distinction</span>
+</td>
+</tr>
+<tr class="hover:bg-tertiary-fixed transition-colors bg-tertiary/5">
+<td class="px-xl py-lg">
+<div class="flex items-center gap-md">
+<div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[18px]">history_edu</span>
+</div>
+<span class="font-body-md text-body-md text-primary font-semibold">Modern World History</span>
+</div>
+</td>
+<td class="px-xl py-lg text-secondary">75%</td>
+<td class="px-xl py-lg">
+<div class="w-32 h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 82%"></div>
+</div>
+</td>
+<td class="px-xl py-lg font-headline-sm text-headline-sm text-primary">B+</td>
+<td class="px-xl py-lg">
+<span class="px-md py-xs rounded bg-surface-container-high text-secondary font-label-sm text-label-sm">Consistent</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action for Quick Access (Suppressed per rule on sub-pages but demonstrating placement if needed) -->
+<!-- Suppressed: We are on a Details/Transactional Academic sub-page -->
+<script>
+        // Micro-interaction for bar chart hover
+        const bars = document.querySelectorAll('.w-full.bg-primary-fixed-dim, .w-full.bg-primary');
+        bars.forEach(bar => {
+            bar.addEventListener('mouseenter', () => {
+                bar.style.filter = 'brightness(1.1)';
+            });
+            bar.addEventListener('mouseleave', () => {
+                bar.style.filter = 'brightness(1)';
+            });
+        });
+
+        // Simulating interactive tab mapping
+        document.querySelectorAll('nav a').forEach(link => {
+            if(link.innerText.includes('Academic Progress')) {
+                // Already styled as active via server-side logic/classes
+            }
+        });
+    </script>
+
+
+</body></html>

@@ -1,11 +1,13 @@
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, BookOpen, ClipboardList, Users } from 'lucide-react';
+import { LayoutDashboard, BookOpen, ClipboardList, MessageSquare, Users2 } from 'lucide-react';
 
 export const StudentSidebar = ({ open }) => {
   const navItems = [
     { label: 'Dashboard', href: '/student', icon: LayoutDashboard, end: true },
+    { label: 'My Subjects', href: '/student/subjects', icon: BookOpen },
     { label: 'My Grades', href: '/student/grades', icon: ClipboardList },
-    { label: 'My Classes', href: '/student/classes', icon: BookOpen },
+    { label: 'Communication', href: '/student/communication', icon: MessageSquare },
+    { label: 'School Life', href: '/student/school-life', icon: Users2 },
   ];
 
   return (

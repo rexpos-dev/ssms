@@ -1,0 +1,486 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>School Life | Bridges Academy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-surface": "#263238",
+                    "outline": "#767683",
+                    "surface-tint": "#4c56af",
+                    "surface-container-low": "#e9f6fd",
+                    "primary-fixed-dim": "#bdc2ff",
+                    "on-secondary-container": "#506873",
+                    "on-error": "#ffffff",
+                    "secondary-fixed": "#cde6f4",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-container": "#2c3039",
+                    "secondary": "#4a626d",
+                    "tertiary": "#181b23",
+                    "on-tertiary-fixed-variant": "#434750",
+                    "secondary-fixed-dim": "#b1cad7",
+                    "on-surface": "#111d23",
+                    "on-secondary-fixed-variant": "#334a55",
+                    "on-primary-fixed-variant": "#343d96",
+                    "on-surface-variant": "#454652",
+                    "surface": "#f4faff",
+                    "primary": "#000666",
+                    "surface-bright": "#f4faff",
+                    "on-tertiary-container": "#9597a2",
+                    "on-primary-fixed": "#000767",
+                    "tertiary-fixed-dim": "#c4c6d2",
+                    "surface-container-high": "#ddeaf2",
+                    "on-error-container": "#93000a",
+                    "background": "#f4faff",
+                    "surface-container": "#e3f0f8",
+                    "on-background": "#111d23",
+                    "surface-variant": "#d7e4ec",
+                    "outline-variant": "#c6c5d4",
+                    "on-secondary-fixed": "#051e28",
+                    "error-container": "#ffdad6",
+                    "surface-container-highest": "#d7e4ec",
+                    "inverse-primary": "#bdc2ff",
+                    "primary-fixed": "#e0e0ff",
+                    "on-primary-container": "#8690ee",
+                    "primary-container": "#1a237e",
+                    "tertiary-fixed": "#e0e2ee",
+                    "secondary-container": "#cde6f4",
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "surface-dim": "#cfdce4",
+                    "on-tertiary-fixed": "#181b24",
+                    "inverse-on-surface": "#e6f3fb"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "xl": "32px",
+                    "lg": "24px",
+                    "gutter": "24px",
+                    "margin-desktop": "48px",
+                    "max-width": "1440px",
+                    "xs": "4px",
+                    "margin-mobile": "16px",
+                    "sm": "8px",
+                    "md": "16px",
+                    "unit": "4px",
+                    "xxl": "48px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-xl": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen overflow-x-hidden">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full w-[260px] z-50 bg-surface-container-low dark:bg-tertiary-container border-r border-outline-variant dark:border-outline shadow-sm dark:shadow-none hidden md:flex flex-col">
+<div class="flex flex-col gap-sm p-md h-full">
+<div class="flex items-center gap-md px-sm py-md">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="school">school</span>
+</div>
+<div>
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed-dim leading-none">Bridges Academy</h1>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Student Portal</p>
+</div>
+</div>
+<nav class="mt-xl space-y-xs">
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-variant transition-colors rounded-lg active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-variant transition-colors rounded-lg active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-label-md text-label-md">My Schedule</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-variant transition-colors rounded-lg active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="font-label-md text-label-md">Subjects</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-variant transition-colors rounded-lg active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="grade">grade</span>
+<span class="font-label-md text-label-md">Grades</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-variant transition-colors rounded-lg active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span class="font-label-md text-label-md">Assignments</span>
+</a>
+<!-- Active Tab: School Life -->
+<a class="flex items-center gap-md px-md py-sm bg-secondary-container dark:bg-primary-container text-on-secondary-container dark:text-on-primary-container font-bold rounded-lg active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span class="font-label-md text-label-md">School Life</span>
+</a>
+</nav>
+<div class="mt-auto p-sm bg-surface-container rounded-xl border border-outline-variant/30">
+<div class="flex items-center gap-sm">
+<img alt="Student avatar" class="w-10 h-10 rounded-full object-cover border border-primary/10" data-alt="A professional headshot of a diverse male college student with a friendly expression. He is wearing a dark academic blazer. The background is a soft-focus library environment with warm, low-key lighting that emphasizes a focused, intellectual atmosphere. The overall style is clean, modern, and corporate-academic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgBcAx8W_vEtpG1SruuMmFr-FYYdOJ4mihWe7oL5Py3YGnu2prBaxKR6PcmX4NBiFoibSbMVTRR-cMU32FEUzOrdfD1voTSTt0q9T7NjR8625EGCRT-cHeo8R6DU4K5Gq8mQIBI0P6hOgsr8bDIUi1uBq1Hq28qnaPVZhEkZlIIUO2fnZzxoNl2MIzWFvWMWLm3iPaBKJBgt4bmZnQGEgEiKqgNg1r6JMJrVHs7kCg43RblyaH4sXSfC775kOz1ql7et1c5LAqY0k">
+<div class="overflow-hidden">
+<p class="font-label-md text-label-md text-on-surface truncate">Alex Sterling</p>
+<p class="text-xs text-on-surface-variant">Class of 2025</p>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 right-0 z-40 bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline shadow-sm dark:shadow-none w-full ml-0 md:ml-[260px] md:max-w-[calc(1440px-260px)] flex items-center justify-between px-lg py-sm">
+<div class="flex items-center gap-md w-full max-w-md">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-body-md" data-icon="search">search</span>
+<input class="w-full bg-surface-container border border-outline-variant rounded-lg pl-10 pr-4 py-2 text-body-sm focus:outline-none focus:border-primary transition-colors" placeholder="Search school life, clubs, events..." type="text">
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-full relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-full">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="md:ml-[260px] pt-[72px] min-h-screen">
+<div class="p-xl max-w-7xl mx-auto space-y-xl">
+<!-- Hero Announcement Area -->
+<section class="relative overflow-hidden rounded-xl h-[320px] group">
+<img alt="Bridges Academy Campus" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A wide-angle shot of a grand, modern university campus courtyard during the golden hour. The architecture is a mix of classical stone and contemporary glass. Students are seen in the distance walking and talking in small groups. The lighting is warm and authoritative, casting long shadows. The color palette is dominated by deep blues and warm amber tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpCBNTPnHZuvwk9LI6RnW3XKztPHnyHH3bR2wta9p9F9mTD-8F6IjKq9nlg-xaFwShCf6MuWZ_F6L5D15-QfqwUtPk0HV36zq5oRAqRspd1rKtvZwEYXYoGG5Wo6as9VKdRkcQ-PWhpX3DHOd8n6GwUCRL5_5okgL9wEITw3XuZ18IEgTQKxkRT550JTb4_d-sObiUmxavKGZpjg3ND9wTP4INguMprGhzNjVlcuovk455fWN1dCwQYwyQmoutZth3rEchPYNesoo">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-xl w-full max-w-2xl">
+<span class="bg-primary-container text-on-primary-container px-sm py-1 rounded text-label-sm font-bold mb-md inline-block">FEATURED NEWS</span>
+<h2 class="font-headline-xl text-headline-xl text-white mb-sm">Summer Internship Fair: Connecting Bridges Students with Industry Leaders</h2>
+<p class="text-white/80 font-body-lg text-body-lg mb-md">Join over 50 global companies on campus next Thursday to explore career paths and secure your future.</p>
+<button class="bg-white text-primary px-lg py-sm rounded-lg font-bold hover:bg-secondary-container transition-all active:scale-95">Read More</button>
+</div>
+</section>
+<!-- Bento Grid Layout for School Life -->
+<div class="bento-grid">
+<!-- Student Organizations & Clubs (Large Area) -->
+<div class="col-span-12 lg:col-span-8 bg-white border border-outline-variant/30 rounded-xl overflow-hidden shadow-sm">
+<div class="p-lg border-b border-surface-container flex items-center justify-between">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary">Student Organizations</h3>
+<p class="text-body-sm text-on-surface-variant">Find your tribe among our 40+ active student-led clubs.</p>
+</div>
+<button class="text-primary font-bold text-label-md flex items-center gap-xs hover:underline">
+                            View All <span class="material-symbols-outlined text-body-md" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter p-lg">
+<!-- Club Card 1 -->
+<div class="flex items-start gap-md p-md bg-surface-container-low rounded-lg border border-outline-variant/20 hover:border-secondary transition-colors group">
+<div class="w-16 h-16 rounded-xl bg-primary-container flex-shrink-0 flex items-center justify-center text-on-primary-container group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-headline-md" data-icon="gavel">gavel</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between mb-xs">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Debate Club</h4>
+<span class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded text-[10px] font-bold">TOP RATED</span>
+</div>
+<p class="text-body-sm text-on-surface-variant line-clamp-2 mb-md">Master the art of persuasion and critical thinking in competitive weekly sessions.</p>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full border-2 border-white bg-slate-200 flex items-center justify-center text-[10px] font-bold">JS</div>
+<div class="w-6 h-6 rounded-full border-2 border-white bg-blue-200 flex items-center justify-center text-[10px] font-bold">MK</div>
+<div class="w-6 h-6 rounded-full border-2 border-white bg-indigo-100 flex items-center justify-center text-[10px] text-on-surface-variant">+82</div>
+</div>
+<button class="bg-primary text-white px-md py-1 rounded-lg text-label-sm font-bold active:scale-95 transition-transform">Join Club</button>
+</div>
+</div>
+</div>
+<!-- Club Card 2 -->
+<div class="flex items-start gap-md p-md bg-surface-container-low rounded-lg border border-outline-variant/20 hover:border-secondary transition-colors group">
+<div class="w-16 h-16 rounded-xl bg-tertiary-container flex-shrink-0 flex items-center justify-center text-on-tertiary-container group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-headline-md" data-icon="smart_toy">smart_toy</span>
+</div>
+<div class="flex-1">
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Robotics Society</h4>
+<p class="text-body-sm text-on-surface-variant line-clamp-2 mb-md">Building the future, one circuit at a time. Open to all engineering levels.</p>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full border-2 border-white bg-amber-100 flex items-center justify-center text-[10px] font-bold">RL</div>
+<div class="w-6 h-6 rounded-full border-2 border-white bg-emerald-100 flex items-center justify-center text-[10px] font-bold">AH</div>
+<div class="w-6 h-6 rounded-full border-2 border-white bg-indigo-100 flex items-center justify-center text-[10px] text-on-surface-variant">+45</div>
+</div>
+<button class="bg-primary text-white px-md py-1 rounded-lg text-label-sm font-bold active:scale-95 transition-transform">Join Club</button>
+</div>
+</div>
+</div>
+<!-- Club Card 3 -->
+<div class="flex items-start gap-md p-md bg-surface-container-low rounded-lg border border-outline-variant/20 hover:border-secondary transition-colors group">
+<div class="w-16 h-16 rounded-xl bg-secondary-container flex-shrink-0 flex items-center justify-center text-on-secondary-container group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-headline-md" data-icon="theater_comedy">theater_comedy</span>
+</div>
+<div class="flex-1">
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Drama Society</h4>
+<p class="text-body-sm text-on-surface-variant line-clamp-2 mb-md">Expression, performance, and stagecraft. Preparing for the Spring Musical.</p>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full border-2 border-white bg-rose-100 flex items-center justify-center text-[10px] font-bold">CP</div>
+<div class="w-6 h-6 rounded-full border-2 border-white bg-purple-100 flex items-center justify-center text-[10px] font-bold">TW</div>
+<div class="w-6 h-6 rounded-full border-2 border-white bg-indigo-100 flex items-center justify-center text-[10px] text-on-surface-variant">+120</div>
+</div>
+<button class="bg-primary text-white px-md py-1 rounded-lg text-label-sm font-bold active:scale-95 transition-transform">Join Club</button>
+</div>
+</div>
+</div>
+<!-- Club Card 4 -->
+<div class="flex items-start gap-md p-md bg-surface-container-low rounded-lg border border-outline-variant/20 hover:border-secondary transition-colors group">
+<div class="w-16 h-16 rounded-xl bg-outline-variant/20 flex-shrink-0 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-headline-md" data-icon="palette">palette</span>
+</div>
+<div class="flex-1">
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Fine Arts Guild</h4>
+<p class="text-body-sm text-on-surface-variant line-clamp-2 mb-md">A space for visual artists to collaborate and exhibit their work across campus.</p>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full border-2 border-white bg-sky-100 flex items-center justify-center text-[10px] font-bold">NM</div>
+<div class="w-6 h-6 rounded-full border-2 border-white bg-slate-100 flex items-center justify-center text-[10px] font-bold">BR</div>
+<div class="w-6 h-6 rounded-full border-2 border-white bg-indigo-100 flex items-center justify-center text-[10px] text-on-surface-variant">+31</div>
+</div>
+<button class="bg-primary text-white px-md py-1 rounded-lg text-label-sm font-bold active:scale-95 transition-transform">Join Club</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Upcoming Events (Right Side Column) -->
+<div class="col-span-12 lg:col-span-4 space-y-lg">
+<div class="bg-white border border-outline-variant/30 rounded-xl p-lg shadow-sm">
+<div class="flex items-center justify-between mb-lg">
+<h3 class="font-headline-sm text-headline-sm text-primary">Upcoming Events</h3>
+<button class="text-primary"><span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span></button>
+</div>
+<div class="space-y-md">
+<!-- Event Item 1 -->
+<div class="flex gap-md group cursor-pointer">
+<div class="flex flex-col items-center justify-center w-12 h-14 bg-surface-container rounded-lg border border-outline-variant/30 text-primary">
+<span class="text-xs font-bold leading-none">FEB</span>
+<span class="text-xl font-extrabold leading-none">12</span>
+</div>
+<div>
+<h5 class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors">Winter Gala Night</h5>
+<p class="text-[12px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="location_on">location_on</span> Main Auditorium
+                                    </p>
+<p class="text-[12px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="schedule">schedule</span> 19:00 - 23:00
+                                    </p>
+</div>
+</div>
+<hr class="border-surface-container">
+<!-- Event Item 2 -->
+<div class="flex gap-md group cursor-pointer">
+<div class="flex flex-col items-center justify-center w-12 h-14 bg-surface-container rounded-lg border border-outline-variant/30 text-primary">
+<span class="text-xs font-bold leading-none">FEB</span>
+<span class="text-xl font-extrabold leading-none">15</span>
+</div>
+<div>
+<h5 class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors">Inter-House Football Finals</h5>
+<p class="text-[12px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="location_on">location_on</span> Academy Stadium
+                                    </p>
+<p class="text-[12px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="schedule">schedule</span> 15:30 - 18:00
+                                    </p>
+</div>
+</div>
+<hr class="border-surface-container">
+<!-- Event Item 3 -->
+<div class="flex gap-md group cursor-pointer">
+<div class="flex flex-col items-center justify-center w-12 h-14 bg-surface-container rounded-lg border border-outline-variant/30 text-primary">
+<span class="text-xs font-bold leading-none">FEB</span>
+<span class="text-xl font-extrabold leading-none">20</span>
+</div>
+<div>
+<h5 class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors">Guest Lecture: AI in Ethics</h5>
+<p class="text-[12px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="location_on">location_on</span> Hall 4B, Science Wing
+                                    </p>
+<p class="text-[12px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="schedule">schedule</span> 10:00 - 12:00
+                                    </p>
+</div>
+</div>
+</div>
+<button class="w-full mt-xl border border-primary text-primary py-sm rounded-lg font-bold text-label-md hover:bg-primary/5 transition-colors">RSVP for Events</button>
+</div>
+<!-- Forum Highlights -->
+<div class="bg-primary-container text-on-primary-container rounded-xl p-lg shadow-md">
+<div class="flex items-center gap-md mb-md">
+<span class="material-symbols-outlined" data-icon="forum">forum</span>
+<h3 class="font-label-md text-label-md font-bold uppercase tracking-widest">Trending Discussion</h3>
+</div>
+<p class="font-headline-sm text-headline-sm mb-md">"How can we make campus more sustainable for 2025?"</p>
+<div class="flex items-center justify-between">
+<span class="text-xs opacity-70">128 replies • 450 likes</span>
+<button class="bg-white/20 hover:bg-white/30 p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Campus News & Community Highlights (Bottom Rows) -->
+<div class="col-span-12 lg:col-span-6 bg-white border border-outline-variant/30 rounded-xl overflow-hidden shadow-sm flex flex-col">
+<div class="p-lg border-b border-surface-container">
+<h3 class="font-headline-md text-headline-md text-primary">Campus News Feed</h3>
+</div>
+<div class="flex-1 overflow-y-auto p-lg space-y-lg max-h-[500px]">
+<!-- News Item -->
+<div class="flex gap-lg items-start">
+<img alt="Graduation News" class="w-24 h-24 rounded-lg object-cover" data-alt="A close-up shot of a graduation cap resting on a stack of classical leather-bound books. The lighting is bright and scholarly, coming from a large unseen window. The color palette features deep blues, earthy browns, and crisp whites. The aesthetic is institutional, celebrating academic achievement and tradition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFyZBm_Qh_Ovt0W6KwAN6Vb-L-9jysGpWY1U9KLVZCIk4Q_yXfvtI_SM_EDMxTTHaymRuAaHjEV2rfqwra0zU0i4yd2j7i-ZcB0xZX_7XqT4aFZUgKhgitCI4UGK-y5TwFevXHV5r2uV3hy1NMoBIj40gN3TPzwSP_MyJrklXAseMdsassNKol3ndP_8hKvVfU5Je6RppmBiCk-Si7FFFQOnWI2xh30HXYlrxBAQHZa7FF6kDBiWjg_CzEwIzVTbQRe5kmtLeM9VE">
+<div>
+<span class="text-[10px] font-bold text-secondary-container bg-primary px-2 py-0.5 rounded-full uppercase">ACADEMIC</span>
+<h4 class="font-label-md text-label-md mt-1 mb-2 hover:text-primary cursor-pointer transition-colors">New Scholarship Opportunities Announced for 2024-25 Term</h4>
+<p class="text-body-sm text-on-surface-variant line-clamp-2">The Bridges Foundation has increased its endowment, offering 15 additional merit-based scholarships for under-represented fields.</p>
+<span class="text-xs text-on-surface-variant mt-2 block">2 hours ago • By Admin</span>
+</div>
+</div>
+<hr class="border-surface-container">
+<!-- News Item -->
+<div class="flex gap-lg items-start">
+<img alt="Cafe News" class="w-24 h-24 rounded-lg object-cover" data-alt="A modern, high-end university cafeteria interior with clean minimalist lines and natural wood accents. Soft ambient lighting creates a welcoming, calm environment. Students are seen in the distance, out of focus. The scene is dominated by a color palette of light grays, warm wood, and institutional blue accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPi-re4EKLjiem3DM_xRL9OvDqU2hMGqT2uPB_3pSTWvGnXgo771N6Y4BfpTgnSffJNaNahRm3j1VI8mstBwjg-YcVRC1YFeg7z4Yp4GBdMgg9pedORFLd5KcCcdK0bDq-Nrm1Q9GVzml-akzlLTg_2h58KX9DZzL_imYh7i_l8zab0CoNi1Utl_WItacNyGBU5NiOwU2dO9soPRqWdioba2jJfl15c8XrkrGKipbdup3OoE3HcKWUM1pB2csrGdGfh8tA1_l26zA">
+<div>
+<span class="text-[10px] font-bold text-secondary-container bg-primary px-2 py-0.5 rounded-full uppercase">FACILITIES</span>
+<h4 class="font-label-md text-label-md mt-1 mb-2 hover:text-primary cursor-pointer transition-colors">Campus Dining Hall to Introduce Extended Study Hours</h4>
+<p class="text-body-sm text-on-surface-variant line-clamp-2">Starting next Monday, the West Wing Dining Hall will remain open until midnight to provide more late-night study spaces.</p>
+<span class="text-xs text-on-surface-variant mt-2 block">Yesterday • By Facilities Dept</span>
+</div>
+</div>
+<hr class="border-surface-container">
+<!-- News Item -->
+<div class="flex gap-lg items-start">
+<img alt="Students News" class="w-24 h-24 rounded-lg object-cover" data-alt="A diverse group of students working together in a high-tech glass-walled project room. They are laughing and pointing at a large digital screen. The lighting is cool-toned and vibrant, reflecting a collaborative and energetic atmosphere. The color scheme is professional navy with pops of electric blue and bright white." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFPg2wMHyJZqaE0gOJlKmnsAdxBvuQssxt6W1p5n1iwze1LAZoBUMTvOQyUwntFjWsV_zuO21OtWRfnsMXzfZ6gf3tnuCYAsP-nl4xEvTfzKjFzFgGud6RNAmKwavy4FXlGF4tz2wdI_f0a09CyV8WcskbPC3COTjh5uug49hZrgc9Jyshp9fJSWLILr6WhVUP3FtArrMkT2jCVU4t3NTypcYOa4n9AZHiDJQWGAAwyjeVDeWeKbrSlU9UE_oEzDVg559TbtBHSts">
+<div>
+<span class="text-[10px] font-bold text-secondary-container bg-primary px-2 py-0.5 rounded-full uppercase">COMMUNITY</span>
+<h4 class="font-label-md text-label-md mt-1 mb-2 hover:text-primary cursor-pointer transition-colors">Celebrating Our Top 10 Student Volunteers</h4>
+<p class="text-body-sm text-on-surface-variant line-clamp-2">Recognizing the incredible impact our students have made through the Bridges Outreach program this semester.</p>
+<span class="text-xs text-on-surface-variant mt-2 block">3 days ago • By Student Council</span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-6 bg-surface-container-low border border-outline-variant/30 rounded-xl p-lg shadow-sm">
+<div class="flex items-center justify-between mb-lg">
+<h3 class="font-headline-md text-headline-md text-primary">Student Achievements</h3>
+<span class="material-symbols-outlined text-primary" data-icon="stars">stars</span>
+</div>
+<div class="space-y-lg">
+<!-- Achievement 1 -->
+<div class="bg-white p-md rounded-lg border border-outline-variant/20 flex gap-md items-center group cursor-pointer hover:shadow-md transition-shadow">
+<div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border-2 border-primary-container">
+<img alt="Student Profile" class="w-full h-full object-cover" data-alt="A portrait of a confident female student in her early twenties, smiling warmly. She has long dark hair and is wearing a structured academic sweater. The background is a soft-focus college campus lawn with lush green grass and historical brick buildings under bright, natural daylight. The style is clear, professional, and optimistic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5Olm-fX4bbsnoPjeM9GtGghTxfyD0rNUaMGMDqzWCt3YasX3ut1pK_mNgjyggbSIx_w_pT1nu940aMsQM3VVaFRxdMA2D-8UWMRHnq_MieICLsAeFFj-QuxN7DikTSc_SN6hwypulwRHNiBskgCbIgLP__kiTZf4Wgg5GYjYMI7Vq0fM1dgqqM_ZS1eQ3GxsMGWrHu24hJ8B5q2xcGzZf4SHf1LbFe_NInbBEAXONAcKjqT0h55KH0uFZ79xPpVwg2dTrQsJzDuo">
+</div>
+<div class="flex-1">
+<h5 class="font-label-md text-label-md text-on-surface">Elena Rodriguez wins National Science Bowl</h5>
+<p class="text-body-sm text-on-surface-variant">Class of 2024 • Physics Major</p>
+</div>
+<button class="bg-surface-container-high p-2 rounded-full text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="thumb_up">thumb_up</span>
+</button>
+</div>
+<!-- Achievement 2 -->
+<div class="bg-white p-md rounded-lg border border-outline-variant/20 flex gap-md items-center group cursor-pointer hover:shadow-md transition-shadow">
+<div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border-2 border-primary-container">
+<img alt="Student Profile" class="w-full h-full object-cover" data-alt="A portrait of a male student with glasses and a friendly, intelligent expression. He is wearing a modern blue shirt. The background is a minimalist interior space with clean architectural lines and soft, cool lighting. The aesthetic is corporate-modern, emphasizing professionalism and stability." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1jkss4qLK083UEPipKDyttzaDnNzUQISoP-V-N2pZwrfAF6u8Swa2aHAywUznjd2zDWNJ4ShO4a7hCVcNBZa691DkTApujcEeaio1_a4A_kCFh16ko6vm1_XLtT8uMjzXa6WyhRCrz8RfQeJMS0nPMw_LG0ynkTzKUqQXcsWdDgg75isfTXEUJCoJ8ywTkwbt4iPnHN-VOVINeVz0y3lD4sS68gcn4k7gS9TiIlFA4vchQ1LdFsipP1jjjr8oPS-1gibojA01Bts">
+</div>
+<div class="flex-1">
+<h5 class="font-label-md text-label-md text-on-surface">Mark J. published in International Design Journal</h5>
+<p class="text-body-sm text-on-surface-variant">Class of 2026 • Graphic Design</p>
+</div>
+<button class="bg-surface-container-high p-2 rounded-full text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="thumb_up">thumb_up</span>
+</button>
+</div>
+<!-- Achievement 3 -->
+<div class="bg-white p-md rounded-lg border border-outline-variant/20 flex gap-md items-center group cursor-pointer hover:shadow-md transition-shadow">
+<div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border-2 border-primary-container">
+<img alt="Student Profile" class="w-full h-full object-cover" data-alt="A portrait of a young woman with a thoughtful and ambitious look. She is in a high-tech lab setting with glowing monitors and blurred equipment in the background. The lighting is sophisticated and multi-tonal, featuring soft blues and whites. The overall style is dependable, authoritative, and future-focused." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1HOaSJ2vqymEf1bD54wUyP-XArPbZAfB4CP6XWKglXGLE56pms3R97auPMqDy_sq_DvRFpUCRqlJzMu4kTGnNABikMTn0woPBow-ScoBhdiw32suoFFg3YJdOUEZotNY0NDkmj4w1K0sQq-lrhxqPorjkyYM_87t8P6ch8Lnz5FUsO8LuDLPlLTPr6Q0c3mMOOcYB6dbaeIEYcCJkir0yJAc6Vk1QyWm3pLRQYHljomuoeaeVTZ9oUYXsKG7Oax51eVC8w0OhUVM">
+</div>
+<div class="flex-1">
+<h5 class="font-label-md text-label-md text-on-surface">Sarah K. selected for United Nations Youth Summit</h5>
+<p class="text-body-sm text-on-surface-variant">Class of 2025 • Political Science</p>
+</div>
+<button class="bg-surface-container-high p-2 rounded-full text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="thumb_up">thumb_up</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky FAB for Community Engagement -->
+<div class="fixed bottom-margin-desktop right-margin-desktop z-30">
+<button class="bg-primary text-white flex items-center gap-sm px-lg py-md rounded-full shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="add_comment">add_comment</span>
+<span class="font-label-md text-label-md">Start Discussion</span>
+</button>
+</div>
+</main>
+<script>
+        // Simple micro-interaction for club join buttons
+        document.querySelectorAll('button').forEach(btn => {
+            if(btn.innerText === 'Join Club') {
+                btn.addEventListener('click', function() {
+                    const isJoined = this.innerText === 'Joined';
+                    this.innerText = isJoined ? 'Join Club' : 'Joined';
+                    this.classList.toggle('bg-primary');
+                    this.classList.toggle('bg-secondary-container');
+                    this.classList.toggle('text-white');
+                    this.classList.toggle('text-on-secondary-container');
+                });
+            }
+        });
+    </script>
+
+
+</body></html>

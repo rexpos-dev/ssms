@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Document Upload | Bridges Academy Admin Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#e9f6fd",
+                        "outline-variant": "#c6c5d4",
+                        "on-error-container": "#93000a",
+                        "secondary": "#4a626d",
+                        "surface-dim": "#cfdce4",
+                        "on-surface": "#111d23",
+                        "on-primary-container": "#8690ee",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#263238",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#343d96",
+                        "tertiary-fixed-dim": "#c4c6d2",
+                        "surface": "#f4faff",
+                        "on-secondary-fixed": "#051e28",
+                        "on-secondary-fixed-variant": "#334a55",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#2c3039",
+                        "on-tertiary-container": "#9597a2",
+                        "surface-variant": "#d7e4ec",
+                        "secondary-fixed": "#cde6f4",
+                        "background": "#f4faff",
+                        "primary-fixed-dim": "#bdc2ff",
+                        "surface-container-high": "#ddeaf2",
+                        "surface-container": "#e3f0f8",
+                        "on-primary-fixed": "#000767",
+                        "secondary-fixed-dim": "#b1cad7",
+                        "primary-container": "#1a237e",
+                        "tertiary": "#181b23",
+                        "primary": "#000666",
+                        "surface-bright": "#f4faff",
+                        "inverse-on-surface": "#e6f3fb",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#cde6f4",
+                        "surface-tint": "#4c56af",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#e0e0ff",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#454652",
+                        "on-background": "#111d23",
+                        "tertiary-fixed": "#e0e2ee",
+                        "on-secondary-container": "#506873",
+                        "on-secondary": "#ffffff",
+                        "outline": "#767683",
+                        "on-tertiary-fixed": "#181b24"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xxl": "48px",
+                        "xs": "4px",
+                        "xl": "32px",
+                        "margin-desktop": "48px",
+                        "unit": "4px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "margin-mobile": "16px",
+                        "sm": "8px",
+                        "max-width": "1440px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .drop-zone-active {
+            border-color: #000666 !important;
+            background-color: #e0e0ff !important;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f4faff;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #c6c5d4;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased overflow-hidden">
+<!-- TopNavBar Shell -->
+<nav class="flex justify-between items-center w-full px-margin-desktop py-md h-16 z-40 fixed top-0 bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline">
+<div class="flex items-center gap-md">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">Bridges Academy</span>
+</div>
+<div class="flex items-center gap-lg">
+<div class="relative flex items-center bg-surface-container rounded-full px-md py-xs border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant mr-xs">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm w-64" placeholder="Search records..." type="text"/>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary cursor-pointer active:opacity-70 transition-colors duration-200">notifications</span>
+<span class="material-symbols-outlined text-primary cursor-pointer active:opacity-70 transition-colors duration-200">settings</span>
+<div class="h-8 w-8 rounded-full bg-primary-container flex items-center justify-center text-white font-bold overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional portrait of a school administrator, middle-aged with a calm and confident expression, wearing professional attire. The lighting is soft and even, typical of a high-end institutional profile. The background is a blurred minimalist office setting with the Bridges Academy navy and light blue color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCg_Ujzz6zhr3D6TPfdsYGYe6Htqr65zVSVKaBm624gx31URNWO-8EcQweOdk-cgY62SRexi1R-Qa7O_B2_tOiDFkuD3hHItsS6CduAMGZwYZ8WK1sk9ZiCnpqQ5VWFW6huzPDh1OC391pNTGzXnnqcLI55WTasQFvSoaRa8-auApQGfz8pysxSSunuS_ERMeMFsCUfg7cfujiYrK5iMRB3g2uSQqAw1auUWkoYMfHOHh7dFpaCMDj3bwYxGJDIwwSRP24SVhNhgBc"/>
+</div>
+</div>
+</div>
+</nav>
+<!-- SideNavBar Shell -->
+<aside class="flex flex-col gap-sm p-md w-[260px] h-screen fixed left-0 top-0 z-50 bg-surface-container dark:bg-surface-container-low border-r border-outline-variant dark:border-outline pt-20">
+<div class="mb-xl px-sm">
+<h2 class="font-headline-sm text-headline-sm font-black text-primary dark:text-primary-fixed-dim">Bridges Academy</h2>
+<p class="text-label-sm text-secondary uppercase tracking-widest mt-xs">Admin Portal</p>
+</div>
+<nav class="flex-1 flex flex-col gap-xs">
+<a class="flex items-center gap-md px-md py-sm text-secondary hover:bg-secondary-container/50 rounded-lg transition-all duration-200 scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm bg-primary-container text-on-primary-container font-semibold rounded-lg scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">person_add</span>
+<span class="font-label-md text-label-md">Students</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-secondary hover:bg-secondary-container/50 rounded-lg transition-all duration-200 scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-md text-label-md">Teachers</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-secondary hover:bg-secondary-container/50 rounded-lg transition-all duration-200 scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">class</span>
+<span class="font-label-md text-label-md">Classes</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-secondary hover:bg-secondary-container/50 rounded-lg transition-all duration-200 scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">event_available</span>
+<span class="font-label-md text-label-md">Attendance</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-secondary hover:bg-secondary-container/50 rounded-lg transition-all duration-200 scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">assessment</span>
+<span class="font-label-md text-label-md">Reports</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-outline-variant pt-md flex flex-col gap-xs">
+<button class="bg-primary text-white font-bold py-md px-md rounded-lg mb-md flex items-center justify-center gap-sm transition-transform active:scale-95 shadow-sm">
+<span class="material-symbols-outlined">add</span>
+<span class="font-label-md text-label-md">Register New Student</span>
+</button>
+<a class="flex items-center gap-md px-md py-sm text-secondary hover:bg-secondary-container/50 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-md text-label-md">Help Center</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-secondary hover:bg-secondary-container/50 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-[260px] pt-16 h-screen overflow-hidden flex flex-col">
+<div class="flex-1 overflow-y-auto custom-scrollbar px-margin-desktop py-xl">
+<!-- Breadcrumbs & Header -->
+<div class="mb-xl">
+<nav class="flex items-center gap-sm text-secondary mb-sm">
+<span class="font-label-sm text-label-sm cursor-pointer hover:text-primary">Registrar</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="font-label-sm text-label-sm cursor-pointer hover:text-primary">Student Registration</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">Step 3: Document Upload</span>
+</nav>
+<div class="flex justify-between items-end">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-primary">Student Documentation</h1>
+<p class="text-body-md text-secondary max-w-2xl mt-sm">Ensure all legal and academic documents are clearly scanned and uploaded. Accepted formats: PDF, JPG, PNG (Max 5MB per file).</p>
+</div>
+<div class="flex items-center gap-md">
+<div class="flex flex-col items-end">
+<span class="text-label-sm font-bold text-primary">Julianne V. Rivera</span>
+<span class="text-label-sm text-secondary">Incoming Grade 7</span>
+</div>
+<div class="w-12 h-12 rounded-full bg-surface-container-high border-2 border-primary-fixed flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-outline">person</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Stepper Progress -->
+<div class="flex items-center gap-0 mb-xl w-full max-w-4xl mx-auto">
+<div class="flex items-center gap-sm flex-1">
+<div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+<span class="text-label-sm font-bold text-primary">Personal Info</span>
+<div class="h-[2px] flex-1 bg-primary mx-md"></div>
+</div>
+<div class="flex items-center gap-sm flex-1">
+<div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+<span class="text-label-sm font-bold text-primary">Guardian Details</span>
+<div class="h-[2px] flex-1 bg-primary mx-md"></div>
+</div>
+<div class="flex items-center gap-sm flex-1">
+<div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold">3</div>
+<span class="text-label-sm font-bold text-primary">Document Upload</span>
+<div class="h-[2px] flex-1 bg-outline-variant mx-md"></div>
+</div>
+<div class="flex items-center gap-sm opacity-40">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-secondary flex items-center justify-center font-bold border border-outline">4</div>
+<span class="text-label-sm font-bold text-secondary">Review &amp; Submit</span>
+</div>
+</div>
+<!-- Document Bento Grid -->
+<div class="grid grid-cols-12 gap-lg max-w-[1440px] mx-auto">
+<!-- 2x2 Photo (Special Case) -->
+<div class="col-span-12 md:col-span-4 bg-white border border-outline-variant rounded-xl p-xl shadow-sm flex flex-col items-center text-center">
+<div class="flex items-center justify-between w-full mb-md">
+<span class="text-label-md font-bold text-primary">Student 2x2 Photo</span>
+<span class="px-sm py-xs bg-error-container text-on-error-container rounded text-[10px] font-bold uppercase">Missing</span>
+</div>
+<div class="w-48 h-48 bg-surface border-2 border-dashed border-outline-variant rounded-xl flex flex-col items-center justify-center cursor-pointer hover:bg-surface-container-low transition-all duration-300 relative group">
+<input class="absolute inset-0 opacity-0 cursor-pointer" type="file"/>
+<span class="material-symbols-outlined text-outline-variant text-[48px] group-hover:scale-110 transition-transform">add_a_photo</span>
+<p class="text-label-sm text-secondary mt-md">Upload ID Photo</p>
+</div>
+<p class="text-[12px] text-on-surface-variant mt-md leading-relaxed">Ensure a white background and professional expression. The face should occupy 80% of the frame.</p>
+</div>
+<!-- Main Legal Documents -->
+<div class="col-span-12 md:col-span-8 grid grid-cols-2 gap-lg">
+<!-- Birth Certificate -->
+<div class="bg-white border border-outline-variant rounded-xl p-xl shadow-sm flex flex-col h-full">
+<div class="flex items-center justify-between mb-md">
+<span class="text-label-md font-bold text-primary">Birth Certificate</span>
+<span class="px-sm py-xs bg-surface-container-highest text-secondary rounded text-[10px] font-bold uppercase flex items-center gap-xs">
+<span class="material-symbols-outlined text-[12px]">schedule</span> Ready to upload
+                            </span>
+</div>
+<div class="flex-1 border-2 border-dashed border-outline-variant rounded-lg bg-surface flex flex-col items-center justify-center p-lg hover:border-primary transition-all group cursor-pointer relative">
+<input class="absolute inset-0 opacity-0 cursor-pointer" type="file"/>
+<span class="material-symbols-outlined text-primary text-[32px] mb-sm group-hover:-translate-y-1 transition-transform">upload_file</span>
+<span class="text-label-sm text-primary font-bold">PSA / NSO Copy</span>
+<span class="text-[12px] text-secondary mt-xs">Drop PDF or Scan here</span>
+</div>
+</div>
+<!-- Report Card -->
+<div class="bg-white border border-outline-variant rounded-xl p-xl shadow-sm flex flex-col h-full">
+<div class="flex items-center justify-between mb-md">
+<span class="text-label-md font-bold text-primary">Form 138 (Report Card)</span>
+<span class="px-sm py-xs bg-surface-container-highest text-secondary rounded text-[10px] font-bold uppercase flex items-center gap-xs">
+<span class="material-symbols-outlined text-[12px]">schedule</span> Ready to upload
+                            </span>
+</div>
+<div class="flex-1 border-2 border-dashed border-outline-variant rounded-lg bg-surface flex flex-col items-center justify-center p-lg hover:border-primary transition-all group cursor-pointer relative">
+<input class="absolute inset-0 opacity-0 cursor-pointer" type="file"/>
+<span class="material-symbols-outlined text-primary text-[32px] mb-sm group-hover:-translate-y-1 transition-transform">school</span>
+<span class="text-label-sm text-primary font-bold">Latest Grade Report</span>
+<span class="text-[12px] text-secondary mt-xs">Drop PDF or Scan here</span>
+</div>
+</div>
+<!-- Good Moral -->
+<div class="col-span-2 bg-white border border-outline-variant rounded-xl p-xl shadow-sm flex items-center justify-between group">
+<div class="flex items-center gap-lg">
+<div class="w-16 h-16 rounded-lg bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[32px]">verified</span>
+</div>
+<div>
+<h3 class="text-label-md font-bold text-primary">Good Moral Certificate</h3>
+<p class="text-body-sm text-secondary">Issued by the previous school principal or registrar.</p>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex flex-col items-end mr-md">
+<span class="px-sm py-xs bg-error-container text-on-error-container rounded text-[10px] font-bold uppercase mb-xs">Missing</span>
+<span class="text-[11px] text-on-surface-variant">Required for enrollment</span>
+</div>
+<button class="bg-primary text-white px-md py-sm rounded-lg font-bold text-label-sm hover:bg-primary-container transition-colors flex items-center gap-xs shadow-sm">
+<span class="material-symbols-outlined text-sm">attach_file</span>
+                                Upload
+                             </button>
+</div>
+</div>
+</div>
+<!-- Requirements Checklist Sidebar (Bento Style) -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container-high/50 border border-outline-variant rounded-xl p-xl">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-md">Document Guide</h3>
+<ul class="space-y-md">
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-primary mt-xs text-[20px]">info</span>
+<p class="text-body-sm text-on-surface">Documents must be scanned in <span class="font-bold">high resolution</span> (300dpi recommended).</p>
+</li>
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-primary mt-xs text-[20px]">verified_user</span>
+<p class="text-body-sm text-on-surface">Original copies must be presented for verification during the on-campus interview.</p>
+</li>
+<li class="flex items-start gap-sm text-error">
+<span class="material-symbols-outlined mt-xs text-[20px]">warning</span>
+<p class="text-body-sm font-bold">Registration will not proceed without the PSA Birth Certificate.</p>
+</li>
+</ul>
+<div class="mt-xl p-md bg-white rounded-lg border border-outline-variant">
+<div class="flex items-center justify-between mb-sm">
+<span class="text-label-sm text-secondary">Total Completion</span>
+<span class="text-label-sm font-bold text-primary">25%</span>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-1/4 rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="col-span-12 flex justify-between items-center py-xl border-t border-outline-variant mt-xl">
+<button class="flex items-center gap-sm text-secondary font-bold hover:text-primary transition-colors py-md px-lg">
+<span class="material-symbols-outlined">arrow_back</span>
+                        Back to Guardian Details
+                    </button>
+<div class="flex items-center gap-md">
+<button class="bg-transparent text-primary font-bold px-lg py-md rounded-lg border border-primary hover:bg-primary-container/10 transition-colors">
+                            Save Draft
+                        </button>
+<button class="bg-primary text-white font-bold px-xxl py-md rounded-lg shadow-lg hover:shadow-xl transition-all active:scale-95 flex items-center gap-sm">
+                            Continue to Review
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Upload Success Toast (Hidden by Default) -->
+<div class="fixed bottom-xl right-xl bg-primary text-white px-xl py-md rounded-xl shadow-2xl translate-y-32 opacity-0 transition-all duration-500 flex items-center gap-md z-[100]" id="uploadToast">
+<div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-white">check_circle</span>
+</div>
+<div>
+<p class="font-bold text-label-md">File Uploaded Successfully</p>
+<p class="text-[12px] opacity-80">Document has been encrypted and stored.</p>
+</div>
+</div>
+<script>
+        // Micro-interactions for drop zones
+        document.querySelectorAll('input[type="file"]').forEach(input => {
+            const dropZone = input.closest('div');
+            
+            input.addEventListener('dragenter', () => {
+                dropZone.classList.add('drop-zone-active');
+                dropZone.classList.add('ring-2', 'ring-primary', 'ring-offset-2');
+            });
+            
+            input.addEventListener('dragleave', () => {
+                dropZone.classList.remove('drop-zone-active');
+                dropZone.classList.remove('ring-2', 'ring-primary', 'ring-offset-2');
+            });
+            
+            input.addEventListener('change', (e) => {
+                if (e.target.files.length > 0) {
+                    showToast();
+                    // Visual feedback for uploaded state
+                    const statusBadge = dropZone.closest('div').querySelector('.font-bold.uppercase');
+                    if (statusBadge) {
+                        statusBadge.textContent = 'Uploaded';
+                        statusBadge.className = 'px-sm py-xs bg-primary-container text-on-primary-container rounded text-[10px] font-bold uppercase flex items-center gap-xs';
+                        statusBadge.innerHTML = '<span class="material-symbols-outlined text-[12px]">check</span> Uploaded';
+                    }
+                    dropZone.classList.add('border-primary', 'bg-surface-container-low');
+                    dropZone.querySelector('.material-symbols-outlined').textContent = 'task';
+                }
+            });
+        });
+
+        function showToast() {
+            const toast = document.getElementById('uploadToast');
+            toast.classList.remove('translate-y-32', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-32', 'opacity-0');
+            }, 3000);
+        }
+    </script>
+</body></html>
