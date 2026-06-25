@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bridges Academy - Student Registration: Academic History</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#e9f6fd",
+                    "outline-variant": "#c6c5d4",
+                    "on-error-container": "#93000a",
+                    "secondary": "#4a626d",
+                    "surface-dim": "#cfdce4",
+                    "on-surface": "#111d23",
+                    "on-primary-container": "#8690ee",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#263238",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed-variant": "#343d96",
+                    "tertiary-fixed-dim": "#c4c6d2",
+                    "surface": "#f4faff",
+                    "on-secondary-fixed": "#051e28",
+                    "on-secondary-fixed-variant": "#334a55",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#2c3039",
+                    "on-tertiary-container": "#9597a2",
+                    "surface-variant": "#d7e4ec",
+                    "secondary-fixed": "#cde6f4",
+                    "background": "#f4faff",
+                    "primary-fixed-dim": "#bdc2ff",
+                    "surface-container-high": "#ddeaf2",
+                    "surface-container": "#e3f0f8",
+                    "on-primary-fixed": "#000767",
+                    "secondary-fixed-dim": "#b1cad7",
+                    "primary-container": "#1a237e",
+                    "tertiary": "#181b23",
+                    "primary": "#000666",
+                    "surface-bright": "#f4faff",
+                    "inverse-on-surface": "#e6f3fb",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#cde6f4",
+                    "surface-tint": "#4c56af",
+                    "on-primary": "#ffffff",
+                    "primary-fixed": "#e0e0ff",
+                    "error-container": "#ffdad6",
+                    "on-surface-variant": "#454652",
+                    "on-background": "#111d23",
+                    "tertiary-fixed": "#e0e2ee",
+                    "on-secondary-container": "#506873",
+                    "on-secondary": "#ffffff",
+                    "outline": "#767683",
+                    "on-tertiary-fixed": "#181b24"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "xxl": "48px",
+                    "xs": "4px",
+                    "xl": "32px",
+                    "margin-desktop": "48px",
+                    "unit": "4px",
+                    "md": "16px",
+                    "lg": "24px",
+                    "margin-mobile": "16px",
+                    "sm": "8px",
+                    "max-width": "1440px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "headline-xl": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-sm": ["Inter"],
+                    "label-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        .step-active { color: #000666; font-weight: 700; border-bottom: 2px solid #000666; }
+        .step-inactive { color: #767683; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline flex justify-between items-center w-full px-margin-desktop py-md h-16 z-40 fixed top-0 left-0">
+<div class="flex items-center gap-sm">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">Bridges Academy</span>
+</div>
+<div class="flex items-center gap-lg">
+<div class="relative hidden md:block">
+<input class="bg-surface-container border border-outline-variant rounded-full py-2 px-4 pl-10 text-body-sm focus:outline-none focus:ring-1 focus:ring-primary w-64" placeholder="Search portal..." type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-2 text-outline">search</span>
+</div>
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-primary cursor-pointer active:opacity-70">notifications</button>
+<button class="material-symbols-outlined text-primary cursor-pointer active:opacity-70">settings</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a school administrator in a bright, modern office. The image has soft lighting and a clean, institutional aesthetic with subtle blue and white tones, reflecting authority and dependability." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhF6aDOeMkHpyQ4CZRxYdPqCMkvJZWUPrikwhAD84GG1M0g5AcW9rxF0t2fO8JWcVQzYMjyIP9WWIYt44y7SL_4s297xrxH8RpIvMvivNmSN9SFqROKzQjXWWocAPos4AFpzTQ_BmooEux63zDMhG9jUqapuHmqiMRSdtl2604mH2D7FGzbh8A_QSRXl7uxIIUb-ePVmB4SYxvd81lggNKyJGhwb1DnJyvT7U4bEgO2cj0RmaW4Ac5oJEEr1gXBJYsNR4w3X-wWa8"/>
+</div>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="flex flex-col gap-sm p-md w-[260px] h-screen fixed left-0 top-0 z-50 bg-surface-container dark:bg-surface-container-low border-r border-outline-variant dark:border-outline hidden md:flex">
+<div class="mb-xl px-2 pt-4">
+<h1 class="font-headline-sm text-headline-sm font-black text-primary dark:text-primary-fixed-dim">Bridges Academy</h1>
+<p class="text-label-sm text-secondary">Admin Portal</p>
+</div>
+<nav class="flex-1 flex flex-col gap-xs">
+<a class="flex items-center gap-md p-md text-secondary hover:bg-secondary-container/50 rounded-lg transition-all duration-200 scale-95 active:scale-90 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">dashboard</span> Dashboard
+            </a>
+<a class="flex items-center gap-md p-md bg-primary-container text-on-primary-container font-semibold rounded-lg transition-all duration-200 scale-95 active:scale-90 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">person_add</span> Students
+            </a>
+<a class="flex items-center gap-md p-md text-secondary hover:bg-secondary-container/50 rounded-lg transition-all duration-200 scale-95 active:scale-90 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">school</span> Teachers
+            </a>
+<a class="flex items-center gap-md p-md text-secondary hover:bg-secondary-container/50 rounded-lg transition-all duration-200 scale-95 active:scale-90 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">class</span> Classes
+            </a>
+<a class="flex items-center gap-md p-md text-secondary hover:bg-secondary-container/50 rounded-lg transition-all duration-200 scale-95 active:scale-90 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">event_available</span> Attendance
+            </a>
+<a class="flex items-center gap-md p-md text-secondary hover:bg-secondary-container/50 rounded-lg transition-all duration-200 scale-95 active:scale-90 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">assessment</span> Reports
+            </a>
+</nav>
+<div class="mt-auto flex flex-col gap-xs border-t border-outline-variant pt-md">
+<a class="flex items-center gap-md p-md text-secondary hover:bg-secondary-container/50 rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">help</span> Help Center
+            </a>
+<a class="flex items-center gap-md p-md text-secondary hover:bg-secondary-container/50 rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">logout</span> Logout
+            </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:pl-[260px] pt-16 min-h-screen">
+<div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop py-xl">
+<!-- Page Header -->
+<div class="mb-xl flex flex-col gap-sm">
+<div class="flex items-center gap-sm text-secondary font-label-sm text-label-sm uppercase tracking-wider">
+<span>Registration</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span>Step 2 of 4</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-primary">Academic History</h2>
+<p class="text-body-md text-secondary max-w-2xl">Please provide the student's previous educational records and performance details to help us ensure a smooth academic transition.</p>
+</div>
+<!-- Progress Tracker -->
+<div class="flex items-center gap-xl mb-xl border-b border-outline-variant pb-xs">
+<div class="pb-xs text-secondary font-label-md text-label-md flex items-center gap-sm opacity-50">
+<span class="w-6 h-6 rounded-full bg-secondary text-white flex items-center justify-center text-[10px]">1</span>
+                    Personal Info
+                </div>
+<div class="pb-xs text-primary font-bold border-b-2 border-primary font-label-md text-label-md flex items-center gap-sm">
+<span class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-[10px]">2</span>
+                    Academic History
+                </div>
+<div class="pb-xs text-secondary font-label-md text-label-md flex items-center gap-sm opacity-50">
+<span class="w-6 h-6 rounded-full bg-outline-variant text-white flex items-center justify-center text-[10px]">3</span>
+                    Documents
+                </div>
+<div class="pb-xs text-secondary font-label-md text-label-md flex items-center gap-sm opacity-50">
+<span class="w-6 h-6 rounded-full bg-outline-variant text-white flex items-center justify-center text-[10px]">4</span>
+                    Review
+                </div>
+</div>
+<!-- Form Layout (Bento Style Grid) -->
+<form class="bento-grid">
+<!-- Section 1: School Details -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest border border-outline-variant p-xl rounded-xl">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-lg">Previous Education</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">Previous School Name</label>
+<input class="border border-outline rounded-lg p-md focus:ring-2 focus:ring-primary outline-none transition-all" placeholder="e.g. St. Mary's Secondary" type="text"/>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">Grade Level Applying For</label>
+<select class="border border-outline rounded-lg p-md focus:ring-2 focus:ring-primary outline-none transition-all bg-white">
+<option>Select Grade</option>
+<option>Grade 9</option>
+<option>Grade 10</option>
+<option>Grade 11</option>
+<option>Grade 12</option>
+</select>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">GPA / Grade Average (Last Year)</label>
+<input class="border border-outline rounded-lg p-md focus:ring-2 focus:ring-primary outline-none transition-all" placeholder="e.g. 3.8 / 4.0" type="text"/>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">School Location (City/Country)</label>
+<input class="border border-outline rounded-lg p-md focus:ring-2 focus:ring-primary outline-none transition-all" placeholder="e.g. London, UK" type="text"/>
+</div>
+</div>
+</div>
+<!-- Section 2: Quick Stats / Highlight Card -->
+<div class="col-span-12 lg:col-span-4 bg-primary text-white p-xl rounded-xl flex flex-col justify-between relative overflow-hidden">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-4xl mb-md" style="font-variation-settings: 'FILL' 1;">stars</span>
+<h3 class="font-headline-sm text-headline-sm mb-sm">Academic Excellence</h3>
+<p class="text-body-sm opacity-80">Bridges Academy prioritizes students with a track record of consistent growth and intellectual curiosity.</p>
+</div>
+<div class="mt-xl p-md bg-white/10 rounded-lg backdrop-blur-md border border-white/20 relative z-10">
+<p class="text-label-sm uppercase font-bold tracking-widest mb-xs">Status</p>
+<p class="text-body-md font-medium">Draft - In Progress</p>
+</div>
+<!-- Subtle background decoration -->
+<div class="absolute -bottom-10 -right-10 w-40 h-40 bg-white/5 rounded-full blur-3xl"></div>
+</div>
+<!-- Section 3: Special Needs & Honors -->
+<div class="col-span-12 bg-surface-container-lowest border border-outline-variant p-xl rounded-xl">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-xl">
+<div class="flex flex-col gap-md">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary">Special Education Needs</h3>
+<p class="text-body-sm text-secondary mb-md">Does the student require any specific academic accommodations or support services?</p>
+</div>
+<textarea class="border border-outline rounded-lg p-md focus:ring-2 focus:ring-primary outline-none transition-all" placeholder="Please describe any IEP, 504 plans, or specific learning requirements..." rows="4"></textarea>
+<div class="flex items-center gap-md p-md bg-surface-container rounded-lg">
+<input class="w-5 h-5 border-outline rounded text-primary focus:ring-primary" id="iep-active" type="checkbox"/>
+<label class="text-body-md text-on-surface" for="iep-active">IEP documentation will be provided in Step 3</label>
+</div>
+</div>
+<div class="flex flex-col gap-md">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary">Honors &amp; Achievements</h3>
+<p class="text-body-sm text-secondary mb-md">List any awards, scholarships, or notable extracurricular achievements from the last 2 years.</p>
+</div>
+<textarea class="border border-outline rounded-lg p-md focus:ring-2 focus:ring-primary outline-none transition-all" placeholder="e.g. Science Fair Winner, National Merit Scholar, Captain of Debate Team..." rows="4"></textarea>
+<div class="grid grid-cols-3 gap-md mt-sm">
+<div class="bg-surface-container-high p-md rounded-lg text-center border border-outline-variant/30 transition-transform hover:scale-105 cursor-default">
+<span class="material-symbols-outlined text-primary mb-xs">workspace_premium</span>
+<p class="text-label-sm font-bold">Academic</p>
+</div>
+<div class="bg-surface-container-high p-md rounded-lg text-center border border-outline-variant/30 transition-transform hover:scale-105 cursor-default">
+<span class="material-symbols-outlined text-primary mb-xs">sports_basketball</span>
+<p class="text-label-sm font-bold">Athletic</p>
+</div>
+<div class="bg-surface-container-high p-md rounded-lg text-center border border-outline-variant/30 transition-transform hover:scale-105 cursor-default">
+<span class="material-symbols-outlined text-primary mb-xs">palette</span>
+<p class="text-label-sm font-bold">Artistic</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Footer -->
+<div class="col-span-12 flex justify-between items-center mt-xl border-t border-outline-variant pt-xl pb-xxl">
+<button class="flex items-center gap-sm px-xl py-md text-primary font-bold hover:bg-primary/5 rounded-lg transition-all duration-200 border border-transparent active:scale-95" type="button">
+<span class="material-symbols-outlined">arrow_back</span>
+                        Back to Personal Info
+                    </button>
+<div class="flex gap-md">
+<button class="px-xl py-md text-secondary border border-outline-variant hover:bg-surface-container rounded-lg transition-all duration-200 active:scale-95" type="button">
+                            Save Draft
+                        </button>
+<button class="flex items-center gap-sm px-xxl py-md bg-primary text-white font-bold rounded-lg hover:shadow-lg transition-all duration-200 active:scale-95" type="submit">
+                            Continue to Documents
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</form>
+</div>
+</main>
+<!-- Contextual Info Bubble (Floating Micro-interaction) -->
+<div class="fixed bottom-lg right-lg w-72 bg-surface-container-lowest border border-outline-variant shadow-xl rounded-xl p-md hidden md:block animate-bounce-subtle" id="info-bubble">
+<div class="flex gap-md">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined">lightbulb</span>
+</div>
+<div>
+<p class="text-label-md font-bold text-primary">Pro Tip</p>
+<p class="text-body-sm text-on-surface-variant">Include the previous school's official website or address for faster verification.</p>
+</div>
+</div>
+<button class="absolute top-2 right-2 text-outline hover:text-on-surface" onclick="this.parentElement.remove()">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+</div>
+<script>
+        // Simple animation for the info bubble
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes bounce-subtle {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-10px); }
+            }
+            .animate-bounce-subtle {
+                animation: bounce-subtle 4s ease-in-out infinite;
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Form Submission Logic (Placeholder)
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            console.log("Navigating to Step 3: Documents...");
+            // In a real app, this would trigger state changes or routing
+            alert("Proceeding to Step 3: Document Upload");
+        });
+    </script>
+</body></html>

@@ -1,0 +1,444 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Bridges Academy Admin Portal - Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4faff;
+        }
+        .settings-grid {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 32px;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#f4faff",
+                        "surface-container-lowest": "#ffffff",
+                        "outline-variant": "#c6c5d4",
+                        "inverse-on-surface": "#e6f3fb",
+                        "primary-fixed-dim": "#bdc2ff",
+                        "secondary-fixed-dim": "#b1cad7",
+                        "on-secondary-container": "#506873",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#434750",
+                        "on-tertiary-fixed": "#181b24",
+                        "surface-dim": "#cfdce4",
+                        "inverse-primary": "#bdc2ff",
+                        "surface-container-high": "#ddeaf2",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#8690ee",
+                        "on-secondary-fixed-variant": "#334a55",
+                        "primary": "#000666",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#111d23",
+                        "surface": "#f4faff",
+                        "secondary-container": "#cde6f4",
+                        "primary-container": "#1a237e",
+                        "on-tertiary-container": "#9597a2",
+                        "tertiary-fixed-dim": "#c4c6d2",
+                        "tertiary": "#181b23",
+                        "surface-variant": "#d7e4ec",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#e0e0ff",
+                        "surface-container-low": "#e9f6fd",
+                        "secondary-fixed": "#cde6f4",
+                        "on-background": "#111d23",
+                        "on-primary-fixed": "#000767",
+                        "tertiary-container": "#2c3039",
+                        "on-primary-fixed-variant": "#343d96",
+                        "surface-container-highest": "#d7e4ec",
+                        "surface-container": "#e3f0f8",
+                        "surface-bright": "#f4faff",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#4a626d",
+                        "outline": "#767683",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#4c56af",
+                        "tertiary-fixed": "#e0e2ee",
+                        "on-secondary-fixed": "#051e28",
+                        "inverse-surface": "#263238",
+                        "on-surface-variant": "#454652"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xl": "32px",
+                        "md": "16px",
+                        "max-width": "1440px",
+                        "margin-desktop": "48px",
+                        "unit": "4px",
+                        "lg": "24px",
+                        "sm": "8px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "xxl": "48px"
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- SideNavBar (Shared Component) -->
+<aside class="w-[260px] h-screen fixed left-0 top-0 bg-tertiary dark:bg-tertiary border-r border-outline-variant dark:border-outline flex flex-col h-full p-md z-50">
+<div class="flex flex-col mb-xl">
+<div class="flex items-center gap-sm mb-xs">
+<div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-body-lg">account_balance</span>
+</div>
+<h1 class="font-headline-sm text-headline-sm text-on-tertiary">Bridges Academy</h1>
+</div>
+<p class="font-label-sm text-label-sm text-on-tertiary-container uppercase tracking-wider">Admin Portal</p>
+</div>
+<nav class="flex-1 space-y-xs overflow-y-auto hide-scrollbar">
+<a class="flex items-center gap-md p-md text-on-tertiary-container hover:bg-tertiary-container hover:text-on-tertiary transition-colors duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md p-md text-on-tertiary-container hover:bg-tertiary-container hover:text-on-tertiary transition-colors duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-md text-label-md">Student Directory</span>
+</a>
+<a class="flex items-center gap-md p-md text-on-tertiary-container hover:bg-tertiary-container hover:text-on-tertiary transition-colors duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined">badge</span>
+<span class="font-label-md text-label-md">Faculty Management</span>
+</a>
+<a class="flex items-center gap-md p-md text-on-tertiary-container hover:bg-tertiary-container hover:text-on-tertiary transition-colors duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-label-md text-label-md">Academic Calendar</span>
+</a>
+<a class="flex items-center gap-md p-md text-on-tertiary-container hover:bg-tertiary-container hover:text-on-tertiary transition-colors duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-md text-label-md">Financials</span>
+</a>
+<a class="flex items-center gap-md p-md text-on-tertiary-container hover:bg-tertiary-container hover:text-on-tertiary transition-colors duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined">assessment</span>
+<span class="font-label-md text-label-md">Reports</span>
+</a><a class="flex items-center gap-md p-md text-on-tertiary-container hover:bg-tertiary-container hover:text-on-tertiary transition-colors duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-label-md text-label-md">School Life</span>
+</a><a class="flex items-center gap-md p-md text-on-tertiary-container hover:bg-tertiary-container hover:text-on-tertiary transition-colors duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined">assignment_turned_in</span>
+<span class="font-label-md text-label-md">Requirements</span>
+</a>
+<a class="flex items-center gap-md p-md text-on-tertiary-container hover:bg-tertiary-container hover:text-on-tertiary transition-colors duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined">how_to_reg</span>
+<span class="font-label-md text-label-md">Registrar</span>
+</a>
+<a class="flex items-center gap-md p-md text-on-tertiary-container hover:bg-tertiary-container hover:text-on-tertiary transition-colors duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined">medical_services</span>
+<span class="font-label-md text-label-md">Medical</span>
+</a>
+<a class="flex items-center gap-md p-md text-primary-fixed bg-tertiary-container rounded-lg transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-md border-t border-tertiary-container">
+<button class="w-full flex items-center justify-center gap-sm bg-primary-container text-on-primary py-md rounded-lg font-label-md transition-all active:scale-95">
+<span class="material-symbols-outlined">add</span>
+                New Enrollment
+            </button>
+</div>
+</aside>
+<!-- TopNavBar (Shared Component) -->
+<header class="h-16 fixed top-0 right-0 left-[260px] bg-surface dark:bg-inverse-surface border-b border-outline-variant flex justify-between items-center px-margin-desktop w-full z-40">
+<div class="flex items-center gap-xl w-1/2">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-full py-sm pl-xxl pr-md focus:ring-2 focus:ring-primary font-body-sm" placeholder="Search settings or tools..." type="text">
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<button class="relative p-sm hover:text-primary transition-all active:scale-95 duration-100">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="p-sm hover:text-primary transition-all active:scale-95 duration-100">
+<span class="material-symbols-outlined">bolt</span>
+</button>
+<div class="flex items-center gap-sm ml-md pl-md border-l border-outline-variant">
+<div class="text-right hidden lg:block">
+<p class="font-label-md text-on-surface">Alex Thompson</p>
+<p class="font-label-sm text-on-surface-variant">Senior Administrator</p>
+</div>
+<img alt="Administrator Profile" class="w-10 h-10 rounded-full border-2 border-surface-container-high" data-alt="A professional headshot of a middle-aged male administrator with a confident and kind expression. He is wearing a dark navy blazer and a crisp white shirt, set against a blurred academic library background with soft, natural lighting. The image conveys authority, experience, and a high-end corporate institutional aesthetic consistent with a premium school portal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuANoQaEZG2xK75LDOlRUuWuWaPePFu_m2UxHZaP8PCcZhai9ShGYxtIzCpujwE-hRXAx8LGWpsR3rLmFQ8Z0FktB2lcfhUIZhnRNBNwdYchA6n8ifPpvvaLJ1J8iLoXZhTtQHTVmPz2s-vBRaeuKhdKc7RCpef5CO8pzkd-8OK2onRt8s8hZEenHtTuXEdV5yeaDq3hgCC2nL1V0dfiDIi7EVyWVdEBbT0Mfbc_CO-HRlhEh0rzc3GriKyZS19yL2ioCginekiLDEA">
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-[260px] pt-16 min-h-screen">
+<div class="p-xl max-w-max-width mx-auto">
+<div class="mb-xl">
+<h2 class="font-headline-lg text-headline-lg text-primary">System Settings</h2>
+<p class="font-body-md text-on-surface-variant">Configure school-wide parameters, security protocols, and user access control.</p>
+</div>
+<!-- Settings Layout Grid -->
+<div class="settings-grid">
+<!-- Secondary Navigation (Tabs) -->
+<nav class="space-y-sm">
+<button class="w-full flex items-center gap-md px-md py-sm rounded-lg font-label-md text-primary bg-secondary-container transition-all text-left" id="tab-general" onclick="switchTab('general')">
+<span class="material-symbols-outlined">info</span>
+                        General Settings
+                    </button>
+<button class="w-full flex items-center gap-md px-md py-sm rounded-lg font-label-md text-on-surface-variant hover:bg-surface-container transition-all text-left" id="tab-permissions" onclick="switchTab('permissions')">
+<span class="material-symbols-outlined">shield_person</span>
+                        User Permissions
+                    </button>
+<button class="w-full flex items-center gap-md px-md py-sm rounded-lg font-label-md text-on-surface-variant hover:bg-surface-container transition-all text-left" id="tab-system" onclick="switchTab('system')">
+<span class="material-symbols-outlined">settings_suggest</span>
+                        System Configuration
+                    </button>
+<button class="w-full flex items-center gap-md px-md py-sm rounded-lg font-label-md text-on-surface-variant hover:bg-surface-container transition-all text-left" id="tab-security" onclick="switchTab('security')">
+<span class="material-symbols-outlined">verified_user</span>
+                        Security
+                    </button>
+</nav>
+<!-- Settings Content Areas -->
+<div class="space-y-lg">
+<!-- General Settings Section -->
+<section class="settings-section space-y-lg" id="section-general">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-xl">
+<h3 class="font-headline-sm text-headline-sm mb-lg pb-sm border-b border-surface-container">School Identity</h3>
+<div class="grid grid-cols-2 gap-lg">
+<div class="col-span-2">
+<label class="block font-label-md text-on-surface-variant mb-xs">Academy Name</label>
+<input class="w-full border-outline-variant focus:border-primary focus:ring-primary rounded-lg font-body-md py-md" type="text" value="Bridges Academy">
+</div>
+<div class="col-span-2 md:col-span-1">
+<label class="block font-label-md text-on-surface-variant mb-xs">Primary Email</label>
+<input class="w-full border-outline-variant focus:border-primary focus:ring-primary rounded-lg font-body-md py-md" type="email" value="admin@bridgesacademy.edu">
+</div>
+<div class="col-span-2 md:col-span-1">
+<label class="block font-label-md text-on-surface-variant mb-xs">Contact Number</label>
+<input class="w-full border-outline-variant focus:border-primary focus:ring-primary rounded-lg font-body-md py-md" type="text" value="+1 (555) 012-3456">
+</div>
+<div class="col-span-2">
+<label class="block font-label-md text-on-surface-variant mb-xs">Physical Address</label>
+<textarea class="w-full border-outline-variant focus:border-primary focus:ring-primary rounded-lg font-body-md py-md" rows="3">1200 Scholars Lane, Academic District, Boston, MA 02108</textarea>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-xl">
+<h3 class="font-headline-sm text-headline-sm mb-lg pb-sm border-b border-surface-container">Branding Assets</h3>
+<div class="flex items-center gap-xl">
+<div class="w-24 h-24 bg-surface-container-high rounded-xl flex items-center justify-center border-2 border-dashed border-outline">
+<span class="material-symbols-outlined text-outline text-headline-lg">add_a_photo</span>
+</div>
+<div>
+<p class="font-label-md text-on-surface mb-xs">Institutional Logo</p>
+<p class="font-body-sm text-on-surface-variant mb-md">Recommended size: 512x512px. PNG or SVG format.</p>
+<div class="flex gap-sm">
+<button class="bg-primary text-on-primary px-lg py-sm rounded font-label-md transition-all active:scale-95">Upload New</button>
+<button class="border border-outline text-secondary px-lg py-sm rounded font-label-md transition-all active:scale-95">Remove</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- User Permissions Section (Hidden by default) -->
+<section class="settings-section hidden space-y-lg" id="section-permissions">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-xl">
+<div class="flex justify-between items-center mb-lg pb-sm border-b border-surface-container">
+<h3 class="font-headline-sm text-headline-sm">Role-Based Access Control</h3>
+<button class="bg-primary-container text-on-primary-container px-md py-sm rounded font-label-md flex items-center gap-xs">
+<span class="material-symbols-outlined text-body-sm">add</span> Add Role
+                                </button>
+</div>
+<div class="overflow-hidden border border-outline-variant rounded-lg">
+<table class="w-full text-left">
+<thead class="bg-surface-container-low">
+<tr>
+<th class="px-md py-sm font-label-sm text-on-surface-variant uppercase">Role Name</th>
+<th class="px-md py-sm font-label-sm text-on-surface-variant uppercase">Users</th>
+<th class="px-md py-sm font-label-sm text-on-surface-variant uppercase">Primary Permission</th>
+<th class="px-md py-sm font-label-sm text-on-surface-variant uppercase">Status</th>
+<th class="px-md py-sm"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<tr class="hover:bg-background transition-colors">
+<td class="px-md py-md font-body-md">Super Admin</td>
+<td class="px-md py-md font-body-sm">3</td>
+<td class="px-md py-md"><span class="bg-primary-container/10 text-primary px-sm py-xs rounded font-label-sm">Full Access</span></td>
+<td class="px-md py-md"><span class="bg-success-container/10 text-green-700 px-sm py-xs rounded font-label-sm">System</span></td>
+<td class="px-md py-md text-right"><span class="material-symbols-outlined text-on-surface-variant cursor-pointer">more_vert</span></td>
+</tr>
+<tr class="hover:bg-background transition-colors">
+<td class="px-md py-md font-body-md">Faculty Head</td>
+<td class="px-md py-md font-body-sm">12</td>
+<td class="px-md py-md"><span class="bg-secondary-container text-on-secondary-container px-sm py-xs rounded font-label-sm">Academic Read/Write</span></td>
+<td class="px-md py-md"><span class="bg-secondary-container/20 text-secondary px-sm py-xs rounded font-label-sm">Active</span></td>
+<td class="px-md py-md text-right"><span class="material-symbols-outlined text-on-surface-variant cursor-pointer">more_vert</span></td>
+</tr>
+<tr class="hover:bg-background transition-colors">
+<td class="px-md py-md font-body-md">Finance Officer</td>
+<td class="px-md py-md font-body-sm">5</td>
+<td class="px-md py-md"><span class="bg-error-container/20 text-error px-sm py-xs rounded font-label-sm">Financial Only</span></td>
+<td class="px-md py-md"><span class="bg-secondary-container/20 text-secondary px-sm py-xs rounded font-label-sm">Active</span></td>
+<td class="px-md py-md text-right"><span class="material-symbols-outlined text-on-surface-variant cursor-pointer">more_vert</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- System Configuration Section (Hidden) -->
+<section class="settings-section hidden space-y-lg" id="section-system">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-xl">
+<h3 class="font-headline-sm text-headline-sm mb-lg pb-sm border-b border-surface-container">Academic Structure</h3>
+<div class="grid grid-cols-2 gap-lg">
+<div>
+<label class="block font-label-md text-on-surface-variant mb-xs">Current Academic Year</label>
+<select class="w-full border-outline-variant focus:border-primary focus:ring-primary rounded-lg font-body-md py-md">
+<option>2023 - 2024</option>
+<option selected="">2024 - 2025</option>
+<option>2025 - 2026</option>
+</select>
+</div>
+<div>
+<label class="block font-label-md text-on-surface-variant mb-xs">Grading System</label>
+<select class="w-full border-outline-variant focus:border-primary focus:ring-primary rounded-lg font-body-md py-md">
+<option>Standard Letter (A-F)</option>
+<option>GPA 4.0 Scale</option>
+<option>Percentage (0-100)</option>
+</select>
+</div>
+<div class="col-span-2">
+<div class="flex items-center justify-between p-md bg-background rounded-lg border border-outline-variant">
+<div>
+<p class="font-label-md text-on-surface">Auto-generate Student IDs</p>
+<p class="font-body-sm text-on-surface-variant">Automatically assign next sequential ID upon enrollment</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox">
+<div class="w-11 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Security Section (Hidden) -->
+<section class="settings-section hidden space-y-lg" id="section-security">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-xl">
+<h3 class="font-headline-sm text-headline-sm mb-lg pb-sm border-b border-surface-container">Security Protocols</h3>
+<div class="space-y-md">
+<div class="flex items-start gap-md p-md hover:bg-background rounded-xl transition-all cursor-pointer">
+<div class="p-sm bg-primary-container/10 rounded-lg">
+<span class="material-symbols-outlined text-primary">key</span>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-on-surface">Password Requirements</p>
+<p class="font-body-sm text-on-surface-variant">Define complexity and expiration intervals for all staff accounts.</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+<div class="flex items-start gap-md p-md hover:bg-background rounded-xl transition-all cursor-pointer">
+<div class="p-sm bg-primary-container/10 rounded-lg">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-on-surface">Two-Factor Authentication (2FA)</p>
+<p class="font-body-sm text-on-surface-variant">Enforce 2FA via SMS or Authenticator App for administrative roles.</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+<div class="flex items-start gap-md p-md hover:bg-background rounded-xl transition-all cursor-pointer">
+<div class="p-sm bg-error-container/20 rounded-lg">
+<span class="material-symbols-outlined text-error">history</span>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-on-surface">Access Logs</p>
+<p class="font-body-sm text-on-surface-variant">Review recent login attempts, IP addresses, and system modifications.</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Form Actions Footer -->
+<div class="flex items-center justify-end gap-md pt-lg border-t border-outline-variant">
+<button class="px-xl py-md font-label-md text-secondary hover:bg-surface-container rounded-lg transition-all">Discard Changes</button>
+<button class="px-xl py-md font-label-md bg-primary text-on-primary rounded-lg shadow-sm active:scale-95 transition-all">Save Changes</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script>
+        function switchTab(tabId) {
+            // Hide all sections
+            document.querySelectorAll('.settings-section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Show selected section
+            document.getElementById('section-' + tabId).classList.remove('hidden');
+
+            // Update Tab Styles
+            document.querySelectorAll('nav > button').forEach(btn => {
+                btn.classList.remove('bg-secondary-container', 'text-primary');
+                btn.classList.add('text-on-surface-variant', 'hover:bg-surface-container');
+            });
+
+            const activeBtn = document.getElementById('tab-' + tabId);
+            activeBtn.classList.remove('text-on-surface-variant', 'hover:bg-surface-container');
+            activeBtn.classList.add('bg-secondary-container', 'text-primary');
+        }
+
+        // Micro-interaction for inputs
+        const inputs = document.querySelectorAll('input, select, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.querySelector('label')?.classList.add('text-primary');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.querySelector('label')?.classList.remove('text-primary');
+            });
+        });
+    </script>
+
+
+
+
+</body></html>
