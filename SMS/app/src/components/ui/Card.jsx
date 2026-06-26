@@ -8,6 +8,7 @@ export const Card = ({
 }) => {
   const variants = {
     default: 'bg-surface-container-lowest/95 border border-white/70',
+    primary: 'bg-primary border border-primary text-on-primary',
     elevated: 'bg-surface-container-low/90 border border-white/80 shadow-[0_12px_40px_rgba(0,6,102,0.12)]',
     ghost: 'bg-transparent border border-surface-variant/30',
     gradient: 'bg-gradient-to-br from-surface-container-lowest/95 to-surface-container-low/80 border border-white/70',
@@ -16,6 +17,10 @@ export const Card = ({
     warning: 'bg-yellow-50/20 border border-yellow-300/30',
     info: 'bg-blue-50/20 border border-blue-300/30',
   };
+
+  // If the caller supplies a bg-* override via className, drop the variant's own
+  // background so it doesn't win on stylesheet order and hide the custom color.
+  const variantClass = /(^|\s)bg-/.test(className) ? '' : variants[variant];
 
   const baseClass = 'p-lg rounded-2xl backdrop-blur-xl transition-all duration-300';
   const shadowClass = elevated
@@ -27,7 +32,7 @@ export const Card = ({
 
   return (
     <div
-      className={`${baseClass} ${variants[variant]} ${shadowClass} ${hoverClass} ${className}`}
+      className={`${baseClass} ${variantClass} ${shadowClass} ${hoverClass} ${className}`}
       onClick={onClick}
     >
       {children}

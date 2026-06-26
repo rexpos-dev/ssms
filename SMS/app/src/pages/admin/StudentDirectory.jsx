@@ -430,7 +430,7 @@ export const StudentDirectory = () => {
 
       {/* Bottom cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-lg mt-xl">
-        <Card className="bg-primary text-on-primary">
+        <Card variant="primary">
           <h3 className="font-headline-sm text-headline-sm mb-xs">Generate Registry Report</h3>
           <p className="font-body-sm text-on-primary/80 mb-lg">
             Download the current filtered view as a CSV spreadsheet for administrative filing.

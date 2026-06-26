@@ -143,7 +143,7 @@ export const Reports = () => {
           <BarChart bars={ACADEMIC_BARS} />
         </Card>
 
-        <Card className="bg-primary text-on-primary">
+        <Card variant="primary">
           <p className="font-label-md text-label-sm uppercase tracking-wide opacity-80 mb-xs">Active Enrollment</p>
           <p className="font-headline-lg text-headline-lg mb-lg"><Counter value="1,248" /></p>
           <div className="space-y-sm">
