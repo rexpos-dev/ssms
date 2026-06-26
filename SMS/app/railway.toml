@@ -1,0 +1,19 @@
+[build]
+builder = "nixpacks"
+buildCommand = "npm install --legacy-peer-deps && npm run build"
+
+[deploy]
+startCommand = "npm run preview -- --host 0.0.0.0 --port $PORT"
+restartPolicyMaxRetries = 3
+restartPolicy = "on-failure"
+numReplicas = 1
+
+[[deploy.healthchecks]]
+type = "tcp"
+port = 5173
+interval = 10
+timeout = 5
+
+[env]
+NODE_ENV = "production"
+NODE_OPTIONS = "--max-old-space-size=512"
