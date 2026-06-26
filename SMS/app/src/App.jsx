@@ -12,6 +12,8 @@ import { AcademicCalendar } from './pages/admin/AcademicCalendar';
 import { Financials } from './pages/admin/Financials';
 import { Reports } from './pages/admin/Reports';
 import { Requirements } from './pages/admin/Requirements';
+import { Medical } from './pages/admin/Medical';
+import { MedicineInventory } from './pages/admin/MedicineInventory';
 import { Registrar } from './pages/admin/Registrar';
 import { Settings } from './pages/admin/Settings';
 import { SchoolLife } from './pages/admin/SchoolLife';
@@ -117,6 +119,8 @@ function AppContent() {
       <Route path="/admin/financial" element={<AdminPage><Financials /></AdminPage>} />
       <Route path="/admin/reports" element={<AdminPage><Reports /></AdminPage>} />
       <Route path="/admin/requirements" element={<AdminPage><Requirements /></AdminPage>} />
+      <Route path="/admin/medical" element={<AdminPage><Medical /></AdminPage>} />
+      <Route path="/admin/medical/inventory" element={<AdminPage><MedicineInventory /></AdminPage>} />
       <Route path="/admin/registrar" element={<AdminPage><Registrar /></AdminPage>} />
       <Route path="/admin/school-life" element={<AdminPage><SchoolLife /></AdminPage>} />
       <Route path="/admin/settings" element={<AdminPage><Settings /></AdminPage>} />

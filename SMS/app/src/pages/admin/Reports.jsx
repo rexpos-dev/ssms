@@ -14,7 +14,7 @@ import {
   Modal,
   Counter,
 } from '../../components/ui';
-import { SlidersHorizontal, FilePlus2, FileText, Download, Eye } from 'lucide-react';
+import { SlidersHorizontal, FilePlus2, FileText, Download, Eye, CheckCircle2, XCircle, AlertCircle, Plane } from 'lucide-react';
 
 // ============================================================
 // SEED DATA
@@ -48,11 +48,20 @@ const PROJECTIONS = [
   { phase: 'Phase 3', value: 120, label: 'Late Waitlist' },
 ];
 
-const TEACHER_REPORTS = [
-  { id: 1, name: 'Dr. Ana Thorne', department: 'Mathematics', subject: 'Advanced Calculus', status: 'Completed', date: '2023-10-26' },
-  { id: 2, name: 'Prof. Elena Vance', department: 'Science', subject: 'Molecular Biology', status: 'Completed', date: '2023-10-25' },
-  { id: 3, name: 'Ms. Sarah Jenkins', department: 'English', subject: 'World Literature', status: 'Completed', date: '2023-10-25' },
-  { id: 4, name: 'Mr. Julian Ross', department: 'Arts', subject: 'Visual Design', status: 'Pending', date: '—' },
+// Documents every teacher must submit before a leave / vacation is approved.
+const LEAVE_REQUIREMENTS = [
+  'Final Grade Sheets',
+  'Lesson Plans',
+  'Class Records',
+  'Clearance Form',
+  'Property Return',
+];
+
+const TEACHER_CLEARANCE = [
+  { id: 1, name: 'Dr. Ana Thorne', department: 'Mathematics', leaveType: 'Summer Break', date: '2023-10-26', submitted: ['Final Grade Sheets', 'Lesson Plans', 'Class Records', 'Clearance Form', 'Property Return'] },
+  { id: 2, name: 'Prof. Elena Vance', department: 'Science', leaveType: 'Sabbatical', date: '2023-10-25', submitted: ['Final Grade Sheets', 'Lesson Plans', 'Class Records', 'Clearance Form', 'Property Return'] },
+  { id: 3, name: 'Ms. Sarah Jenkins', department: 'English', leaveType: 'Summer Break', date: '2023-10-25', submitted: ['Final Grade Sheets', 'Lesson Plans', 'Class Records', 'Clearance Form'] },
+  { id: 4, name: 'Mr. Julian Ross', department: 'Arts', leaveType: 'Summer Break', date: '—', submitted: ['Lesson Plans', 'Class Records'] },
 ];
 
 const REPORT_TABS = ['All', 'Academic', 'Financial'];
@@ -73,6 +82,7 @@ export const Reports = () => {
   const [formErrors, setFormErrors] = useState({});
 
   const totalTarget = PROJECTIONS.reduce((s, p) => s + p.value, 0);
+  const clearedCount = TEACHER_CLEARANCE.filter((t) => t.submitted.length === LEAVE_REQUIREMENTS.length).length;
 
   const filteredReports = useMemo(
     () => (tab === 'All' ? reports : reports.filter((r) => r.type === tab)),
@@ -266,35 +276,86 @@ export const Reports = () => {
         </div>
       </Card>
 
-      {/* Teacher report completions */}
+      {/* Teacher pre-leave clearance */}
       <Card>
         <CardContent>
-          <h2 className="font-headline-sm text-headline-sm text-primary mb-lg">Teachers Report Completions</h2>
+          <div className="flex flex-wrap items-start justify-between gap-md mb-xs">
+            <div>
+              <h2 className="font-headline-sm text-headline-sm text-primary">Teacher Pre-Leave Clearance</h2>
+              <p className="font-body-sm text-on-surface-variant mt-xs">
+                Teachers must submit all required documents before a leave/vacation is approved.
+                Cleared once every requirement is passed; otherwise they must comply with the pending items.
+              </p>
+            </div>
+            <div className="flex items-center gap-sm">
+              <Badge variant="success" icon={<CheckCircle2 size={14} />}>{clearedCount} Cleared</Badge>
+              <Badge variant="danger" icon={<AlertCircle size={14} />}>{TEACHER_CLEARANCE.length - clearedCount} Pending</Badge>
+            </div>
+          </div>
           <Table>
             <TableHead>
               <TableRow>
                 <TableHeader>Teacher Name</TableHeader>
                 <TableHeader>Department</TableHeader>
-                <TableHeader>Subject</TableHeader>
-                <TableHeader>Submission Status</TableHeader>
-                <TableHeader align="right">Completion Date</TableHeader>
+                <TableHeader>Leave Schedule</TableHeader>
+                <TableHeader>Requirement Submissions</TableHeader>
+                <TableHeader align="right">Leave Eligibility</TableHeader>
               </TableRow>
             </TableHead>
             <TableBody>
-              {TEACHER_REPORTS.map((t) => (
-                <TableRow key={t.id}>
-                  <TableCell>
-                    <span className="flex items-center gap-md">
-                      <span className="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center text-label-sm font-label-md shrink-0">{initials(t.name)}</span>
-                      <span className="font-label-md text-on-surface">{t.name}</span>
-                    </span>
-                  </TableCell>
-                  <TableCell>{t.department}</TableCell>
-                  <TableCell>{t.subject}</TableCell>
-                  <TableCell><Badge variant={t.status === 'Completed' ? 'success' : 'warning'}>{t.status}</Badge></TableCell>
-                  <TableCell align="right">{fmtDate(t.date)}</TableCell>
-                </TableRow>
-              ))}
+              {TEACHER_CLEARANCE.map((t) => {
+                const cleared = t.submitted.length === LEAVE_REQUIREMENTS.length;
+                const missing = LEAVE_REQUIREMENTS.filter((req) => !t.submitted.includes(req));
+                return (
+                  <TableRow key={t.id}>
+                    <TableCell>
+                      <span className="flex items-center gap-md">
+                        <span className="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center text-label-sm font-label-md shrink-0">{initials(t.name)}</span>
+                        <span className="font-label-md text-on-surface">{t.name}</span>
+                      </span>
+                    </TableCell>
+                    <TableCell>{t.department}</TableCell>
+                    <TableCell>
+                      <span className="font-label-md text-on-surface">{t.leaveType}</span>
+                      <span className="block text-label-sm text-on-surface-variant">{fmtDate(t.date)}</span>
+                    </TableCell>
+                    <TableCell>
+                      <div className="flex flex-col gap-xs">
+                        <span className="font-label-md text-label-sm text-on-surface-variant">
+                          {t.submitted.length}/{LEAVE_REQUIREMENTS.length} submitted
+                        </span>
+                        <div className="flex flex-wrap gap-xs">
+                          {LEAVE_REQUIREMENTS.map((req) => {
+                            const ok = t.submitted.includes(req);
+                            return (
+                              <span
+                                key={req}
+                                title={ok ? `${req} — submitted` : `${req} — not submitted`}
+                                className={`inline-flex items-center gap-xs px-sm py-0.5 rounded-full text-label-xs ring-1 ${
+                                  ok ? 'bg-green-50 text-green-800 ring-green-500/30' : 'bg-error/5 text-error ring-error/30'
+                                }`}
+                              >
+                                {ok ? <CheckCircle2 size={12} /> : <XCircle size={12} />}
+                                {req}
+                              </span>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    </TableCell>
+                    <TableCell align="right">
+                      {cleared ? (
+                        <Badge variant="success" icon={<Plane size={14} />}>Cleared for Leave</Badge>
+                      ) : (
+                        <span className="inline-flex flex-col items-end gap-xs">
+                          <Badge variant="danger" icon={<AlertCircle size={14} />}>Pending Compliance</Badge>
+                          <span className="text-label-xs text-on-surface-variant">Must submit: {missing.join(', ')}</span>
+                        </span>
+                      )}
+                    </TableCell>
+                  </TableRow>
+                );
+              })}
             </TableBody>
           </Table>
         </CardContent>

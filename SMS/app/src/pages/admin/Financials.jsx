@@ -13,7 +13,7 @@ import {
   Modal,
   Counter,
 } from '../../components/ui';
-import { FileDown, Plus, Search, TrendingUp } from 'lucide-react';
+import { FileDown, Plus, Search, TrendingUp, Calendar, X } from 'lucide-react';
 
 // ============================================================
 // SEED DATA
@@ -23,10 +23,22 @@ const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May'];
 const REVENUE = [720, 760, 810, 870, 902];
 const EXPENSES = [540, 560, 600, 640, 690];
 
-const FEE_STATUS = [
-  { label: 'Paid', amount: 640200, color: '#6366f1' },
-  { label: 'Pending', amount: 210000, color: '#f59e0b' },
-  { label: 'Overdue', amount: 64500, color: '#ef4444' },
+const FEE_META = [
+  { label: 'Paid', color: '#6366f1' },
+  { label: 'Pending', color: '#f59e0b' },
+  { label: 'Overdue', color: '#ef4444' },
+];
+
+// Dated fee records — totals match the previous static view (Paid 640,200 /
+// Pending 210,000 / Overdue 64,500) so the default range looks unchanged.
+const FEE_RECORDS = [
+  { date: '2024-08-15', status: 'Paid', amount: 180000 },
+  { date: '2024-09-10', status: 'Paid', amount: 200200 },
+  { date: '2024-10-05', status: 'Paid', amount: 260000 },
+  { date: '2024-09-20', status: 'Pending', amount: 90000 },
+  { date: '2024-10-12', status: 'Pending', amount: 120000 },
+  { date: '2024-08-28', status: 'Overdue', amount: 30000 },
+  { date: '2024-09-30', status: 'Overdue', amount: 34500 },
 ];
 
 const SEED_TX = [
@@ -58,9 +70,27 @@ export const Financials = () => {
   const [form, setForm] = useState(EMPTY_FORM);
   const [formErrors, setFormErrors] = useState({});
 
+  const [feeFrom, setFeeFrom] = useState('');
+  const [feeTo, setFeeTo] = useState('');
+
   const totalRevenue = REVENUE[REVENUE.length - 1] * 1000;
-  const feeTotal = FEE_STATUS.reduce((s, f) => s + f.amount, 0);
-  const paidPct = Math.round((FEE_STATUS[0].amount / feeTotal) * 100);
+
+  // Fee collection status filtered by the selected From–To date range.
+  const feeStatus = useMemo(() => {
+    const from = feeFrom ? new Date(`${feeFrom}T00:00:00`) : null;
+    const to = feeTo ? new Date(`${feeTo}T23:59:59`) : null;
+    const totals = { Paid: 0, Pending: 0, Overdue: 0 };
+    FEE_RECORDS.forEach((r) => {
+      const d = new Date(`${r.date}T00:00:00`);
+      if (from && d < from) return;
+      if (to && d > to) return;
+      totals[r.status] += r.amount;
+    });
+    return FEE_META.map((m) => ({ ...m, amount: totals[m.label] }));
+  }, [feeFrom, feeTo]);
+
+  const feeTotal = feeStatus.reduce((s, f) => s + f.amount, 0);
+  const paidPct = feeTotal ? Math.round((feeStatus[0].amount / feeTotal) * 100) : 0;
 
   const filtered = useMemo(() => {
     const term = search.trim().toLowerCase();
@@ -160,12 +190,45 @@ export const Financials = () => {
       {/* Fee collection + transactions */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-lg mb-lg">
         <Card>
-          <h2 className="font-headline-sm text-headline-sm text-primary mb-lg">Fee Collection Status</h2>
+          <div className="flex flex-wrap items-center justify-between gap-sm mb-lg">
+            <h2 className="font-headline-sm text-headline-sm text-primary">Fee Collection Status</h2>
+            <div className="flex items-center gap-xs">
+              <div className="flex items-center gap-xs bg-surface-container-low border border-outline-variant rounded-lg px-sm py-xs">
+                <Calendar size={14} className="text-outline flex-shrink-0" />
+                <input
+                  type="date"
+                  aria-label="From date"
+                  value={feeFrom}
+                  max={feeTo || undefined}
+                  onChange={(e) => setFeeFrom(e.target.value)}
+                  className="bg-transparent font-body-sm text-label-sm text-on-surface focus:outline-none w-[7.5rem]"
+                />
+                <span className="text-outline">–</span>
+                <input
+                  type="date"
+                  aria-label="To date"
+                  value={feeTo}
+                  min={feeFrom || undefined}
+                  onChange={(e) => setFeeTo(e.target.value)}
+                  className="bg-transparent font-body-sm text-label-sm text-on-surface focus:outline-none w-[7.5rem]"
+                />
+              </div>
+              {(feeFrom || feeTo) && (
+                <button
+                  onClick={() => { setFeeFrom(''); setFeeTo(''); }}
+                  aria-label="Clear date filter"
+                  className="p-xs rounded-lg text-outline hover:text-primary hover:bg-surface-container transition-colors"
+                >
+                  <X size={16} />
+                </button>
+              )}
+            </div>
+          </div>
           <div className="flex items-center justify-center mb-lg">
-            <Donut segments={FEE_STATUS} centerLabel={`${paidPct}%`} centerNote="Paid" />
+            <Donut segments={feeStatus} centerLabel={`${paidPct}%`} centerNote="Paid" />
           </div>
           <div className="space-y-sm">
-            {FEE_STATUS.map((f) => (
+            {feeStatus.map((f) => (
               <div key={f.label} className="flex items-center justify-between">
                 <span className="flex items-center gap-sm font-body-sm text-on-surface">
                   <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: f.color }} />
@@ -326,6 +389,7 @@ const LineChart = ({ datasets, labels, height = 180 }) => {
 const Donut = ({ segments, centerLabel, centerNote, size = 160, stroke = 22 }) => {
   const total = segments.reduce((s, seg) => s + seg.amount, 0);
   const r = (size - stroke) / 2;
+  const hasData = total > 0;
   const C = 2 * Math.PI * r;
   let offset = 0;
   return (
@@ -333,7 +397,7 @@ const Donut = ({ segments, centerLabel, centerNote, size = 160, stroke = 22 }) =
       <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
         <g transform={`rotate(-90 ${size / 2} ${size / 2})`}>
           <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="currentColor" className="text-surface-variant" strokeWidth={stroke} />
-          {segments.map((seg, i) => {
+          {hasData && segments.map((seg, i) => {
             const len = (seg.amount / total) * C;
             const circle = (
               <circle

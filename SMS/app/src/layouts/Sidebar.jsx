@@ -11,6 +11,7 @@ import {
   Sparkles,
   Settings,
   Plus,
+  HeartPulse,
 } from 'lucide-react';
 
 export const Sidebar = ({ open }) => {
@@ -23,6 +24,7 @@ export const Sidebar = ({ open }) => {
     { label: 'Financials', href: '/admin/financial', icon: Wallet },
     { label: 'Reports', href: '/admin/reports', icon: BarChart3 },
     { label: 'Requirements', href: '/admin/requirements', icon: ClipboardCheck },
+    { label: 'Medical', href: '/admin/medical', icon: HeartPulse },
     { label: 'Registrar', href: '/admin/registrar', icon: UserPlus },
     { label: 'School Life', href: '/admin/school-life', icon: Sparkles },
     { label: 'Settings', href: '/admin/settings', icon: Settings },
