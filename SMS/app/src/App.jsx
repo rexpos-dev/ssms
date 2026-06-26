@@ -7,6 +7,7 @@ import { Login } from './pages/auth/Login';
 import { AdminDashboard } from './pages/admin/AdminDashboard';
 import { StudentDirectory } from './pages/admin/StudentDirectory';
 import { FacultyManagement } from './pages/admin/FacultyManagement';
+import { UserManagement } from './pages/admin/UserManagement';
 import { AcademicCalendar } from './pages/admin/AcademicCalendar';
 import { Financials } from './pages/admin/Financials';
 import { Reports } from './pages/admin/Reports';
@@ -109,6 +110,7 @@ function AppContent() {
 
       {/* Admin Portal */}
       <Route path="/admin" element={<AdminPage><AdminDashboard /></AdminPage>} />
+      <Route path="/admin/users" element={<AdminPage><UserManagement /></AdminPage>} />
       <Route path="/admin/students" element={<AdminPage><StudentDirectory /></AdminPage>} />
       <Route path="/admin/faculty" element={<AdminPage><FacultyManagement /></AdminPage>} />
       <Route path="/admin/calendar" element={<AdminPage><AcademicCalendar /></AdminPage>} />

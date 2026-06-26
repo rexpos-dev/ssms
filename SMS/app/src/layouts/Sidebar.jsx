@@ -16,6 +16,7 @@ import {
 export const Sidebar = ({ open }) => {
   const navItems = [
     { label: 'Dashboard', href: '/admin', icon: LayoutDashboard, end: true },
+    { label: 'User Management', href: '/admin/users', icon: UserPlus },
     { label: 'Student Directory', href: '/admin/students', icon: Users },
     { label: 'Faculty Management', href: '/admin/faculty', icon: GraduationCap },
     { label: 'Academic Calendar', href: '/admin/calendar', icon: CalendarDays },
