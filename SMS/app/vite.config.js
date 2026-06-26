@@ -10,7 +10,8 @@ export default defineConfig({
   },
   preview: {
     port: 5173,
-    host: '0.0.0.0'
+    host: '0.0.0.0',
+    allowedHosts: ['.up.railway.app']
   },
   build: {
     outDir: 'dist',
